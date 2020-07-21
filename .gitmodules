@@ -1,0 +1,4 @@
+[submodule "falinwa/Cluedoo13_EU"]
+	path = falinwa/Cluedoo13_EU
+	url = git@github.com:falinwa/Cluedoo13_EU.git
+	branch = master
