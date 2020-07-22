@@ -2,3 +2,8 @@
 	path = falinwa/Cluedoo13_EU
 	url = git@github.com:falinwa/Cluedoo13_EU.git
 	branch = master
+
+[submodule "FalinwaLimited/CLuedoo-13"]
+	path = FalinwaLimited/CLuedoo-13
+	url = git@github.com:FalinwaLimited/CLuedoo-13.git
+	branch = master
