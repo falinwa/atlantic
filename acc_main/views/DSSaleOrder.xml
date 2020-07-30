@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="DSSale_Order" model="ir.ui.view">
+        <field name="name">datasheet_sale_order</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.order.form"/>
+        <field name="arch" type="xml">
+            <!-- find field description and add the field
+                 idea_ids after it -->
+            <xpath expr="//field[@name='note']" position="after">
+              <field name="datasheet" string="Add datasheet"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
