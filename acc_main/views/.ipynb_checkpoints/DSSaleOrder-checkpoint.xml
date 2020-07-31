@@ -9,7 +9,7 @@
               <field name="datasheet" string="Add datasheet"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
-              <field name="order_type" string="Order Type"/>
+              <field name="order_type" string="Activity Type"/>
             </xpath>
         </field>
     </record>

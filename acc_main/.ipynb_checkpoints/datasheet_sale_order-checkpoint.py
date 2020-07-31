@@ -7,7 +7,7 @@ class DSSaleOrder(models.Model):
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
     order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),
-                                  ("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Type')
+                                  ("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
     
     @api.model
     def create(self, vals):
