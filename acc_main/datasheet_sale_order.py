@@ -6,8 +6,7 @@ class DSSaleOrder(models.Model):
 
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
-    order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),
-                                  ("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
+    order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
     
     @api.model
     def create(self, vals):
@@ -31,6 +30,6 @@ class DSSaleOrder(models.Model):
         result = super(DSSaleOrder, self).action_confirm()
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
-        name = 'ARC' + name[3:]
+        name = 'ARC' + name[3:-4] + code
         self.write({'name': name})
         return result

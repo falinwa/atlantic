@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<template id="report_saleorder">
+<t t-name="acc_main.report_saleorder">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+            <style>
+                .page{
+                    font-family:Calibri, sans-serif;
+                    color:#22518a;
+                }
+            </style>
+            <div class="page">
+                <style>
+                    .bordered{
+                    border: 2px solid #FA7032;
+                    padding: 10px;
+                    margin: 10px;
+                    width:250px;
+                    height:180px;
+                    font-size:12px
+                    }
+                    table, th, td {
+                        padding: 10px;
+                        border: 1px solid #22518a;
+                        width: 400px;
+                        border-collapse: collapse;
+                     }
+                    .main_table{
+                        width:100%;
+                    }
+                    .table_total{
+                        width:300px;
+                        border-collapse: collapse;
+
+                    }
+                    .table_total tr:first-child td {
+                      border-top: 0;
+                    }
+                    .table_total td:first-child {
+                      border-left: 0;
+                    }
+                    .table_total tr:last-child td {
+                      border-bottom: 0;
+                    }
+                    .table_total tr td:last-child {
+                      border-right: 0;
+                    }
+                    .table_total,
+                    .table_total td,
+                    .table_total th{
+                        padding:3px
+                    }
+                    th {
+                       color:#22518a;
+                    }
+                    .date_table,
+                    .date_table td,
+                    .date_table th{
+                        padding:3px 10px
+                    }
+                    .name_table,
+                    .name_table td,
+                    .name_table th{
+                        border: 2px solid #22518a;
+                    }
+
+                </style>
+                <div>
+                    <img class="img-fluid" width="400" src="/web/image/642/logo_coolcomponents.jpg"/>
+                    <div class="bordered"  style="float:right">
+                        <strong>Delivery Address:</strong>
+                        <div t-field="doc.partner_shipping_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/></div>
+                </div>
+                <div style="margin-top:20px;margin-bottom:20px">
+                    <div style="float:left;margin-top:27px">
+                        <table class="name_table" style="width:160px">
+                            <tr>
+                                <th style="color:#FA7032;font-size:20px;text-align:center;height:90px">
+                                    Quotation
+                                    <span style="color:#22518a" t-field="doc.name"/>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="height:88px;text-align:center">
+                                    Customer Reference
+                                    <span t-field="doc.client_order_ref"/>
+                                </th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div style="float:right">
+                        <div class="bordered" style="float:right">
+                            <strong>Customer:</strong>
+                            <div  t-field="doc.partner_id" t-options="{'widget':'contact','fields':['name','address']}"/>
+                            VAT: <span t-field="doc.partner_id.vat"></span></div>
+                        <div class="bordered" style="float:left">
+                            <strong>Invoice Address:</strong>
+                            <div  t-field="doc.partner_invoice_id" t-options="{'widget':'contact','fields':['name','address','email']}"/></div>
+                    </div>
+                    <table class="date_table" style="margin-top:10px;float:right;">
+                        <tr>
+                            <th>Established by</th>
+                            <t t-if="doc.origin">
+                                <th>Quotation °</th>
+                            </t>
+                            <th>Date</th>
+                            <th>Validity</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span t-field="doc.user_id"/><br/>
+                                <i><span t-field="user.email"/></i>
+                            </td>
+                            <t t-if="doc.origin">
+                                <td><span t-field="doc.origin"/></td>
+                            </t>
+                            <td>
+                                <p t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                            </td>
+                            <td>
+                                <p t-field="doc.validity_date"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div style="display: inline-block;margin-top:20px;height:300px;border:1px solid #22518a">
+                <table class="main_table">
+                    <tr style="color:#22518a">
+                        <th style="width:35%">Description</th>
+                        <th style="text-align:right">Unit Price</th>
+                        <th style="text-align:right">Quantity</th>
+                        <t t-if="any([lines.discount !=0 for lines in doc.order_line])">
+                            <th style="text-align:right">Disc.</th>
+                        </t>
+                        <th style="text-align:right">Total</th>
+                    </tr>
+                    <t t-foreach="doc.order_line" t-as="line">
+                        <tr>
+                            <td>
+                                <span t-field="line.name"/>
+                            </td>
+                            <td style="text-align:right">
+                                <span t-field="line.price_unit" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                            </td>
+                            <td style="text-align:right">
+                                <span t-field="line.product_uom_qty"/>
+                            </td>
+                            <t t-if="any([lines.discount !=0 for lines in doc.order_line])">
+                                <td style="text-align:right">
+                                    <span t-field="line.discount"/>%
+                                
+                                </td>
+                            </t>
+                            <td style="text-align:right">
+                                <span t-field="line.price_subtotal"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+            <div>
+                <div style="float:left">
+                    <table class="date_table" style="color:#22518a;width:200px">
+                        <tr>
+                            <td>
+                                <b>Payment Conditions</b>
+                                <br/>
+                                <span t-field="doc.payment_term_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Shipment</b>
+                                <br/>
+                                CPT Icoterms 2020
+                            
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="float:right">
+                    <table class="table_total">
+                        <style>
+                        th {
+                            color:#22518a;
+                        }
+                        table, th, td {
+                            padding:10px
+                        }
+                    </style>
+                        <tr>
+                            <th style="width:65%">Subtotal Tax Excluded</th>
+                            <td>
+                                <span t-field="doc.amount_undiscounted" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Discount</th>
+                            <t t-set="discount" t-value="doc.amount_undiscounted - doc.amount_untaxed"/>
+                            <td>
+                                <span t-esc="discount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Total Tax Excluded</th>
+                            <td>
+                                <span t-field="doc.amount_untaxed"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Total Tax Included</th>
+                            <td>
+                                <span t-field="doc.amount_total"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="footer" style="color:#22518a;font-size:10px;">
+                <div style="width:200px;float:left">
+                    <b>Conditions d'Achat</b>
+                    <br/>
+                    Seules nos Conditions générales d'achat s’appliquent,
+                    nonobstant toute clause contraire qui est réputée non écrite.
+                    Nous vous les adressons sur simple demande de votre part.
+                
+                </div>
+                <div style="float:right">
+                    <div style="width:200px;float:right">
+                        <b>	Informations légales</b><br/>
+                        <span t-field="doc.company_id"/>
+                    </div>
+                    <div style="width:280px;float:left;margin-right:25px">
+                        <b>Coordonnées bancaires</b>
+                        <br/>
+                    Crédit Agricole Anjou Maine 
+                        <br/>
+                    IBAN : FR76 1790 6000 9096 4006 0735 182
+                        <br/>
+                    BIC : AGRIFRPP879
+                        <br/>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+</t>
+</template>
+</odoo>

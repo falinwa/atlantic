@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report 
+            id="acc_report_quotation"
+            string="Master Template"
+            model="sale.order" 
+            report_type="qweb-pdf"
+            file="acc_main.report_saleorder" 
+            name="acc_main.report_saleorder"
+            attachment_use="False"
+            print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+        />
+    </data>
+</odoo>

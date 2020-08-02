@@ -10,7 +10,9 @@
     # data files always loaded at installation
     'data': [
         'views/DSSaleOrder.xml',
-        'views/sequences.xml'
+        'views/sequences.xml',
+        'views/templates.xml',
+        'views/reports.xml'
     ],
 
 }
