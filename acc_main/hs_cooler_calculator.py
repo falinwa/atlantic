@@ -4,10 +4,8 @@ import pytesseract
 from pdf2image import convert_from_path
 
 
-def calculator(name=None):
-    if name is None:
-        name = hs_ocr("datasheet.pdf")
-    df = pd.read_excel("hs_prices.xlsx", index_col="Pattern")
+def calculator(name):
+    df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
@@ -56,19 +54,16 @@ def xray_calculator(name, df):
     return df.loc[row,"Baseprice"]
 
 
-def hs_ocr(path):
-    # Converting pdf to image
-    image = convert_from_path(path, 600)
-    img = image[0]
-
+def hs_ocr(img):
     # Select part of image with product code
-    cropped_img = img.crop((1136, 1450, 2280, 1560))
-    cropped_img.show()
+    cropped_img = img.crop((370, 1000, 2700, 2000))
 
     # OCR
     text = str(pytesseract.image_to_string(cropped_img)).replace(" ", "")
-    return text
+    for line in text.split("\n"):
+        if "Type" in line:
+            return line[4:]
+    raise Exception("Product code not found")
 
 ### Tests ###
 assert calculator("KS12-FEL-823TL3000") == 2580.4
-assert calculator() == 4505.4
