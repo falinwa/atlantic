@@ -1,7 +1,6 @@
 import pandas as pd
 import re
 import pytesseract
-from pdf2image import convert_from_path
 
 
 def calculator(name):
