@@ -63,7 +63,6 @@ def hs_ocr(img):
     for line in text.split("\n"):
         if "Type" in line:
             return line[4:]
-    raise Exception("Product code not found")
 
 ### Tests ###
 assert calculator("KS12-FEL-823TL3000") == 2580.4

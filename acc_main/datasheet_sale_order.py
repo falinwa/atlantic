@@ -25,6 +25,9 @@ class DSSaleOrder(models.Model):
                 images = convert_from_bytes(bytes, 600)
                 img = images[0]
                 product_name = hs_ocr(img)
+                if not product_name:
+                    rec.datasheet = None
+                    return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
                 price = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
                     product = self.env['product.product'].search([('name', '=', product_name)])

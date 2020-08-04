@@ -57,7 +57,7 @@
 
                 </style>
                 <div>
-                    <img class="img-fluid" width="400" src="/web/image/642/logo_coolcomponents.jpg"/>
+                    <img class="img-fluid" width="400" src="https://imgur.com/a/i9NijJu"/>
                     <div class="bordered"  style="float:right">
                         <strong>Delivery Address:</strong>
                         <div t-field="doc.partner_shipping_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/></div>
