@@ -5,7 +5,7 @@ from pdf2image import convert_from_path
 
 
 def calculator(name):
-    df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
@@ -63,6 +63,7 @@ def hs_ocr(img):
     for line in text.split("\n"):
         if "Type" in line:
             return line[4:]
+
 
 ### Tests ###
 assert calculator("KS12-FEL-823TL3000") == 2580.4
