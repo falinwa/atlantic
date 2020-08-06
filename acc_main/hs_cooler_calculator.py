@@ -4,7 +4,12 @@ import pytesseract
 
 
 def calculator(name):
+    """
+    Base function to calculate price, takes price data form hs_prices.xlsx
+    Input: Product name
+    """
     df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    # df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
@@ -12,6 +17,12 @@ def calculator(name):
 
 
 def find_pattern(name, df):
+    """
+    Finding matching pattern of name with RE
+    :param name: Product name you are searching the pattern of
+    :param df: Pandas dataframe of prices
+    :return: The matching pattern in the database of the price
+    """
     for pattern in list(df.index):
         re_code = pattern.replace("#", "\S")
         re_pattern = re.compile(re_code)
@@ -27,6 +38,12 @@ def find_length_turbulator(name):
 
 
 def ks_calculator(name, df):
+    """
+    Calculate prices for KS Heat exchangers
+    :param name: Product name
+    :param df: Pandas dataframe of prices
+    :return: Price of product
+    """
     pattern = find_pattern(name, df)
     length, turbulator = find_length_turbulator(name)
     baseprice = df.loc[pattern,"Baseprice"]
@@ -41,6 +58,12 @@ def ks_calculator(name, df):
 
 
 def kw_calculator(name, df):
+    """
+    Calculate prices for KW heat exchangers
+    :param name: Product name
+    :param df: Pandas dataframe of prices
+    :return: Price of product
+    """
     ks_name = name.replace("KW", "KS")
     ks_price = calculator(ks_name)
     xray_price = xray_calculator(ks_name, df)
@@ -49,11 +72,22 @@ def kw_calculator(name, df):
 
 
 def xray_calculator(name, df):
+    """
+    Calculate price of x-ray option for certain heat exchanger
+    :param name: Product name
+    :param df: Pandas dataframe of prices
+    :return: Price of option
+    """
     row = name[0:4] + 'X'
     return df.loc[row,"Baseprice"]
 
 
 def hs_ocr(img):
+    """
+    Get product name from HS-Cooler datasheet
+    :param img: Datasheet as PIL Image
+    :return: Product name
+    """
     # Select part of image with product code
     cropped_img = img.crop((370, 1000, 2700, 2000))
 
