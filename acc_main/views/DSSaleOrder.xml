@@ -11,6 +11,8 @@
             <xpath expr="//field[@name='partner_id']" position="after">
               <field name="order_type" string="Activity Type"/>
             </xpath>
+            <xpath expr="//button[@name='action_quotation_send']" position="replace">
+            </xpath>
         </field>
     </record>
 </odoo>
