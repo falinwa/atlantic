@@ -89,7 +89,7 @@ class DSSaleOrder(models.Model):
         result = super(DSSaleOrder, self).action_confirm()
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
-        name = 'ARC' + name[3:-4] + code
+        name = 'ARC' + name[3:-5] + code
         self.write({'name': name})
         return result
 
