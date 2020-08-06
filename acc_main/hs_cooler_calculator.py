@@ -8,8 +8,8 @@ def calculator(name):
     Base function to calculate price, takes price data form hs_prices.xlsx
     Input: Product name
     """
-    df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
-    # df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    # df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
@@ -37,6 +37,28 @@ def find_length_turbulator(name):
     return length, turbulator
 
 
+def len_weight_calculator(name, df, basename, lengthname):
+    """
+    Calculate result from basevalue and lengthvalue with data from dataframe
+    :param name: Product name
+    :param df: Pandas dataframe from prices and weight
+    :param basename: Column name in dataframe of basevalues
+    :param lengthname: Column name in dataframe of lengthvalues
+    :return: calculated result based on length of product and turbulator option
+    """
+    pattern = find_pattern(name, df)
+    length, turbulator = find_length_turbulator(name)
+    basevalue = df.loc[pattern, basename]
+    lengthvalue = df.loc[pattern, lengthname]
+    if turbulator:
+        tb_pattern = name[:4] + "T"
+        tb_basevalue = df.loc[tb_pattern, basename]
+        tb_lengthvalue = df.loc[tb_pattern, lengthname]
+        return (basevalue + tb_basevalue) + (lengthvalue + tb_lengthvalue)*length/100
+    else:
+        return basevalue + lengthvalue*length/100
+
+
 def ks_calculator(name, df):
     """
     Calculate prices for KS Heat exchangers
@@ -44,31 +66,25 @@ def ks_calculator(name, df):
     :param df: Pandas dataframe of prices
     :return: Price of product
     """
-    pattern = find_pattern(name, df)
-    length, turbulator = find_length_turbulator(name)
-    baseprice = df.loc[pattern,"Baseprice"]
-    lengthprice = df.loc[pattern,"Lengthprice"]
-    if turbulator:
-        tb_pattern = name[:4] + "T"
-        tb_lengthprice = df.loc[tb_pattern, "Lengthprice"]
-        tb_baseprice = df.loc[tb_pattern, "Baseprice"]
-        return (baseprice + tb_baseprice) + (lengthprice + tb_lengthprice)*length/100
-    else:
-        return baseprice + lengthprice*length/100
+    price = len_weight_calculator(name, df, "Baseprice", "Lengthprice")
+    weight = len_weight_calculator(name, df, "Baseweight", "Lengthweight")
+    return price, weight
+
 
 
 def kw_calculator(name, df):
     """
-    Calculate prices for KW heat exchangers
+    Calculate price and weight for KW heat exchangers
     :param name: Product name
     :param df: Pandas dataframe of prices
     :return: Price of product
     """
     ks_name = name.replace("KW", "KS")
-    ks_price = calculator(ks_name)
+    ks_price, ks_weight = calculator(ks_name)
     xray_price = xray_calculator(ks_name, df)
-    surplus = df.loc[ks_name[0:4]+"P","Baseprice"]
-    return ks_price + xray_price + surplus
+    surplus_price = df.loc[ks_name[0:4]+"P","Baseprice"]
+    surplus_weight = df.loc[ks_name[0:4]+"P","Baseweight"]
+    return ks_price + xray_price + surplus_price, ks_weight + surplus_weight
 
 
 def xray_calculator(name, df):
@@ -99,4 +115,4 @@ def hs_ocr(img):
 
 
 ### Tests ###
-assert calculator("KS12-FEL-823TL3000") == 2580.4
+assert calculator("KS12-FEL-823TL3000")[0] == 2580.4
