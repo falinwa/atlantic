@@ -14,12 +14,23 @@ class DSSaleOrder(models.Model):
     datasheet_name = fields.Char("File name")
     order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
 
+    @api.model
     @api.onchange('datasheet')
-    def add_product_datasheet(self):
+    def add_product_datasheet(self, data=None):
+        """
+        Function to add sale order line from HS-Cooler datasheet
+        :param data: Optional field to fill in data (when function called externally)
+        :return: None
+        """
+        log.warning("It's doing something, just not so much.")
         for rec in self:
-            if rec.datasheet:
-                b64 = rec.datasheet
-                bytes = b64decode(b64, validate=True)
+            if rec.datasheet or data:
+                log.warning("It's doing something.")
+                if data:
+                    bytes = data
+                else:
+                    b64 = rec.datasheet
+                    bytes = b64decode(b64, validate=True)
                 if bytes[0:4] != b'%PDF':
                     raise ValueError('Not a PDF file.')
                 images = convert_from_bytes(bytes, 600)
@@ -34,7 +45,10 @@ class DSSaleOrder(models.Model):
                     if product.list_price != price:
                         product.write({'list_price':price})
                 else:
-                    product = self.env["product.product"].create({'name':product_name,'list_price':price})
+                    product = self.env["product.product"].create({'name':product_name,
+                                                                  'list_price':price,
+
+                                                                  })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
                                                         'product_uom_qty': 1,
@@ -43,9 +57,11 @@ class DSSaleOrder(models.Model):
                     rec.datasheet = None
 
 
-
     @api.model
     def create(self, vals):
+        """
+        Inheriting create function to customize quotation name
+        """
         if vals.get('name', _('New')) == _('New'):
             seq_date = None
             if 'date_order' in vals:
@@ -65,9 +81,14 @@ class DSSaleOrder(models.Model):
     
     
     def action_confirm(self):
+        """
+        Inheriting confirm function to customize sale order name
+        """
         result = super(DSSaleOrder, self).action_confirm()
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:-4] + code
         self.write({'name': name})
         return result
+
+
