@@ -37,7 +37,7 @@ class DSSaleOrder(models.Model):
                 img = images[0]
                 product_name = hs_ocr(img)
                 if not product_name:
-                    rec.datasheet = None
+                    rec.datasheet = Noned
                     return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
                 price, weight = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
@@ -45,11 +45,14 @@ class DSSaleOrder(models.Model):
                     if product.list_price != price:
                         product.write({'list_price': price,
                                        'weight': weight,
+                                       'categ_id': "All/Saleable/Consumable",
                                        })
                 else:
+                    categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     product = self.env["product.product"].create({'name': product_name,
                                                                   'list_price': price,
                                                                   'weight': weight,
+                                                                  'categ_id': categ,
                                                                   })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
@@ -81,16 +84,34 @@ class DSSaleOrder(models.Model):
             result.add_product_datasheet()
         return result
     
-    
     def action_confirm(self):
         """
         Inheriting confirm function to customize sale order name
         """
         result = super(DSSaleOrder, self).action_confirm()
+        self.origin = self.name
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:-5] + code
         self.write({'name': name})
         return result
 
+    def redirect_po(self):
+        if self.origin:
+            new_order = self.env['purchase.order'].search([('origin', '=', self.origin)])
+            if not new_order:
+                return {'warning': {'title': 'No Source Document',
+                                    'message': "No source document could be found, please try again with another order."}}
+            return {
+                'type': 'ir.actions.act_window',
+                'name': 'purchase.view_order_form',
+                'res_model': 'purchase.order',
+                'res_id': new_order.id,
+                'view_type': 'form',
+                'view_mode': 'form',
+                'target': 'self',
+            }
+        else:
+            return {'warning': {'title': 'No Source Document',
+                                'message': "No source document could be found, please try again with another order."}}
 
