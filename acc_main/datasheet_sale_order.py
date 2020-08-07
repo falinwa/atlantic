@@ -37,7 +37,7 @@ class DSSaleOrder(models.Model):
                 img = images[0]
                 product_name = hs_ocr(img)
                 if not product_name:
-                    rec.datasheet = Noned
+                    rec.datasheet = None
                     return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
                 price, weight = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
@@ -45,14 +45,13 @@ class DSSaleOrder(models.Model):
                     if product.list_price != price:
                         product.write({'list_price': price,
                                        'weight': weight,
-                                       'categ_id': "All/Saleable/Consumable",
                                        })
                 else:
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     product = self.env["product.product"].create({'name': product_name,
                                                                   'list_price': price,
                                                                   'weight': weight,
-                                                                  'categ_id': categ,
+                                                                  'categ_id': categ.id,
                                                                   })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
