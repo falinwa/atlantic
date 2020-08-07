@@ -8,8 +8,10 @@ def calculator(name):
     Base function to calculate price, takes price data form hs_prices.xlsx
     Input: Product name
     """
-    # df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
-    df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    try:
+        df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+    except:
+        df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
