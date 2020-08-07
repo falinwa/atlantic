@@ -11,7 +11,11 @@
             <xpath expr="//field[@name='partner_id']" position="after">
               <field name="order_type" string="Activity Type"/>
             </xpath>
+            <!-- Removing Send by email button -->
             <xpath expr="//button[@name='action_quotation_send']" position="replace">
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="redirect_po" string="To Purchase Order" type="object" states="sale"/>
             </xpath>
         </field>
     </record>
