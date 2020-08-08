@@ -9,9 +9,8 @@
               <field name="datasheet" string="Add datasheet"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
-              <field name="order_type" string="Activity Type"/>
+              <field name="activity_type" string="Activity Type"/>
             </xpath>
-            <!-- Removing Send by email button -->
             <xpath expr="//button[@name='action_quotation_send']" position="replace">
             </xpath>
             <xpath expr="//button[@name='action_cancel']" position="after">

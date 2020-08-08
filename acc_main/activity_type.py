@@ -6,4 +6,4 @@ class ActivityType(models.Model):
     _description = "Activity Type Atlantic"
 
     name = fields.Char("Activity Name", required=True)
-    code = fields.Char("Activity code (type##)", required=True)
+    code = fields.Char("Activity code", required=True)
