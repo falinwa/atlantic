@@ -112,7 +112,7 @@ def hs_ocr(img):
     # OCR
     text = str(pytesseract.image_to_string(cropped_img)).replace(" ", "")
     for line in text.split("\n"):
-        if "Type" in line:
+        if "Type" in line or "Tipo" in line:
             return line[4:]
 
 
