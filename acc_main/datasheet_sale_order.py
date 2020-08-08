@@ -12,6 +12,7 @@ class DSSaleOrder(models.Model):
 
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
+    activity_type = fields.Many2one("activity.type",required=True)
     order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
 
     @api.model
@@ -83,9 +84,10 @@ class DSSaleOrder(models.Model):
                     'sale.order', sequence_date=seq_date) or _('New')
             else:
                 vals['name'] = self.env['ir.sequence'].next_by_code('sale.order', sequence_date=seq_date) or _('New')
-        if vals['order_type']:
+        if vals['activity_type']:
             og_name = str(vals['name'])
-            vals['name'] = og_name[:7] + str(vals['order_type'])[-2:] + '.' + og_name[7:]
+            activity_type = self.env['activity.type'].search([('id','=',vals['activity_type'])])
+            vals['name'] = og_name[:7] + str(activity_type.code) + '.' + og_name[7:]
         result = super(DSSaleOrder, self).create(vals)
         if vals['datasheet']:
             result.add_product_datasheet()

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="activity.type" id="activity01">
+        <field name="name">01 Compressors</field>
+        <field name="code">01</field>
+    </record>
+    <record model="activity.type" id="activity02">
+        <field name="name">02 HS-Cooler</field>
+        <field name="code">02</field>
+    </record>
+    <record model="activity.type" id="activity03">
+        <field name="name">03 SAV</field>
+        <field name="code">03</field>
+    </record>
+     <record model="activity.type" id="activity04">
+        <field name="name">04 Divers</field>
+        <field name="code">04</field>
+    </record>
+     <record model="activity.type" id="activity05">
+        <field name="name">05 HAP</field>
+        <field name="code">05</field>
+    </record>
+     <record model="activity.type" id="activity07">
+        <field name="name">07 Cool Partners</field>
+        <field name="code">07</field>
+    </record>
+     <record model="activity.type" id="activity08">
+        <field name="name">08 Cabero</field>
+        <field name="code">08</field>
+    </record>
+</odoo>
