@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="activity_type_form" model="ir.ui.view">
+        <field name="name">activity.type.form</field>
+        <field name="model">activity.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="activity_type_tree" model="ir.ui.view">
+        <field name="name">activity.type.tree</field>
+        <field name="model">activity.type</field>
+        <field name="arch" type="xml">
+           <tree string="Activity Types">
+                <field name="name"/>
+                <field name="code"/>
+           </tree>
+        </field>
+    </record>
+
+    <record id="action_activity_type_form" model="ir.actions.act_window">
+        <field name="name">Activity Type L</field>
+        <field name="res_model">activity.type</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="acc_main.activity_type_tree"/>
+    </record>
+
+    <menuitem id="activity_type_menu" action="action_activity_type_form" name="Activity Types" parent="sale.menu_sale_config" sequence="10"/>
+</odoo>

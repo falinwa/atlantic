@@ -12,7 +12,8 @@
         'views/DSSaleOrder.xml',
         'views/sequences.xml',
         'views/templates.xml',
-        'views/reports.xml'
+        'views/reports.xml',
+        'views/activity_type_form.xml'
     ],
 
 }
