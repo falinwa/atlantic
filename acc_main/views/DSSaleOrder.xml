@@ -16,6 +16,9 @@
             <xpath expr="//button[@name='action_cancel']" position="after">
                 <button name="redirect_po" string="To Purchase Order" type="object" states="sale"/>
             </xpath>
+            <xpath expr="//field[@name='activity_type']" position="after">
+                <field name="customer_reference" string="Customer Reference" attrs="{'required':[('state','=','sale')]}"/>
+            </xpath>
         </field>
     </record>
 </odoo>
