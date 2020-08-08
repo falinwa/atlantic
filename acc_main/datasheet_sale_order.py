@@ -22,10 +22,8 @@ class DSSaleOrder(models.Model):
         :param data: Optional field to fill in data (when function called externally)
         :return: None
         """
-        log.warning("It's doing something, just not so much.")
         for rec in self:
             if rec.datasheet or data:
-                log.warning("It's doing something.")
                 if data:
                     bytes = data
                 else:
@@ -41,19 +39,29 @@ class DSSaleOrder(models.Model):
                     return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
                 price, weight = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
+                    log.warning("noice1")
                     product = self.env['product.product'].search([('name', '=', product_name)])
-                    if product.list_price != price:
-                        product.write({'list_price': price,
+                    if round(product.lst_price) != round(price*2.052):
+                        product.seller_ids[0].write({'price': price})
+                        categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
+                        product.write({'lst_price': price*2.052,
                                        'weight': weight,
+                                       'categ_id': categ.id,
                                        })
                 else:
+                    log.warning("yikes2")
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
+                    vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
+                    supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
+                                                                        'price': price})
                     product = self.env["product.product"].create({'name': product_name,
-                                                                  'list_price': price,
+                                                                  'lst_price': price*2.052,
                                                                   'weight': weight,
                                                                   'categ_id': categ.id,
+                                                                  'seller_ids': [supplier.id],
                                                                   })
                 if rec._origin.id:
+                    log.warning("yikes3")
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
                                                         'product_uom_qty': 1,
                                                         'product_id': product.id
