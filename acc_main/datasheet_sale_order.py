@@ -14,6 +14,7 @@ class DSSaleOrder(models.Model):
     datasheet_name = fields.Char("File name")
     activity_type = fields.Many2one("activity.type",required=True)
     order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
+    customer_reference = fields.Char("Customer Reference")
 
     @api.model
     @api.onchange('datasheet')
@@ -102,7 +103,8 @@ class DSSaleOrder(models.Model):
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:-5] + code
-        self.write({'name': name})
+        self.write({'name': name,
+                    'customer_reference': False})
         return result
 
     def redirect_po(self):
