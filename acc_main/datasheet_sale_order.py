@@ -124,3 +124,10 @@ class DSSaleOrder(models.Model):
             return {'warning': {'title': 'No Source Document',
                                 'message': "No source document could be found, please try again with another order."}}
 
+
+
+class OrderLineInherit(models.Model):
+    _inherit = "sale.order.line"
+    _name = "sale.order.line"
+
+    delivery_date = fields.Date()
