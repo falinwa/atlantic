@@ -55,7 +55,7 @@
         <report
                 id="acc_invoice_report"
                 string="Invoice"
-                model="sale.order"
+                model="account.move"
                 report_type="qweb-pdf"
                 file="acc_main.report_invoice"
                 name="acc_main.report_invoice"
