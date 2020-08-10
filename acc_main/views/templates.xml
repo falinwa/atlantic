@@ -158,7 +158,7 @@
                                     <span t-field="line.delivery_date"/>
                                 </td>
                                 <td style="text-align:right" files="dn">
-                                    <span name="unitprice" t-esc="line.price_unit-line.discount*line.price_unit/100/line.product_uom_qty" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    <span name="unitprice" t-esc="line.price_unit-line.discount*line.price_unit/100" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
                                 </td>
                                 <td style="text-align:right">
                                     <span t-field="line.product_uom_qty"/>
@@ -346,15 +346,45 @@
         <xpath expr="//*[contains(@files,'dn')]" position="replace"></xpath>
     </template>
     <template id="report_invoice" inherit_id="acc_main.master_template" primary="True">
-        <xpath expr="//span[@name='report_type']" position='replace'>
-            <span>Invoice</span>
-        </xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
-        <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+ <xpath expr="//span[@name='report_type']" position='replace'>
+        <span>Invoice</span>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[1]/t" position="replace">
+        <t t-if="doc.invoice_origin">
+            <th style="width:20%">Quotation °</th>
+        </t>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/t" position="replace">
+        <t t-if="doc.invoice_origin">
+            <td>
+                <span t-field="doc.invoice_origin"/>
+            </td>
+        </t>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[2]/p" position="attributes">
+        <attribute name="t-field">doc.date</attribute>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[2]/table/t" position="attributes">
+        <attribute name="t-foreach">doc.invoice_line_ids</attribute>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[3]/div[1]/table/tr[1]/td/span" position="attributes">
+        <attribute name="t-field">doc.invoice_payment_term_id</attribute>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[2]/table/t/tr/td[5]/span" position="attributes">
+        <attribute name="t-field">line.quantity</attribute>
+    </xpath>
+    <xpath expr="//span[@name='unitprice']" position="attributes">
+        <attribute name="t-options">{'widget': 'monetary', 'display_currency': doc.currency_id}</attribute>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[2]/table/t/tr/td[6]/t" position="attributes">
+        <attribute name="t-value">total_weight+line.product_id.weight*line.quantity</attribute>
+    </xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
     </template>
 </odoo>

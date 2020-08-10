@@ -133,3 +133,17 @@ class OrderLineInherit(models.Model):
     _name = "sale.order.line"
 
     delivery_date = fields.Date()
+
+
+class InvoiceInherit(models.Model):
+    _inherit = "account.move"
+    _name = "account.move"
+
+    customer_reference = fields.Char()
+    partner_invoice_id = fields.Many2one('res.partner')
+
+    def create(self, vals_list):
+        result = super(InvoiceInherit, self).create(vals_list)
+        result.customer_reference = result.invoice_origin.customer_reference
+        result.partner_invoice_id = result.invoice_origin.partner_invoice_id
+        return result
