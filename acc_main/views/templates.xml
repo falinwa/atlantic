@@ -80,8 +80,8 @@
                                 <t name="cust_ref">
                                 <t t-if="doc.customer_reference">
                                 <tr>
-                                    <th style="height:88px;text-align:center">
-                                    Customer Reference
+                                    <th style="height:88px;text-align:center;white-space:nowrap">
+                                        <span style="color:#FA7032">Customer Reference</span><br/>
                                         <span t-field="doc.customer_reference"/>
                                     </th>
                                 </tr>
@@ -104,11 +104,11 @@
                         <table class="date_table" style="margin-top:10px;float:right;">
                             <tr>
                                 <th>Established by</th>
-                                <t t-if="doc.origin">
+                                <t t-if="doc.origin" files="so">
                                     <th>Quotation °</th>
                                 </t>
                                 <th>Date</th>
-                                <th files="po,inv">Validity</th>
+                                <th files="po,inv,dn,so">Validity</th>
                             </tr>
                             <tr>
                                 <td>
@@ -118,7 +118,7 @@
                                         <span t-field="user.email"/>
                                     </i>
                                 </td>
-                                <t t-if="doc.origin">
+                                <t t-if="doc.origin" files="so">
                                     <td>
                                         <span t-field="doc.origin"/>
                                     </td>
@@ -126,7 +126,7 @@
                                 <td>
                                     <p t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                                 </td>
-                                <td files="po,dn,inv">
+                                <td files="po,dn,inv,so">
                                     <p t-field="doc.validity_date"/>
                                 </td>
                             </tr>
@@ -152,7 +152,7 @@
                                     <span t-field="line.name"/>
                                 </td>
                                 <td style="text-align:right" files="so,po,dn,inv">
-                                    <span t-esc="line.customer_lead"/>
+                                    <span t-esc="round(line.customer_lead)"/> days
                                 </td>
                                 <td style="text-align:right" files="quot,dn,inv">
                                     <span t-field="line.delivery_date"/>
@@ -285,6 +285,10 @@
         <xpath expr="//span[@name='report_type']" position="replace">
             <span>Sale Order</span>
         </xpath>
+    <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
+    <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
     <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
     <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
     <xpath expr="//*[contains(@files,'so')]" position="replace"></xpath>
