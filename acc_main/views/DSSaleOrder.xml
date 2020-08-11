@@ -6,7 +6,7 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='note']" position="after">
-              <field name="datasheet" string="Add datasheet"/>
+              <field name="datasheet" string="Add datasheet" attrs="{'invisible': [('state','!=','draft')]}"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
               <field name="activity_type" string="Activity Type"/>
