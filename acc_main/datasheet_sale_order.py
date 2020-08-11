@@ -144,8 +144,8 @@ class InvoiceInherit(models.Model):
 
     def create(self, vals_list):
         result = super(InvoiceInherit, self).create(vals_list)
-        source_name = result.purchase_id.origin
-        source = self.env['sale.order'].search([('name','=',source_name)])
+        source = self.env['sale.order'].search([('name','=',result.invoice_origin)])
         result.customer_reference = source.customer_reference
+        log.warning(result.customer_reference)
         result.partner_invoice_id = source.partner_invoice_id
         return result
