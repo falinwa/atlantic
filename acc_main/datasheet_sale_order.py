@@ -18,14 +18,18 @@ class DSSaleOrder(models.Model):
 
     @api.model
     @api.onchange('datasheet')
-    def add_product_datasheet(self, data=None):
+    def add_product_datasheet(self, data=None, res_id=None):
         """
         Function to add sale order line from HS-Cooler datasheet
         :param data: Optional field to fill in data (when function called externally)
         :return: None
         """
+        log.warning("1")
         for rec in self:
+            log.warning("2")
             if rec.datasheet or data:
+                if res_id:
+                    self = res_id
                 if data:
                     bytes = data
                 else:
@@ -104,7 +108,9 @@ class DSSaleOrder(models.Model):
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:-5] + code
         self.write({'name': name,
-                    'customer_reference': False})
+                    'customer_reference': False,
+                    })
+
         return result
 
     def redirect_po(self):
@@ -142,6 +148,7 @@ class InvoiceInherit(models.Model):
     customer_reference = fields.Char()
     partner_invoice_id = fields.Many2one('res.partner')
 
+    @api.model
     def create(self, vals_list):
         result = super(InvoiceInherit, self).create(vals_list)
         source = self.env['sale.order'].search([('name','=',result.invoice_origin)])
