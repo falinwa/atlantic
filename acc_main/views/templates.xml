@@ -111,7 +111,7 @@
                                 <th files="po,inv,dn,so">Validity</th>
                             </tr>
                             <tr>
-                                <td>
+                                <td style="white-space:nowrap">
                                     <span t-field="doc.user_id"/>
                                     <br/>
                                     <i>
@@ -382,6 +382,12 @@
     </xpath>
     <xpath expr="/t/t/t/t/div[2]/table/t/tr/td[6]/t" position="attributes">
         <attribute name="t-value">total_weight+line.product_id.weight*line.quantity</attribute>
+    </xpath>
+        <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[1]/th[3]" position="after">
+        <th>Due Date</th>
+    </xpath>
+    <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[3]" position="after">
+        <td><span t-field="doc.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td>
     </xpath>
     <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
     <xpath expr="//*[contains(@files,'inv')]" position="replace"></xpath>
