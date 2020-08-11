@@ -19,3 +19,5 @@ class ProductInherit(models.Model):
         for record in self:
             if record.seller_ids:
                 record.standard_price = record.seller_ids[0].price
+            else:
+                record.standard_price = 0
