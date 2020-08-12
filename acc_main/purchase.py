@@ -12,3 +12,4 @@ class PurchaseInherit(models.Model):
     def create(self, vals_list):
         result = super(PurchaseInherit, self).create(vals_list)
         result.delivery_date = self.sale_line_id.delivery_date
+        return result
