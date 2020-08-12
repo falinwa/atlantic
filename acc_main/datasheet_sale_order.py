@@ -8,7 +8,6 @@ from pdf2image import convert_from_bytes
 
 class DSSaleOrder(models.Model):
     _inherit = "sale.order"
-    _name = "sale.order"
 
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
@@ -24,19 +23,17 @@ class DSSaleOrder(models.Model):
         :param data: Optional field to fill in data (when function called externally)
         :return: None
         """
-        log.warning("1")
+        if res_id:
+            self = self.env['sale.order'].search([('id','=',res_id)])
         for rec in self:
-            log.warning("2")
             if rec.datasheet or data:
-                if res_id:
-                    self = res_id
                 if data:
-                    bytes = data
+                    b64 = data
                 else:
                     b64 = rec.datasheet
-                    bytes = b64decode(b64, validate=True)
+                bytes = b64decode(b64, validate=True)
                 if bytes[0:4] != b'%PDF':
-                    raise ValueError('Not a PDF file.')
+                    return {'warning':{'title':'Invalid Document','message':"Not a PDF file, please upload datasheet in pdf format."}}
                 images = convert_from_bytes(bytes, 600)
                 img = images[0]
                 product_name = hs_ocr(img)
@@ -45,7 +42,6 @@ class DSSaleOrder(models.Model):
                     return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
                 price, weight = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
-                    log.warning("noice1")
                     product = self.env['product.product'].search([('name', '=', product_name)])
                     if round(product.lst_price) != round(price*2.052):
                         product.seller_ids[0].write({'price': price})
@@ -55,7 +51,6 @@ class DSSaleOrder(models.Model):
                                        'categ_id': categ.id,
                                        })
                 else:
-                    log.warning("yikes2")
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
                     supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
@@ -67,13 +62,11 @@ class DSSaleOrder(models.Model):
                                                                   'seller_ids': [supplier.id],
                                                                   })
                 if rec._origin.id:
-                    log.warning("yikes3")
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
                                                         'product_uom_qty': 1,
                                                         'product_id': product.id
                                                         })
                     rec.datasheet = None
-
 
     @api.model
     def create(self, vals):
@@ -131,7 +124,6 @@ class DSSaleOrder(models.Model):
         else:
             return {'warning': {'title': 'No Source Document',
                                 'message': "No source document could be found, please try again with another order."}}
-
 
 
 class OrderLineInherit(models.Model):
