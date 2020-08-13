@@ -2,6 +2,7 @@ from odoo import models, fields, api, _
 from base64 import b64decode
 import logging
 from odoo.addons.acc_main.hs_cooler_calculator import hs_ocr, calculator
+from odoo.exceptions import Warning
 
 log = logging.getLogger(__name__)
 from pdf2image import convert_from_bytes
@@ -33,13 +34,13 @@ class DSSaleOrder(models.Model):
                     b64 = rec.datasheet
                 bytes = b64decode(b64, validate=True)
                 if bytes[0:4] != b'%PDF':
-                    return {'warning':{'title':'Invalid Document','message':"Not a PDF file, please upload datasheet in pdf format."}}
+                    raise Warning("Not a PDF file, please upload datasheet in pdf format.")
                 images = convert_from_bytes(bytes, 600)
                 img = images[0]
                 product_name = hs_ocr(img)
                 if not product_name:
                     rec.datasheet = None
-                    return {'warning':{'title':'Invalid Document','message':"Can't recognise datasheet. Please try again with another datasheet."}}
+                    raise Warning("Can't recognise datasheet. Please try again with another datasheet.")
                 price, weight = calculator(product_name)
                 if self.env['product.product'].search([('name','=',product_name)]):
                     product = self.env['product.product'].search([('name', '=', product_name)])
