@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import pytesseract
+from odoo.exceptions import Warning
 
 
 def calculator(name):
@@ -11,7 +12,8 @@ def calculator(name):
     try:
         df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
     except:
-        df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx", index_col="Pattern")
+        df = pd.read_excel("/Users/rubenhias/PycharmProjects/odoo/atlantic/acc_main/data/hs_prices.xlsx",
+                           index_col="Pattern")
     if name[0:2] == "KW":
         return kw_calculator(name, df)
     else:
@@ -34,8 +36,8 @@ def find_pattern(name, df):
 
 def find_length_turbulator(name):
     index = name.rfind("L")
-    length = int(name[index+1:])
-    turbulator = name[index-1] == "T"
+    length = int(name[index + 1:])
+    turbulator = name[index - 1] == "T"
     return length, turbulator
 
 
@@ -56,9 +58,9 @@ def len_weight_calculator(name, df, basename, lengthname):
         tb_pattern = name[:4] + "T"
         tb_basevalue = df.loc[tb_pattern, basename]
         tb_lengthvalue = df.loc[tb_pattern, lengthname]
-        return (basevalue + tb_basevalue) + (lengthvalue + tb_lengthvalue)*length/100
+        return (basevalue + tb_basevalue) + (lengthvalue + tb_lengthvalue) * length / 100
     else:
-        return basevalue + lengthvalue*length/100
+        return basevalue + lengthvalue * length / 100
 
 
 def ks_calculator(name, df):
@@ -73,7 +75,6 @@ def ks_calculator(name, df):
     return price, weight
 
 
-
 def kw_calculator(name, df):
     """
     Calculate price and weight for KW heat exchangers
@@ -84,8 +85,8 @@ def kw_calculator(name, df):
     ks_name = name.replace("KW", "KS")
     ks_price, ks_weight = calculator(ks_name)
     xray_price = xray_calculator(ks_name, df)
-    surplus_price = df.loc[ks_name[0:4]+"P","Baseprice"]
-    surplus_weight = df.loc[ks_name[0:4]+"P","Baseweight"]
+    surplus_price = df.loc[ks_name[0:4] + "P", "Baseprice"]
+    surplus_weight = df.loc[ks_name[0:4] + "P", "Baseweight"]
     return ks_price + xray_price + surplus_price, ks_weight + surplus_weight
 
 
@@ -97,7 +98,7 @@ def xray_calculator(name, df):
     :return: Price of option
     """
     row = name[0:4] + 'X'
-    return df.loc[row,"Baseprice"]
+    return df.loc[row, "Baseprice"]
 
 
 def hs_ocr(img):
@@ -113,7 +114,27 @@ def hs_ocr(img):
     text = str(pytesseract.image_to_string(cropped_img)).replace(" ", "")
     for line in text.split("\n"):
         if "Type" in line or "Tipo" in line:
-            return line[4:]
+            name = line[4:]
+            if not name_test(name):
+                raise Warning("Can't recognise product name. OCR recognised this name: '" + name + "' but is invalid.")
+            else:
+                return name
+
+
+def name_test(name):
+    try:
+        # Checking that name starts with KS or KW
+        assert name[:2] in ["KS", "KW"]
+        index = name.rfind("L")
+
+        # Checking that there is either '-' or 'T' before the length
+        assert name[index - 1] in ["-", "T"]
+
+        # Checking name has correct length
+        assert 17 <= len(name) <= 18
+        return True
+    except AssertionError:
+        return False
 
 
 ### Tests ###
