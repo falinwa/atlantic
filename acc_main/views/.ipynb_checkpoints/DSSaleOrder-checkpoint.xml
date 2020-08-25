@@ -6,10 +6,18 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='note']" position="after">
-              <field name="datasheet" string="Add datasheet"/>
+              <field name="datasheet" string="Add datasheet" attrs="{'invisible': [('state','!=','draft')]}"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
-              <field name="order_type" string="Activity Type"/>
+                <field name="activity_type" string="Product Segment" domain="[('companies','=',company_id)]"/>
+            </xpath>
+            <xpath expr="//button[@name='action_quotation_send']" position="replace">
+            </xpath>
+            <xpath expr="//button[@name='action_cancel']" position="after">
+                <button name="redirect_po" string="To Purchase Order" type="object" states="sale"/>
+            </xpath>
+            <xpath expr="//field[@name='activity_type']" position="after">
+                <field name="customer_reference" string="Customer Reference" attrs="{'required':[('state','=','sale')]}"/>
             </xpath>
         </field>
     </record>

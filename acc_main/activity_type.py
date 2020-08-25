@@ -3,10 +3,11 @@ from odoo import models, fields
 
 class ActivityType(models.Model):
     _name = "activity.type"
-    _description = "Activity Type Atlantic"
+    _description = "Product Segment"
 
     name = fields.Char("Activity Name", required=True)
     code = fields.Char("Activity code", required=True)
+    companies = fields.Many2many("res.company")
 
 
 class ProductInherit(models.Model):
