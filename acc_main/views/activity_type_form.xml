@@ -8,6 +8,7 @@
                 <group>
                     <field name="name"/>
                     <field name="code"/>
+                    <field name="companies" widget="many2many_tags"/>
                 </group>
             </form>
         </field>
@@ -17,18 +18,19 @@
         <field name="name">activity.type.tree</field>
         <field name="model">activity.type</field>
         <field name="arch" type="xml">
-           <tree string="Activity Types">
+           <tree string="Product Segments">
                 <field name="name"/>
                 <field name="code"/>
+                <field name="companies"/>
            </tree>
         </field>
     </record>
 
     <record id="action_activity_type_form" model="ir.actions.act_window">
-        <field name="name">Activity Type</field>
+        <field name="name">Product Segments</field>
         <field name="res_model">activity.type</field>
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem id="activity_type_menu" action="action_activity_type_form" name="Activity Types" parent="sale.menu_sale_config" groups="base.group_user"/>
+    <menuitem id="activity_type_menu" action="action_activity_type_form" name="Product Segments" parent="sale.menu_sale_config" groups="base.group_user"/>
 </odoo>

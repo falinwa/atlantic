@@ -9,7 +9,7 @@
               <field name="datasheet" string="Add datasheet" attrs="{'invisible': [('state','!=','draft')]}"/>
             </xpath>
             <xpath expr="//field[@name='partner_id']" position="after">
-              <field name="activity_type" string="Activity Type"/>
+                <field name="activity_type" string="Product Segment" domain="[('companies','=',company_id)]"/>
             </xpath>
             <xpath expr="//button[@name='action_quotation_send']" position="replace">
             </xpath>

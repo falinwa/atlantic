@@ -15,7 +15,7 @@ class DSSaleOrder(models.Model):
     activity_type = fields.Many2one("activity.type",required=True)
     order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
     customer_reference = fields.Char("Customer Reference")
-
+       
     @api.model
     @api.onchange('datasheet')
     def add_product_datasheet(self, data=None, res_id=None):
