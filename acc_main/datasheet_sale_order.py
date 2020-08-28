@@ -54,6 +54,7 @@ class DSSaleOrder(models.Model):
                 else:
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
+                    intrastat_id = self.env['account.intrastat.code'].search([('code', '=', '84195080')])
                     supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
                                                                         'price': price})
                     product = self.env["product.product"].create({'name': product_name,
@@ -61,6 +62,7 @@ class DSSaleOrder(models.Model):
                                                                   'weight': weight,
                                                                   'categ_id': categ.id,
                                                                   'seller_ids': [supplier.id],
+                                                                  'intrastat_id': intrastat_id.id,
                                                                   })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
