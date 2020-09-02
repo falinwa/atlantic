@@ -9,6 +9,7 @@
     """,
     # data files always loaded at installation
     'data': [
+        'security/security.xml',
         'security/ir.model.access.csv',
         'data/activity_types.xml',
         'views/DSSaleOrder.xml',

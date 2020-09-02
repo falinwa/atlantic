@@ -1,0 +1,459 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* acc_main
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 13.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-09-01 19:11+0000\n"
+"PO-Revision-Date: 2020-09-01 19:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.acc_deliverynote_report
+msgid "'Delivery Note - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report
+msgid "'Invoice - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.master_template_report
+msgid "'Master Template'"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.acc_purchaseorder_report
+msgid "'Purchase Order - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.acc_quotation_report
+#: model:ir.actions.report,print_report_name:acc_main.acc_saleorder_report
+msgid ""
+"(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or "
+"'Order - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type01
+msgid "01 Compressors"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type02
+msgid "02 HS-Cooler"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type03
+msgid "03 SAV"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type04
+msgid "04 Divers"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type05
+msgid "05 HAP"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type07
+msgid "07 Cool Partners"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type08
+msgid "08 Cabero"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>\tInformations légales</b>\n"
+"                            <br/>\n"
+"                        Atlantic Cool Components SAS\n"
+"                            <br/>\n"
+"                        au Saule\n"
+"                            <br/>\n"
+"                        46090 Villesèque - France\n"
+"                            <br/>\n"
+"                        TVA : FR40 881 790 893\n"
+"                            <br/>\n"
+"                        RCS Cahors : 881 790 893\n"
+"                            <br/>\n"
+"                        Siren : 881 790 893\n"
+"                            <br/>\n"
+"                        Capital : 20.000 €\n"
+"                            <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Conditions d'Achat</b>\n"
+"                        <br/>\n"
+"                    Seules nos Conditions générales d'achat s’appliquent,\n"
+"                    nonobstant toute clause contraire qui est réputée non écrite.\n"
+"                    Nous vous les adressons sur simple demande de votre part."
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Coordonnées bancaires</b>\n"
+"                            <br/>\n"
+"                        Crédit Agricole Anjou Maine\n"
+"                            <br/>\n"
+"                        IBAN : FR76 1790 6000 9096 4006 0735 182\n"
+"                            <br/>\n"
+"                        BIC : AGRIFRPP879\n"
+"                            <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Payment Conditions</b>\n"
+"                                    <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Shipment</b>\n"
+"                                    <br/>\n"
+"                                CPT Icoterms 2020"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "<span name=\"report_type\">Quotation</span><br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "<span style=\"color:#FA7032\">Customer Reference</span><br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_deliverynote
+msgid "<span>Delivery Note</span>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+msgid "<span>Invoice</span>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<span>Purchase Order</span>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_saleorder
+msgid "<span>Sale Order</span>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "<strong>Customer:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "<strong>Delivery Address:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "<strong>Invoice Address:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__name
+msgid "Activity Name"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__activity_type
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__order_type
+msgid "Activity Type"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__code
+msgid "Activity code"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
+msgid "Add datasheet"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__companies
+msgid "Companies"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_account_move__customer_reference
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__customer_reference
+#: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
+msgid "Customer Reference"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Date"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Delivery"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_purchase_order_line__delivery_date
+#: model:ir.model.fields,field_description:acc_main.field_sale_order_line__delivery_date
+msgid "Delivery Date"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_deliverynote_report
+msgid "Delivery Note"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Description"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+msgid "Due Date"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Established by"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__datasheet_name
+msgid "File name"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__id
+msgid "ID"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Intrastat"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_invoice_report
+msgid "Invoice"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_account_move
+msgid "Journal Entries"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_activity_type__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Lead Time"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.master_template_report
+msgid "Master Template"
+msgstr ""
+
+#. module: acc_main
+#: code:addons/acc_main/datasheet_sale_order.py:0
+#: code:addons/acc_main/datasheet_sale_order.py:0
+#: code:addons/acc_main/datasheet_sale_order.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_account_move__partner_invoice_id
+msgid "Partner Invoice"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_activity_type
+#: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
+msgid "Product Segment"
+msgstr ""
+
+#. module: acc_main
+#: model:res.groups,name:acc_main.segment_admin
+msgid "Product Segment Admin"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.act_window,name:acc_main.action_activity_type_form
+#: model:ir.ui.menu,name:acc_main.activity_type_menu
+#: model_terms:ir.ui.view,arch_db:acc_main.activity_type_tree
+msgid "Product Segments"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_purchaseorder_report
+msgid "Purchase Order"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_purchase_order_line
+msgid "Purchase Order Line"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Quantity"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_quotation_report
+msgid "Quotation"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+msgid "Quotation °"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_saleorder_report
+msgid "Sale Order"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model,name:acc_main.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_product_product__standard_price
+msgid "Standard Price"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "TOTAL VAT incl."
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
+msgid "To Purchase Order"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Total"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Total Weight"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Total excl VAT"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Unit Price"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Unit Weight"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__datasheet
+msgid "Upload Datasheet"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "VAT 20%"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "VAT:"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "Validity"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid "days"
+msgstr ""

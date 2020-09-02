@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id="segment_admin" model="res.groups">
+        <field name="name">Product Segment Admin</field>
+    </record>
+    </data>
+</odoo>
