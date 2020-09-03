@@ -60,6 +60,12 @@
                             border: 2px solid #22518a;
                             color:#22518a;
                             }
+                            .footer-test {
+                            position: fixed;
+                            left: 0;
+                            bottom: 0;
+                            width: 100%;
+                            }
 
                         </style>
                         <div>
@@ -240,7 +246,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="footer" style="color:#22518a;font-size:10px;">
+                    <div class="footer-test" style="color:#22518a;font-size:10px;">
                         <div style="width:200px;float:left">
                             <b>Conditions d'Achat</b>
                             <br/>
