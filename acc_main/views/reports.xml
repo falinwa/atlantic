@@ -63,14 +63,13 @@
                 print_report_name="'Invoice - %s' % (object.name)"
         />
         <report
-            id="master_template_french"
-            string="Master Template French"
-            model="sale.order"
-            report_type="qweb-pdf"
-            file="acc_main.master_template_french"
-            name="acc_main.master_template_french"
-            attachment_use="False"
-            print_report_name="'Master Template French'"
+                string="Translatable Master"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="acc_main.master_french"
+                name="acc_main.master_french"
+                attachment_use="False"
+                print_report_name="'Invoice - %s' % (object.name)"
         />
     </data>
 </odoo>
