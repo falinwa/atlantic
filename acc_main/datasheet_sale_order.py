@@ -111,7 +111,7 @@ class DSSaleOrder(models.Model):
         self.origin = self.name
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
-        name = 'ARC' + name[3:-5] + code
+        name = 'ARC' + name[3:10] + code
         self.write({'name': name,
                     'customer_reference': False,
                     })
