@@ -25,6 +25,14 @@ class DSSaleOrder(models.Model):
                 if order:
                     order.write({'customer_ref': rec.customer_reference})
 
+    @api.onchange('partner_shipping_id')
+    def _sync_delivery_address_po(self):
+        for rec in self:
+            if rec.state == 'sale':
+                order = self.env['purchase.order'].search([('origin', '=', self.origin)])
+                if order:
+                    order.write({'dest_address_id': rec.partner_shipping_id})
+
     @api.model
     @api.onchange('datasheet')
     def add_product_datasheet(self, data=None, res_id=None):
