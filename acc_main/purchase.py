@@ -1,8 +1,22 @@
 from odoo import fields, models, api
 
 
+class PurcaseOrderInherit(models.Model):
+    _inherit = "purchase.order"
 
-class PurchaseInherit(models.Model):
+    customer_ref = fields.Char()
+
+    @api.model
+    def create(self, vals):
+        if vals['origin']:
+            origin_id = self.env['sale.order'].search([("name", "=", vals['origin'])])
+            vals['customer_ref'] = origin_id.customer_reference
+        return super(PurcaseOrderInherit, self).create(vals)
+
+
+
+
+class PurchaseLineInherit(models.Model):
     _name = "purchase.order.line"
     _inherit = "purchase.order.line"
 
@@ -10,6 +24,6 @@ class PurchaseInherit(models.Model):
 
     @api.model
     def create(self, vals_list):
-        result = super(PurchaseInherit, self).create(vals_list)
+        result = super(PurchaseLineInherit, self).create(vals_list)
         result.delivery_date = self.sale_line_id.delivery_date
         return result

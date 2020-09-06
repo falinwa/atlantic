@@ -62,5 +62,15 @@
                 attachment_use="False"
                 print_report_name="'Invoice - %s' % (object.name)"
         />
+        <report
+                id="acc_translate_french"
+                string="Translatable Master French"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="acc_main.master_french"
+                name="acc_main.master_french"
+                attachment_use="False"
+                print_report_name="'Big Man'"
+        />
     </data>
 </odoo>
