@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-05 23:10+0000\n"
-"PO-Revision-Date: 2020-09-05 23:10+0000\n"
+"POT-Creation-Date: 2020-09-06 11:42+0000\n"
+"PO-Revision-Date: 2020-09-06 11:42+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.acc_translate_french
+msgid "'Big Man'"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_deliverynote_report
@@ -23,11 +28,6 @@ msgstr ""
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report
 msgid "'Invoice - %s' % (object.name)"
-msgstr ""
-
-#. module: acc_main
-#: model:ir.actions.report,print_report_name:acc_main.master_template_french
-msgid "'Master Template French'"
 msgstr ""
 
 #. module: acc_main
@@ -94,7 +94,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<b>Conditions d'Achat</b>\n"
 "                <br/>\n"
@@ -117,7 +117,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<b>Coordonnées bancaires</b>\n"
 "                    <br/>\n"
@@ -151,7 +151,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<b>Informations légales</b>\n"
 "                    <br/>\n"
@@ -179,7 +179,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<b>Payment Conditions</b>\n"
 "                            <br/>"
@@ -194,7 +194,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<b>Shipment</b>\n"
 "                            <br/>\n"
@@ -209,7 +209,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<span name=\"report_type\">Quotation</span>\n"
 "                                <br/>"
@@ -223,7 +223,7 @@ msgid ""
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid ""
 "<span style=\"color:#FA7032\">Customer Reference</span>\n"
 "                                        <br/>"
@@ -251,19 +251,19 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Customer:</strong>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Delivery Address:</strong>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Invoice Address:</strong>"
 msgstr ""
 
@@ -327,13 +327,13 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Date"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Delivery"
 msgstr ""
 
@@ -350,7 +350,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Description"
 msgstr ""
 
@@ -366,7 +366,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Established by"
 msgstr ""
 
@@ -387,7 +387,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Intrastat"
 msgstr ""
 
@@ -418,18 +418,13 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Lead Time"
 msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.master_template_report
 msgid "Master Template"
-msgstr ""
-
-#. module: acc_main
-#: model:ir.actions.report,name:acc_main.master_template_french
-msgid "Master Template French"
 msgstr ""
 
 #. module: acc_main
@@ -481,7 +476,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Quantity"
 msgstr ""
 
@@ -492,7 +487,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Quotation N°"
 msgstr ""
 
@@ -528,7 +523,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "TOTAL VAT incl."
 msgstr ""
 
@@ -539,31 +534,36 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total Weight"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total excl VAT"
 msgstr ""
 
 #. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_translate_french
+msgid "Translatable Master French"
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Unit Price"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Unit Weight"
 msgstr ""
 
@@ -574,24 +574,24 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "VAT 20%"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "VAT:"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Validity"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "days"
 msgstr ""
