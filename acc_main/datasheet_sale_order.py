@@ -49,10 +49,10 @@ class DSSaleOrder(models.Model):
                     b64 = data
                 else:
                     b64 = rec.datasheet
-                bytes = b64decode(b64, validate=True)
-                if bytes[0:4] != b'%PDF':
+                file_bytes = b64decode(b64, validate=True)
+                if file_bytes[0:4] != b'%PDF':
                     raise Warning("Not a PDF file, please upload datasheet in pdf format.")
-                images = convert_from_bytes(bytes, 600)
+                images = convert_from_bytes(file_bytes, 600)
                 img = images[0]
                 product_name = hs_ocr(img)
                 if not product_name:
