@@ -6,36 +6,39 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 19:11+0000\n"
-"PO-Revision-Date: 2020-09-01 22:07+0200\n"
+"POT-Creation-Date: 2020-09-05 23:11+0000\n"
+"PO-Revision-Date: 2020-09-05 23:11+0000\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.4.1\n"
-"Last-Translator: \n"
-"Language: fr_FR\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_deliverynote_report
 msgid "'Delivery Note - %s' % (object.name)"
-msgstr "'Bon de livraison - %s' (object.name)"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report
 msgid "'Invoice - %s' % (object.name)"
-msgstr "'Facture - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.master_template_french
+msgid "'Master Template French'"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.master_template_report
 msgid "'Master Template'"
-msgstr "'Master Template'"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_purchaseorder_report
 msgid "'Purchase Order - %s' % (object.name)"
-msgstr "'Bon de Commande - %s' % (object.name)"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_quotation_report
@@ -44,319 +47,394 @@ msgid ""
 "(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or "
 "'Order - %s' % (object.name)"
 msgstr ""
-"(object.state in ('brouillon', 'envoyé') and 'Devis - %s' % (object.name)) "
-"or 'Commande - %s' % (object.name)"
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type01
 msgid "01 Compressors"
-msgstr "01 Compresseurs"
+msgstr "01 COMPRESSEURS"
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type02
 msgid "02 HS-Cooler"
-msgstr "02 HS-Cooler"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type03
 msgid "03 SAV"
-msgstr "03 SAV"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type04
 msgid "04 Divers"
-msgstr "04 Divers"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type05
 msgid "05 HAP"
-msgstr "05 HAP"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type07
 msgid "07 Cool Partners"
-msgstr "07 Cool Partners"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields.selection,name:acc_main.selection__sale_order__order_type__type08
 msgid "08 Cabero"
-msgstr "08 Cabero"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template
-msgid ""
-"<b>\tInformations légales</b>\n"
-"                            <br/>\n"
-"                        Atlantic Cool Components SAS\n"
-"                            <br/>\n"
-"                        au Saule\n"
-"                            <br/>\n"
-"                        46090 Villesèque - France\n"
-"                            <br/>\n"
-"                        TVA : FR40 881 790 893\n"
-"                            <br/>\n"
-"                        RCS Cahors : 881 790 893\n"
-"                            <br/>\n"
-"                        Siren : 881 790 893\n"
-"                            <br/>\n"
-"                        Capital : 20.000 €\n"
-"                            <br/>"
 msgstr ""
-"<b>\tInformations légales</b>\n"
-"                            <br/>\n"
-"                        Atlantic Cool Components SAS\n"
-"                            <br/>\n"
-"                        au Saule\n"
-"                            <br/>\n"
-"                        46090 Villesèque - France\n"
-"                            <br/>\n"
-"                        TVA : FR40 881 790 893\n"
-"                            <br/>\n"
-"                        RCS Cahors : 881 790 893\n"
-"                            <br/>\n"
-"                        Siren : 881 790 893\n"
-"                            <br/>\n"
-"                        Capital : 20.000 €\n"
-"                            <br/>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Conditions d'Achat</b>\n"
-"                        <br/>\n"
-"                    Seules nos Conditions générales d'achat s’appliquent,\n"
-"                    nonobstant toute clause contraire qui est réputée non "
-"écrite.\n"
-"                    Nous vous les adressons sur simple demande de votre part."
+"                            <br/>\n"
+"                            Seules nos Conditions générales d'achat s’appliquent,\n"
+"                            nonobstant toute clause contraire qui est réputée non écrite.\n"
+"                            Nous vous les adressons sur simple demande de votre part."
 msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
 "<b>Conditions d'Achat</b>\n"
-"                        <br/>\n"
-"                    Seules nos Conditions générales d'achat s’appliquent,\n"
-"                    nonobstant toute clause contraire qui est réputée non "
-"écrite.\n"
-"                    Nous vous les adressons sur simple demande de votre part."
+"                <br/>\n"
+"                Seules nos Conditions générales d'achat s’appliquent,\n"
+"                nonobstant toute clause contraire qui est réputée non écrite.\n"
+"                Nous vous les adressons sur simple demande de votre part."
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Coordonnées bancaires</b>\n"
-"                            <br/>\n"
-"                        Crédit Agricole Anjou Maine\n"
-"                            <br/>\n"
-"                        IBAN : FR76 1790 6000 9096 4006 0735 182\n"
-"                            <br/>\n"
-"                        BIC : AGRIFRPP879\n"
-"                            <br/>"
+"                                <br/>\n"
+"                                Crédit Agricole Anjou Maine\n"
+"                                <br/>\n"
+"                                IBAN : FR76 1790 6000 9096 4006 0735 182\n"
+"                                <br/>\n"
+"                                BIC : AGRIFRPP879\n"
+"                                <br/>"
 msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
 "<b>Coordonnées bancaires</b>\n"
-"                            <br/>\n"
-"                        Crédit Agricole Anjou Maine\n"
-"                            <br/>\n"
-"                        IBAN : FR76 1790 6000 9096 4006 0735 182\n"
-"                            <br/>\n"
-"                        BIC : AGRIFRPP879\n"
-"                            <br/>"
+"                    <br/>\n"
+"                    Crédit Agricole Anjou Maine\n"
+"                    <br/>\n"
+"                    IBAN : FR76 1790 6000 9096 4006 0735 182\n"
+"                    <br/>\n"
+"                    BIC : AGRIFRPP879\n"
+"                    <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Informations légales</b>\n"
+"                                <br/>\n"
+"                                Atlantic Cool Components SAS\n"
+"                                <br/>\n"
+"                                au Saule\n"
+"                                <br/>\n"
+"                                46090 Villesèque - France\n"
+"                                <br/>\n"
+"                                TVA : FR40 881 790 893\n"
+"                                <br/>\n"
+"                                RCS Cahors : 881 790 893\n"
+"                                <br/>\n"
+"                                Siren : 881 790 893\n"
+"                                <br/>\n"
+"                                Capital : 20.000 €\n"
+"                                <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Informations légales</b>\n"
+"                    <br/>\n"
+"                    Atlantic Cool Components SAS\n"
+"                    <br/>\n"
+"                    au Saule\n"
+"                    <br/>\n"
+"                    46090 Villesèque - France\n"
+"                    <br/>\n"
+"                    TVA : FR40 881 790 893\n"
+"                    <br/>\n"
+"                    RCS Cahors : 881 790 893\n"
+"                    <br/>\n"
+"                    Siren : 881 790 893\n"
+"                    <br/>\n"
+"                    Capital : 20.000 €\n"
+"                    <br/>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Payment Conditions</b>\n"
-"                                    <br/>"
+"                                        <br/>"
 msgstr ""
-"<b>Conditions de règlement</b>\n"
-"                                    <br/>"
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Payment Conditions</b>\n"
+"                            <br/>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Shipment</b>\n"
-"                                    <br/>\n"
-"                                CPT Icoterms 2020"
+"                                        <br/>\n"
+"                                        CPT Icoterms 2020"
 msgstr ""
-"<b>Expédition</b>\n"
-"                                    <br/>\n"
-"                                CPT Icoterms 2020"
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Shipment</b>\n"
+"                            <br/>\n"
+"                            CPT Icoterms 2020"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-msgid "<span name=\"report_type\">Quotation</span><br/>"
-msgstr "<span name=\"report_type\">Devis</span><br/>"
+msgid ""
+"<span name=\"report_type\">Quotation</span>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<span name=\"report_type\">Quotation</span>\n"
+"                                <br/>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-msgid "<span style=\"color:#FA7032\">Customer Reference</span><br/>"
-msgstr "<span style=\"color:#FA7032\">Référence client</span><br/>"
+msgid ""
+"<span style=\"color:#FA7032\">Customer Reference</span>\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<span style=\"color:#FA7032\">Customer Reference</span>\n"
+"                                        <br/>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_deliverynote
 msgid "<span>Delivery Note</span>"
-msgstr "<span>Bon de livraison</span>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
 msgid "<span>Invoice</span>"
-msgstr "<span>Facture</span>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
 msgid "<span>Purchase Order</span>"
-msgstr "<span>Bon de Commande</span>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_saleorder
 msgid "<span>Sale Order</span>"
-msgstr "<span>Commande</span>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Customer:</strong>"
 msgstr "<strong>Client:</strong>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Delivery Address:</strong>"
-msgstr "<strong>Adresse de livraison:</strong>"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Invoice Address:</strong>"
-msgstr "<strong>Adresse de facturation:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<strong>Reference:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<strong>Supplier:</strong>"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__name
 msgid "Activity Name"
-msgstr "Activité nom"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__activity_type
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__order_type
 msgid "Activity Type"
-msgstr "Activité type"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__code
 msgid "Activity code"
-msgstr "Activité code"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
 msgid "Add datasheet"
-msgstr "Ajouter datasheet"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__companies
 msgid "Companies"
-msgstr "Sociétés"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_purchase_order__customer_ref
+msgid "Customer Ref"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_account_move__customer_reference
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__customer_reference
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
 msgid "Customer Reference"
-msgstr "Référence client"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Delivery"
-msgstr "Livraison"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_purchase_order_line__delivery_date
 #: model:ir.model.fields,field_description:acc_main.field_sale_order_line__delivery_date
 msgid "Delivery Date"
-msgstr "Date de livraison"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_deliverynote_report
 msgid "Delivery Note"
-msgstr "Bon de livraison"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Description"
-msgstr "Description"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
 msgid "Due Date"
-msgstr "Echéance"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Established by"
-msgstr "Etabli par"
+msgstr "IK MOET KAKKEN"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__datasheet_name
 msgid "File name"
-msgstr "Nom fichier"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__id
 msgid "ID"
-msgstr "ID"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "Internal Reference"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Intrastat"
-msgstr "Intrastat"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_invoice_report
 msgid "Invoice"
-msgstr "Facture"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_account_move
 msgid "Journal Entries"
-msgstr "Entrées journaux"
+msgstr "Pièces comptables"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type____last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__write_uid
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Lead Time"
-msgstr "Délai"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.master_template_report
 msgid "Master Template"
-msgstr "Master Template"
+msgstr ""
 
 #. module: acc_main
+#: model:ir.actions.report,name:acc_main.master_template_french
+msgid "Master Template French"
+msgstr ""
+
+#. module: acc_main
+#: code:addons/acc_main/datasheet_sale_order.py:0
+#: code:addons/acc_main/datasheet_sale_order.py:0
 #: code:addons/acc_main/datasheet_sale_order.py:0
 #, python-format
 msgid "New"
@@ -365,45 +443,47 @@ msgstr "Nouveau"
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_account_move__partner_invoice_id
 msgid "Partner Invoice"
-msgstr "Facture partenaire"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_product_product
 msgid "Product"
-msgstr "Produit"
+msgstr "Article"
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_activity_type
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
 msgid "Product Segment"
-msgstr "Segment produit"
+msgstr ""
 
 #. module: acc_main
 #: model:res.groups,name:acc_main.segment_admin
 msgid "Product Segment Admin"
-msgstr "Segment produit admin"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.act_window,name:acc_main.action_activity_type_form
 #: model:ir.ui.menu,name:acc_main.activity_type_menu
 #: model_terms:ir.ui.view,arch_db:acc_main.activity_type_tree
 msgid "Product Segments"
-msgstr "Segments Produits"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_purchaseorder_report
+#: model:ir.model,name:acc_main.model_purchase_order
 msgid "Purchase Order"
-msgstr "Bon de Commande"
+msgstr "Commande fournisseur"
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_purchase_order_line
 msgid "Purchase Order Line"
-msgstr "Ligne de commande"
+msgstr "Ligne de commande d'achat"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Quantity"
-msgstr "Quantité"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_quotation_report
@@ -412,86 +492,106 @@ msgstr "Devis"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid "Quotation N°"
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
 msgid "Quotation °"
-msgstr "Devis °"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_saleorder_report
 msgid "Sale Order"
-msgstr "Commande"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_sale_order
 msgid "Sales Order"
-msgstr "Commande"
+msgstr "Bon de commande"
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_sale_order_line
 msgid "Sales Order Line"
-msgstr "Ligne de commande"
+msgstr "Ligne de bons de commande"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_product_product__standard_price
 msgid "Standard Price"
-msgstr "Prix standard"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "Supplier Ref."
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "TOTAL VAT incl."
-msgstr "TOTAL incl TVA"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
 msgid "To Purchase Order"
-msgstr "vers Bon de Commande"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total Weight"
-msgstr "Poids total"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total excl VAT"
-msgstr "Total excl TVA"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Unit Price"
-msgstr "Prix unitaire"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Unit Weight"
-msgstr "Poids unitaire"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__datasheet
 msgid "Upload Datasheet"
-msgstr "Charger datasheet"
+msgstr "FIX DATASHEET TRUT"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "VAT 20%"
-msgstr "TVA 20%"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "VAT:"
-msgstr "TVA:"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Validity"
-msgstr "Validité"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "days"
-msgstr "jours"
+msgstr ""

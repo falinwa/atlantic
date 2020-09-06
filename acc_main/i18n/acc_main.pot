@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-01 19:11+0000\n"
-"PO-Revision-Date: 2020-09-01 19:11+0000\n"
+"POT-Creation-Date: 2020-09-05 23:10+0000\n"
+"PO-Revision-Date: 2020-09-05 23:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,11 @@ msgstr ""
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report
 msgid "'Invoice - %s' % (object.name)"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.master_template_french
+msgid "'Master Template French'"
 msgstr ""
 
 #. module: acc_main
@@ -81,70 +86,147 @@ msgstr ""
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
-"<b>\tInformations légales</b>\n"
+"<b>Conditions d'Achat</b>\n"
 "                            <br/>\n"
-"                        Atlantic Cool Components SAS\n"
-"                            <br/>\n"
-"                        au Saule\n"
-"                            <br/>\n"
-"                        46090 Villesèque - France\n"
-"                            <br/>\n"
-"                        TVA : FR40 881 790 893\n"
-"                            <br/>\n"
-"                        RCS Cahors : 881 790 893\n"
-"                            <br/>\n"
-"                        Siren : 881 790 893\n"
-"                            <br/>\n"
-"                        Capital : 20.000 €\n"
-"                            <br/>"
+"                            Seules nos Conditions générales d'achat s’appliquent,\n"
+"                            nonobstant toute clause contraire qui est réputée non écrite.\n"
+"                            Nous vous les adressons sur simple demande de votre part."
 msgstr ""
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid ""
 "<b>Conditions d'Achat</b>\n"
-"                        <br/>\n"
-"                    Seules nos Conditions générales d'achat s’appliquent,\n"
-"                    nonobstant toute clause contraire qui est réputée non écrite.\n"
-"                    Nous vous les adressons sur simple demande de votre part."
+"                <br/>\n"
+"                Seules nos Conditions générales d'achat s’appliquent,\n"
+"                nonobstant toute clause contraire qui est réputée non écrite.\n"
+"                Nous vous les adressons sur simple demande de votre part."
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Coordonnées bancaires</b>\n"
-"                            <br/>\n"
-"                        Crédit Agricole Anjou Maine\n"
-"                            <br/>\n"
-"                        IBAN : FR76 1790 6000 9096 4006 0735 182\n"
-"                            <br/>\n"
-"                        BIC : AGRIFRPP879\n"
-"                            <br/>"
+"                                <br/>\n"
+"                                Crédit Agricole Anjou Maine\n"
+"                                <br/>\n"
+"                                IBAN : FR76 1790 6000 9096 4006 0735 182\n"
+"                                <br/>\n"
+"                                BIC : AGRIFRPP879\n"
+"                                <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Coordonnées bancaires</b>\n"
+"                    <br/>\n"
+"                    Crédit Agricole Anjou Maine\n"
+"                    <br/>\n"
+"                    IBAN : FR76 1790 6000 9096 4006 0735 182\n"
+"                    <br/>\n"
+"                    BIC : AGRIFRPP879\n"
+"                    <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+msgid ""
+"<b>Informations légales</b>\n"
+"                                <br/>\n"
+"                                Atlantic Cool Components SAS\n"
+"                                <br/>\n"
+"                                au Saule\n"
+"                                <br/>\n"
+"                                46090 Villesèque - France\n"
+"                                <br/>\n"
+"                                TVA : FR40 881 790 893\n"
+"                                <br/>\n"
+"                                RCS Cahors : 881 790 893\n"
+"                                <br/>\n"
+"                                Siren : 881 790 893\n"
+"                                <br/>\n"
+"                                Capital : 20.000 €\n"
+"                                <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Informations légales</b>\n"
+"                    <br/>\n"
+"                    Atlantic Cool Components SAS\n"
+"                    <br/>\n"
+"                    au Saule\n"
+"                    <br/>\n"
+"                    46090 Villesèque - France\n"
+"                    <br/>\n"
+"                    TVA : FR40 881 790 893\n"
+"                    <br/>\n"
+"                    RCS Cahors : 881 790 893\n"
+"                    <br/>\n"
+"                    Siren : 881 790 893\n"
+"                    <br/>\n"
+"                    Capital : 20.000 €\n"
+"                    <br/>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Payment Conditions</b>\n"
-"                                    <br/>"
+"                                        <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Payment Conditions</b>\n"
+"                            <br/>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
 msgid ""
 "<b>Shipment</b>\n"
-"                                    <br/>\n"
-"                                CPT Icoterms 2020"
+"                                        <br/>\n"
+"                                        CPT Icoterms 2020"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<b>Shipment</b>\n"
+"                            <br/>\n"
+"                            CPT Icoterms 2020"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-msgid "<span name=\"report_type\">Quotation</span><br/>"
+msgid ""
+"<span name=\"report_type\">Quotation</span>\n"
+"                                            <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<span name=\"report_type\">Quotation</span>\n"
+"                                <br/>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-msgid "<span style=\"color:#FA7032\">Customer Reference</span><br/>"
+msgid ""
+"<span style=\"color:#FA7032\">Customer Reference</span>\n"
+"                                                    <br/>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid ""
+"<span style=\"color:#FA7032\">Customer Reference</span>\n"
+"                                        <br/>"
 msgstr ""
 
 #. module: acc_main
@@ -169,17 +251,30 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Customer:</strong>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Delivery Address:</strong>"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "<strong>Invoice Address:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<strong>Reference:</strong>"
+msgstr ""
+
+#. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<strong>Supplier:</strong>"
 msgstr ""
 
 #. module: acc_main
@@ -219,6 +314,11 @@ msgid "Created on"
 msgstr ""
 
 #. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_purchase_order__customer_ref
+msgid "Customer Ref"
+msgstr ""
+
+#. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_account_move__customer_reference
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__customer_reference
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
@@ -227,11 +327,13 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Date"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Delivery"
 msgstr ""
 
@@ -248,6 +350,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Description"
 msgstr ""
 
@@ -263,6 +366,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Established by"
 msgstr ""
 
@@ -277,7 +381,13 @@ msgid "ID"
 msgstr ""
 
 #. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "Internal Reference"
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Intrastat"
 msgstr ""
 
@@ -308,12 +418,18 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Lead Time"
 msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.master_template_report
 msgid "Master Template"
+msgstr ""
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.master_template_french
+msgid "Master Template French"
 msgstr ""
 
 #. module: acc_main
@@ -354,6 +470,7 @@ msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_purchaseorder_report
+#: model:ir.model,name:acc_main.model_purchase_order
 msgid "Purchase Order"
 msgstr ""
 
@@ -364,6 +481,7 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Quantity"
 msgstr ""
 
@@ -374,6 +492,11 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
+msgid "Quotation N°"
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
 msgid "Quotation °"
 msgstr ""
@@ -399,7 +522,13 @@ msgid "Standard Price"
 msgstr ""
 
 #. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "Supplier Ref."
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "TOTAL VAT incl."
 msgstr ""
 
@@ -410,26 +539,31 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total Weight"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Total excl VAT"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Unit Price"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Unit Weight"
 msgstr ""
 
@@ -440,20 +574,24 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "VAT 20%"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "VAT:"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "Validity"
 msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template_translatable
 msgid "days"
 msgstr ""
