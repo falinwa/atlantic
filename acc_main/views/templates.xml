@@ -186,7 +186,7 @@
                                             <span t-field="line.product_id.weight"/>
                                         </td>
                                         <td style="text-align:right" files="quot,so,po">
-                                            <span t-field="line.product_id.intrastat_id.code"/>
+                                            <span t-field="line.product_id.hs_code_id.local_code"/>
                                         </td>
                                         <td style="text-align:right" files="dn">
                                             <span t-field="line.price_subtotal"/>
@@ -629,7 +629,7 @@
                                 <span t-field="line.product_id.weight"/>
                             </td>
                             <td style="text-align:right" files="quot,so,po">
-                                <span t-field="line.product_id.intrastat_id.code"/>
+                                <span t-field="line.product_id.hs_code_id.local_code"/>
                             </td>
                             <td style="text-align:right" files="dn">
                                 <span t-field="line.price_subtotal"/>

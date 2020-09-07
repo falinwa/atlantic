@@ -3,14 +3,14 @@
 # * report_xlsx
 #
 # Translators:
-# OCA Transbot <transbot@odoo-community.org>, 2017
+# Nicolas JEUDY <njeudy@panda-chi.io>, 2018
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 10.0\n"
+"Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-31 03:52+0000\n"
-"PO-Revision-Date: 2017-05-31 03:52+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"POT-Creation-Date: 2018-01-05 17:53+0000\n"
+"PO-Revision-Date: 2018-01-05 17:53+0000\n"
+"Last-Translator: Nicolas JEUDY <njeudy@panda-chi.io>, 2018\n"
 "Language-Team: French (https://www.transifex.com/oca/teams/23907/fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -19,201 +19,89 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "&LHello &CWorld &R!!!"
-msgstr ""
+#: code:addons/report_xlsx/models/ir_report.py:0
+#, python-format
+msgid "%s model was not found"
+msgstr "model '%s' n'a pas été trouvé"
 
 #. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
+#. openerp-web
+#: code:addons/report_xlsx/static/src/js/report/action_manager_report.js:0
+#, python-format
 msgid ""
-"<i class=\"fa fa-info-circle\" aria-hidden=\"true\"/>\n"
-"                    If you select an image, you don't have to specify any "
-"image options (image_left, image_data_left, ...) but you need to add the "
-"control character <span style=\"background-color: #ebecec;\">&amp;G</span> "
-"in the value."
+"A popup window with your report was blocked. You may need to change your "
+"browser settings to allow popup windows for this page."
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "<i class=\"fa fa-info-circle\" aria-hidden=\"true\"/> Search in the"
+#: model:ir.model,name:report_xlsx.model_report_report_xlsx_abstract
+msgid "Abstract XLSX Report"
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_footer_report_ids
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_header_report_ids
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "Associated report(s)"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_create_uid
-msgid "Created by"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_create_date
-msgid "Created on"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_display_name
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_abstract__display_name
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_partner_xlsx__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nom"
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_center_name
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_left_name
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_right_name
-msgid "File Name"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_ir_act_report_xml_footer_id
-#: selection:report.xlsx.hf,hf_type:0
-msgid "Footer"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_ir_act_report_xml_header_id
-#: selection:report.xlsx.hf,hf_type:0
-msgid "Header"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.act_report_xml_view_inherit
-msgid "Header/Footer"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_id
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_abstract__id
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_partner_xlsx__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid ""
-"If you add the three images, the value must contain <span style=\"background-"
-"color: #ebecec;\">&amp;L&amp;G &amp;C&amp;G &amp;R&amp;G</span> or <span "
-"style=\"background-color: #ebecec;\">&amp;L&amp;[Picture] &amp;C&amp;"
-"[Picture] &amp;R&amp;[Picture]</span>."
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_center
-msgid "Image center"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_left
-msgid "Image left"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_image_right
-msgid "Image right"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "Images"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf___last_update
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_abstract____last_update
+#: model:ir.model.fields,field_description:report_xlsx.field_report_report_xlsx_partner_xlsx____last_update
 msgid "Last Modified on"
+msgstr "Dernière modification le"
+
+#. module: report_xlsx
+#: model:ir.model,name:report_xlsx.model_report_report_xlsx_partner_xlsx
+msgid "Partner XLSX Report"
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_write_uid
-msgid "Last Updated by"
+#: model:ir.actions.report,name:report_xlsx.partner_xlsx
+msgid "Print to XLSX"
+msgstr "Imprimer en XLSX"
+
+#. module: report_xlsx
+#: model:ir.model,name:report_xlsx.model_ir_actions_report
+msgid "Report Action"
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_write_date
-msgid "Last Updated on"
+#: model:ir.model.fields,field_description:report_xlsx.field_ir_actions_report__report_type
+msgid "Report Type"
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_name
-msgid "Name"
+#: model:ir.model.fields,help:report_xlsx.field_ir_actions_report__report_type
+msgid ""
+"The type of the report that will be rendered, each one having its own "
+"rendering method. HTML means the report will be opened directly in your "
+"browser PDF means the report will be rendered using Wkhtmltopdf and "
+"downloaded by the user."
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_manual_options
-msgid "Options"
-msgstr ""
-
-#. module: report_xlsx
-#: code:addons/report_xlsx/models/header_footer.py:44
+#. openerp-web
+#: code:addons/report_xlsx/static/src/js/report/action_manager_report.js:0
 #, python-format
-msgid ""
-"The Header/Footer is not configured "
-"properly.                                     Options must be a dictionary."
+msgid "Warning"
 msgstr ""
 
 #. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_hf_type
-msgid "Type"
+#: model:ir.model.fields.selection,name:report_xlsx.selection__ir_actions_report__report_type__xlsx
+msgid "XLSX"
 msgstr ""
 
-#. module: report_xlsx
-#: model:ir.model.fields,field_description:report_xlsx.field_report_xlsx_hf_value
-msgid "Value"
-msgstr ""
+#~ msgid "report.report_xlsx.partner_xlsx"
+#~ msgstr "report.report_xlsx.partner_xlsx"
 
-#. module: report_xlsx
-#: model:ir.actions.act_window,name:report_xlsx.report_xlsx_hf_action
-#: model:ir.ui.menu,name:report_xlsx.report_xlsx_hf_menu
-msgid "XLSX Header/Footer"
-msgstr ""
+#~ msgid "ir.actions.report"
+#~ msgstr "ir.actions.report"
 
-#. module: report_xlsx
-#: code:addons/report_xlsx/models/header_footer.py:58
-#, python-format
-msgid ""
-"You must specify the control character &C&G or                 &C&[Picture] "
-"in the \"Value\" when you add an \"Image center\".\n"
-msgstr ""
-
-#. module: report_xlsx
-#: code:addons/report_xlsx/models/header_footer.py:54
-#, python-format
-msgid ""
-"You must specify the control character &L&G or                 &L&[Picture] "
-"in the \"Value\" when you add an \"Image left\".\n"
-msgstr ""
-
-#. module: report_xlsx
-#: code:addons/report_xlsx/models/header_footer.py:62
-#, python-format
-msgid ""
-"You must specify the control character &R&G or                 &R&[Picture] "
-"in the \"Value\" when you add an \"Image right\".\n"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "documentation"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid ""
-"for set_header and set_footer to find the proper syntax to fill \"Value\" "
-"and \"Options\"."
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.model,name:report_xlsx.model_ir_actions_report_xml
-msgid "ir.actions.report.xml"
-msgstr "ir.actions.report.xml"
-
-#. module: report_xlsx
-#: model:ir.model,name:report_xlsx.model_report_xlsx_hf
-msgid "report.xlsx.hf"
-msgstr ""
-
-#. module: report_xlsx
-#: model:ir.ui.view,arch_db:report_xlsx.report_xlsx_hf_form
-msgid "{'margin': 0.3}"
-msgstr ""
+#~ msgid "report.report_xlsx.abstract"
+#~ msgstr "report.report_xlsx.abstract"

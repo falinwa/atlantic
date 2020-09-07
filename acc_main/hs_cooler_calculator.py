@@ -116,6 +116,11 @@ def hs_ocr(img):
         if "Type" in line or "Tipo" in line:
             name = line[4:]
             if not name_test(name):
+                index = max(name.rfind("-"), name.rfind("T"))
+                new_name = name[:index+1] + "L" + name[index+2:]
+                print(new_name)
+                if name_test(new_name):
+                    return new_name
                 raise Warning("Can't recognise product name. OCR recognised this name: '" + name + "' but is invalid.")
             else:
                 return name
