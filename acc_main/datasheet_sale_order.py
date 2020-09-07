@@ -8,13 +8,16 @@ import datetime
 log = logging.getLogger(__name__)
 from pdf2image import convert_from_bytes
 
+
 class DSSaleOrder(models.Model):
     _inherit = "sale.order"
 
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
-    activity_type = fields.Many2one("activity.type",required=True)
-    order_type = fields.Selection([("type01", "01 Compressors"),("type02","02 HS-Cooler"),("type03","03 SAV"),("type04","04 Divers"),("type05","05 HAP"),("type07","07 Cool Partners"),("type08", "08 Cabero")], 'Activity Type', required=True)
+    activity_type = fields.Many2one("activity.type", required=True)
+    order_type = fields.Selection(
+        [("type01", "01 Compressors"), ("type02", "02 HS-Cooler"), ("type03", "03 SAV"), ("type04", "04 Divers"),
+         ("type05", "05 HAP"), ("type07", "07 Cool Partners"), ("type08", "08 Cabero")], 'Activity Type', required=True)
     customer_reference = fields.Char("Customer Reference")
 
     @api.onchange('customer_reference')
@@ -42,7 +45,7 @@ class DSSaleOrder(models.Model):
         :return: None
         """
         if res_id:
-            self = self.env['sale.order'].search([('id','=',res_id)])
+            self = self.env['sale.order'].search([('id', '=', res_id)])
         for rec in self:
             if rec.datasheet or data:
                 if data:
@@ -59,27 +62,30 @@ class DSSaleOrder(models.Model):
                     rec.datasheet = None
                     raise Warning("Can't recognise datasheet. Please try again with another datasheet.")
                 price, weight = calculator(product_name)
-                if self.env['product.product'].search([('name','=',product_name)]):
+                if self.env['product.product'].search([('name', '=', product_name)]):
                     product = self.env['product.product'].search([('name', '=', product_name)])
-                    if round(product.lst_price) != round(price*2.052):
+                    if round(product.lst_price) != round(price * 2.052):
                         product.seller_ids[0].write({'price': price})
                         categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
-                        product.write({'lst_price': price*2.052,
+                        product.write({'lst_price': price * 2.052,
                                        'weight': weight,
                                        'categ_id': categ.id,
                                        })
                 else:
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
-                    intrastat_id = self.env['account.intrastat.code'].search([('code', '=', '84195080')])
+                    intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
                     supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
-                                                                        'price': price})
+                                                                        'price': price,
+                                                                        'delay': 56
+                                                                        })
                     product = self.env["product.product"].create({'name': product_name,
-                                                                  'lst_price': price*2.052,
+                                                                  'lst_price': price * 2.052,
                                                                   'weight': weight,
                                                                   'categ_id': categ.id,
                                                                   'seller_ids': [supplier.id],
-                                                                  'intrastat_id': intrastat_id.id,
+                                                                  'hs_code_id': intrastat_id.id,
+                                                                  'sale_delay': 7,
                                                                   })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
@@ -104,13 +110,13 @@ class DSSaleOrder(models.Model):
                 vals['name'] = self.env['ir.sequence'].next_by_code('sale.order', sequence_date=seq_date) or _('New')
         if vals['activity_type']:
             og_name = str(vals['name'])
-            activity_type = self.env['activity.type'].search([('id','=',vals['activity_type'])])
+            activity_type = self.env['activity.type'].search([('id', '=', vals['activity_type'])])
             vals['name'] = og_name[:7] + str(activity_type.code) + '.' + og_name[7:]
         result = super(DSSaleOrder, self).create(vals)
         if vals['datasheet']:
             result.add_product_datasheet()
         return result
-    
+
     def action_confirm(self):
         """
         Inheriting confirm function to customize sale order name
@@ -132,15 +138,16 @@ class DSSaleOrder(models.Model):
             if not new_order:
                 return {'warning': {'title': 'No Source Document',
                                     'message': "No source document could be found, please try again with another order."}}
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'purchase.view_order_form',
-                'res_model': 'purchase.order',
-                'res_id': new_order.id,
-                'view_type': 'form',
-                'view_mode': 'form',
-                'target': 'self',
-            }
+            else:
+                return {
+                    'type': 'ir.actions.act_window',
+                    'name': 'purchase.view_order_form',
+                    'res_model': 'purchase.order',
+                    'res_id': new_order.id,
+                    'view_type': 'form',
+                    'view_mode': 'form',
+                    'target': 'self',
+                }
         else:
             return {'warning': {'title': 'No Source Document',
                                 'message': "No source document could be found, please try again with another order."}}
@@ -156,7 +163,11 @@ class OrderLineInherit(models.Model):
     def create(self, vals):
         order = self.env['sale.order'].search([('id', '=', vals['order_id'])])
         order_date = order.date_order
-        lead_time = vals['customer_lead']
+        try:
+            lead_time = vals['customer_lead']
+        except KeyError:
+            product = self.env['product.product'].search([('id', '=', vals['product_id'])])
+            lead_time = product.sale_delay
         delivery_date = order_date + datetime.timedelta(lead_time)
         vals['delivery_date'] = delivery_date
         return super(OrderLineInherit, self).create(vals)
@@ -172,8 +183,7 @@ class InvoiceInherit(models.Model):
     @api.model
     def create(self, vals_list):
         result = super(InvoiceInherit, self).create(vals_list)
-        source = self.env['sale.order'].search([('name','=',result.invoice_origin)])
+        source = self.env['sale.order'].search([('name', '=', result.invoice_origin)])
         result.customer_reference = source.customer_reference
-        log.warning(result.customer_reference)
         result.partner_invoice_id = source.partner_invoice_id
         return result
