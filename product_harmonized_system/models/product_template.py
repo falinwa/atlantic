@@ -4,7 +4,7 @@
 # @author Luc de Meyer <info@noviat.com>
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class ProductTemplate(models.Model):
@@ -13,8 +13,7 @@ class ProductTemplate(models.Model):
     hs_code_id = fields.Many2one(
         "hs.code",
         string="H.S. Code",
-        company_dependent=True,
-        ondelete="restrict",
+        compute='_inherit_intrastat',
         help="Harmonised System Code. Nomenclature is "
         "available from the World Customs Organisation, see "
         "http://www.wcoomd.org/. You can leave this field empty "
@@ -25,6 +24,11 @@ class ProductTemplate(models.Model):
         string="Country of Origin",
         help="Country of origin of the product i.e. product " "'made in ____'.",
     )
+
+    @api.depends('categ_id.hs_code_id')
+    def _inherit_intrastat(self):
+        for rec in self:
+            rec.hs_code_id = rec.categ_id.hs_code_id
 
 
 class ProductProduct(models.Model):
