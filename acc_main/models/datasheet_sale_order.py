@@ -122,10 +122,15 @@ class DSSaleOrder(models.Model):
         Inheriting confirm function to customize sale order name
         """
         result = super(DSSaleOrder, self).action_confirm()
+        print(self.name)
         self.origin = self.name
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:10] + code
+        po = self.env['purchase.order'].search([("origin", "=", self.origin)])
+        if po:
+            print(po.name)
+            po.origin = name
         self.write({'name': name,
                     'customer_reference': False,
                     })
@@ -134,7 +139,7 @@ class DSSaleOrder(models.Model):
 
     def redirect_po(self):
         if self.origin:
-            new_order = self.env['purchase.order'].search([('origin', '=', self.origin)])
+            new_order = self.env['purchase.order'].search([('origin', '=', self.name)])
             if not new_order:
                 return {'warning': {'title': 'No Source Document',
                                     'message': "No source document could be found, please try again with another order."}}
