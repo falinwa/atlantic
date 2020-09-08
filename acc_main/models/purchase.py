@@ -1,7 +1,7 @@
 from odoo import fields, models, api
 
 
-class PurcaseOrderInherit(models.Model):
+class PurchaseOrderInherit(models.Model):
     _inherit = "purchase.order"
 
     customer_ref = fields.Char()
@@ -11,7 +11,7 @@ class PurcaseOrderInherit(models.Model):
         if vals['origin']:
             origin_id = self.env['sale.order'].search([("name", "=", vals['origin'])])
             vals['customer_ref'] = origin_id.customer_reference
-        return super(PurcaseOrderInherit, self).create(vals)
+        return super(PurchaseOrderInherit, self).create(vals)
 
 
 
