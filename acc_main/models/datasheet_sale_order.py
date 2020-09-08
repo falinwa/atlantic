@@ -1,7 +1,7 @@
 from odoo import models, fields, api, _
 from base64 import b64decode
 import logging
-from odoo.addons.acc_main.hs_cooler_calculator import hs_ocr, calculator
+from odoo.addons.acc_main.models.hs_cooler_calculator import hs_ocr, calculator
 from odoo.exceptions import Warning
 import datetime
 
