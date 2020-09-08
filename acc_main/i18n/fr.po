@@ -586,7 +586,7 @@ msgstr "Devis"
 #: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 #, fuzzy
 msgid "Quotation N°"
-msgstr "Devis °"
+msgstr "Devis N°"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
@@ -616,7 +616,7 @@ msgstr "Prix standard"
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
 msgid "Supplier Ref."
-msgstr "Fournisseur Ref."
+msgstr "Ref. Fournisseur"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
