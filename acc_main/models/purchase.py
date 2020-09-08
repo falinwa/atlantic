@@ -11,6 +11,7 @@ class PurchaseOrderInherit(models.Model):
         if vals['origin']:
             origin_id = self.env['sale.order'].search([("name", "=", vals['origin'])])
             vals['customer_ref'] = origin_id.customer_reference
+            vals['user_id'] = origin_id.user_id.id
         return super(PurchaseOrderInherit, self).create(vals)
 
 

@@ -19,7 +19,7 @@ msgstr ""
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_translate_french
-msgid "'Big Man'"
+msgid "'Template de Test'"
 msgstr "Test Template"
 
 #. module: acc_main
@@ -371,7 +371,7 @@ msgstr "<strong>Client:</strong>"
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
 #, fuzzy
 msgid "<strong>Supplier:</strong>"
-msgstr "<strong>Client:</strong>"
+msgstr "<strong>Fournisseur:</strong>"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__name
@@ -481,7 +481,7 @@ msgstr "ID"
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
 #, fuzzy
 msgid "Internal Reference"
-msgstr "Référence client"
+msgstr "Référence interne"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template

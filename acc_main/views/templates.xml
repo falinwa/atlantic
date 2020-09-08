@@ -35,7 +35,7 @@
                             }
                             .main_table td{
                             padding: 2px 10px;
-                            font-size: 12px;
+                            font-size: 15px;
                             color:#22518a;
                             }
                             .table_total{
@@ -132,7 +132,7 @@
                                         </i>
                                     </td>
                                     <t t-if="doc.origin">
-                                        <td>
+                                        <td style="white-space:nowrap">
                                             <span t-field="doc.origin"/>
                                         </td>
                                     </t>
@@ -523,7 +523,7 @@
                 <div style="float:left;margin-top:47px">
                     <table class="name_table" style="width:160px">
                         <tr>
-                            <th style="color:#FA7032;font-size:20px;text-align:center;height:90px">
+                            <th style="color:#FA7032;font-size:20px;text-align:center;height:90px;white-space:nowrap;">
                                 <span name="report_type">Quotation</span>
                                 <br/>
                                 <span style="color:#22518a" t-field="doc.name"/>
@@ -575,7 +575,7 @@
                             </i>
                         </td>
                         <t t-if="doc.origin">
-                            <td>
+                            <td style="white-space:nowrap">
                                 <span t-field="doc.origin"/>
                             </td>
                         </t>
