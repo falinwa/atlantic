@@ -72,9 +72,11 @@
                             <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                             <div class="bordered" style="float:right">
                                 <strong>Delivery Address:</strong>
-                                <div t-field="doc.partner_shipping_id.name"/>
-                                <div t-field="doc.partner_shipping_id"
-                                     t-options="{'widget':'contact','fields':['address','phone']}"/>
+                                <div>
+                                    <div t-field="doc.partner_shipping_id.name"/>
+                                    <div t-field="doc.partner_shipping_id"
+                                         t-options="{'widget':'contact','fields':['address','phone']}"/>
+                                </div>
                             </div>
                         </div>
                         <div style="margin-top:20px;margin-bottom:20px">
@@ -103,18 +105,22 @@
                             <div style="float:right">
                                 <div class="bordered" style="float:right">
                                     <strong>Customer:</strong>
-                                    <div t-field="doc.partner_id.name"/>
-                                    <div t-field="doc.partner_id"
-                                         t-options="{'widget':'contact','fields':['address']}"/>
-                                    VAT:
+                                    <div>
+                                        <div t-field="doc.partner_id.name"/>
+                                        <div t-field="doc.partner_id"
+                                             t-options="{'widget':'contact','fields':['address']}"/>
+                                        VAT:
 
-                                    <span t-field="doc.partner_id.vat"/>
+                                        <span t-field="doc.partner_id.vat"/>
+                                    </div>
                                 </div>
                                 <div class="bordered" style="float:right">
-                                    <strong>Invoice Address:</strong>
-                                    <div t-field="doc.partner_invoice_id.name"/>
-                                    <div t-field="doc.partner_invoice_id"
-                                         t-options="{'widget':'contact','fields':['address','email']}"/>
+                                    <div>
+                                        <strong>Invoice Address:</strong>
+                                        <div t-field="doc.partner_invoice_id.name"/>
+                                        <div t-field="doc.partner_invoice_id"
+                                             t-options="{'widget':'contact','fields':['address','email']}"/>
+                                    </div>
                                 </div>
                             </div>
                             <table class="date_table" style="margin-top:10px;float:right;">
@@ -131,7 +137,7 @@
                                         <span t-field="doc.user_id"/>
                                         <br/>
                                         <i>
-                                            <span t-field="user.email"/>
+                                            <span t-field="doc.user_id.email"/>
                                         </i>
                                     </td>
                                     <t t-if="doc.origin">
@@ -317,6 +323,9 @@
         <xpath expr="//*[contains(@files,'so')]" position="replace"/>
     </template>
     <template id="report_purchaseorder" inherit_id="acc_main.master_template" primary="True">
+        <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[2]/p" position="replace">
+            <p t-field="doc.date_approve" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/div[2]/div[1]/strong" position="replace">
             <strong>Supplier:</strong>
         </xpath>
@@ -328,7 +337,10 @@
             <span t-field="doc.customer_ref"/>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[1]/div/div" position="replace">
-            <div t-field="doc.dest_address_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+            <div>
+                <div t-field="doc.dest_address_id.name"/>
+                <div t-field="doc.dest_address_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+            </div>
         </xpath>
         <xpath expr="//span[@name='unitprice']" position="replace">
             <span t-field="line.price_unit"/>
@@ -347,7 +359,7 @@
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[1]" position="before">
             <t t-if="doc.partner_ref">
-                <td>
+                <td style="white-space:nowrap">
                     <span t-field="doc.partner_ref"/>
                 </td>
             </t>
@@ -367,7 +379,10 @@
             <span>Delivery Note</span>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[1]/div/div" position="replace">
-            <div t-field="doc.dest_address_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+            <div>
+                <div t-field="doc.dest_address_id.name"/>
+                <div t-field="doc.dest_address_id" t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+            </div>
         </xpath>
         <xpath expr="//span[@name='unitprice']" position="replace">
             <span t-field="line.price_unit"/>
