@@ -7,14 +7,16 @@ class AccountMoveInherit(models.Model):
 
     @api.model
     def create(self, vals):
-        print(vals['invoice_origin'])
+        journal = self.env['account.journal'].search([('id', '=', vals['journal_id'])])
+        if journal.name == 'Vendor Bills':
+            vals['ref'] = ""
+            vals['invoice_payment_ref'] = ""
         so = self.env['sale.order'].search([('name', '=', vals['invoice_origin'])])
         if so:
             vals['partner_shipping_id'] = so.partner_shipping_id
         else:
             po = self.env['purchase.order'].search([('name', '=', vals['invoice_origin'])])
             vals['partner_shipping_id'] = po.dest_address_id.id
-        print(vals['partner_shipping_id'])
         return super(AccountMoveInherit, self).create(vals)
 
     @api.model
