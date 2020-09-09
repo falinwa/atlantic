@@ -333,7 +333,7 @@
             <span>Purchase Order</span>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[1]/div/div" position="after">
-            <strong>Reference:</strong>
+            <strong>Customer Reference:</strong>
             <span t-field="doc.customer_ref"/>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[1]/div/div" position="replace">
@@ -355,7 +355,7 @@
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[1]/th[1]" position="before">
             <t t-if="doc.partner_ref">
-                <th>Supplier Ref.</th>
+                <th style="white-space:nowrap">Supplier Ref.</th>
             </t>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[1]" position="before">

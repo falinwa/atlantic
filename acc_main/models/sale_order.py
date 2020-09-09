@@ -23,8 +23,8 @@ class DSSaleOrder(models.Model):
     @api.onchange('customer_reference')
     def _sync_purchase_order(self):
         for rec in self:
-            if rec.state == 'sale' and rec.origin:
-                order = self.env['purchase.order'].search([('origin', '=', self.origin)])
+            if rec.state == 'sale':
+                order = self.env['purchase.order'].search([('origin', '=', self.name)])
                 if order:
                     order.write({'customer_ref': rec.customer_reference})
 
@@ -75,6 +75,9 @@ class DSSaleOrder(models.Model):
                     categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
                     vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
                     intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
+                    route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
+                    country = self.env['res.country'].search([('name', '=', 'Germany')])
+                    company = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
                     supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
                                                                         'price': price,
                                                                         'delay': 56
@@ -86,6 +89,8 @@ class DSSaleOrder(models.Model):
                                                                   'seller_ids': [supplier.id],
                                                                   'hs_code_id': intrastat_id.id,
                                                                   'sale_delay': 7,
+                                                                  'route_ids': [route.id],
+                                                                  'origin_country_id': country.id,
                                                                   })
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
@@ -151,7 +156,7 @@ class DSSaleOrder(models.Model):
                     'type': 'ir.actions.act_window',
                     'name': 'purchase.view_order_form',
                     'res_model': 'purchase.order',
-                    'res_id': new_order.id,
+                    'res_id': new_order[-1].id,
                     'view_type': 'form',
                     'view_mode': 'form',
                     'target': 'self',
