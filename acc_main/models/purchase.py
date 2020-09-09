@@ -1,4 +1,5 @@
 from odoo import fields, models, api
+import datetime
 
 
 class PurchaseOrderInherit(models.Model):
@@ -27,5 +28,7 @@ class PurchaseLineInherit(models.Model):
     @api.model
     def create(self, vals_list):
         result = super(PurchaseLineInherit, self).create(vals_list)
-        result.delivery_date = result.sale_line_id.delivery_date
+        customer_lead = datetime.timedelta(result.sale_line_id.customer_lead)
+        delivery_date =result.sale_line_id.delivery_date - customer_lead
+        result.delivery_date = delivery_date - customer_lead
         return result

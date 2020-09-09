@@ -4,9 +4,9 @@ import logging
 from odoo.addons.acc_main.models.hs_cooler_calculator import hs_ocr, calculator
 from odoo.exceptions import Warning
 import datetime
+from pdf2image import convert_from_bytes
 
 log = logging.getLogger(__name__)
-from pdf2image import convert_from_bytes
 
 
 class DSSaleOrder(models.Model):
@@ -119,17 +119,20 @@ class DSSaleOrder(models.Model):
 
     def action_confirm(self):
         """
-        Inheriting confirm function to customize sale order name
+        Inheriting confirm function to customize sale order name and add fields
         """
         result = super(DSSaleOrder, self).action_confirm()
-        print(self.name)
+
+        timediff = self.date_order.date() - self.create_date.date()
+        for line in self.order_line:
+            line.delivery_date = line.delivery_date + timediff
+
         self.origin = self.name
         name = self.name
         code = self.env['ir.sequence'].next_by_code('confirmed.sale')
         name = 'ARC' + name[3:10] + code
         po = self.env['purchase.order'].search([("origin", "=", self.origin)])
         if po:
-            print(po.name)
             po.origin = name
         self.write({'name': name,
                     'customer_reference': False,
@@ -163,18 +166,21 @@ class OrderLineInherit(models.Model):
     _name = "sale.order.line"
 
     delivery_date = fields.Date()
+    total_lead = fields.Integer()
 
     @api.model
     def create(self, vals):
         order = self.env['sale.order'].search([('id', '=', vals['order_id'])])
         order_date = order.date_order
+        product = self.env['product.product'].search([('id', '=', vals['product_id'])])
         try:
             lead_time = vals['customer_lead']
         except KeyError:
-            product = self.env['product.product'].search([('id', '=', vals['product_id'])])
             lead_time = product.sale_delay
-        delivery_date = order_date + datetime.timedelta(lead_time)
-        vals['delivery_date'] = delivery_date
+
+        supplier_delay = product.seller_ids[0].delay
+        vals['total_lead'] = lead_time + supplier_delay
+        vals['delivery_date'] = order_date + datetime.timedelta(vals['total_lead'])
         return super(OrderLineInherit, self).create(vals)
 
 
