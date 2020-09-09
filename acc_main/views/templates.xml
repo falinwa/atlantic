@@ -72,8 +72,9 @@
                             <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                             <div class="bordered" style="float:right">
                                 <strong>Delivery Address:</strong>
+                                <div t-field="doc.partner_shipping_id.name"/>
                                 <div t-field="doc.partner_shipping_id"
-                                     t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+                                     t-options="{'widget':'contact','fields':['address','phone']}"/>
                             </div>
                         </div>
                         <div style="margin-top:20px;margin-bottom:20px">
@@ -102,16 +103,18 @@
                             <div style="float:right">
                                 <div class="bordered" style="float:right">
                                     <strong>Customer:</strong>
+                                    <div t-field="doc.partner_id.name"/>
                                     <div t-field="doc.partner_id"
-                                         t-options="{'widget':'contact','fields':['name','address']}"/>
+                                         t-options="{'widget':'contact','fields':['address']}"/>
                                     VAT:
 
                                     <span t-field="doc.partner_id.vat"/>
                                 </div>
                                 <div class="bordered" style="float:right">
                                     <strong>Invoice Address:</strong>
+                                    <div t-field="doc.partner_invoice_id.name"/>
                                     <div t-field="doc.partner_invoice_id"
-                                         t-options="{'widget':'contact','fields':['name','address','email']}"/>
+                                         t-options="{'widget':'contact','fields':['address','email']}"/>
                                 </div>
                             </div>
                             <table class="date_table" style="margin-top:10px;float:right;">
