@@ -28,7 +28,7 @@ class PurchaseLineInherit(models.Model):
     @api.model
     def create(self, vals_list):
         result = super(PurchaseLineInherit, self).create(vals_list)
-        customer_lead = datetime.timedelta(result.sale_line_id.customer_lead)
+        customer_lead = datetime.timedelta(result.sale_line_id.product_id.sale_delay)
         delivery_date =result.sale_line_id.delivery_date - customer_lead
         result.delivery_date = delivery_date - customer_lead
         return result

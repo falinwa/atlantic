@@ -175,7 +175,7 @@
                                     </td>
                                     <t t-if="line.display_type != 'line_note'">
                                         <td style="text-align:right" files="so,po,dn,inv">
-                                            <span t-esc="round(line.customer_lead)"/>
+                                            <span t-esc="round(line.total_lead)"/>
                                             days
                                         </td>
                                         <td style="text-align:right" files="quot,dn,inv">
@@ -340,7 +340,7 @@
             <div>
                 <div t-field="doc.dest_address_id.name"/>
                 <div t-field="doc.dest_address_id"
-                     t-options="{'widget':'contact','fields':['name','address','phone']}"/>
+                     t-options="{'widget':'contact','fields':['address','phone']}"/>
             </div>
         </xpath>
         <xpath expr="//span[@name='unitprice']" position="replace">
@@ -408,13 +408,22 @@
         <xpath expr="//*[contains(@files,'dn')]" position="replace"/>
     </template>
     <template id="report_invoice" inherit_id="acc_main.master_template" primary="True">
+        <xpath expr="/t/t/t/t/div[1]/div[2]/div[2]/div[1]/div" position="replace">
+            <div>
+                <div t-field="doc.saleorder_id.partner_id.name"/>
+                <div t-field="doc.saleorder_id.partner_id"
+                     t-options="{'widget':'contact','fields':['address']}"/>
+                VAT:
+                <span t-field="doc.saleorder_id.partner_id.vat"/>
+            </div>
+        </xpath>
         <xpath expr="//span[@name='report_type']" position='replace'>
             <span>Invoice</span>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/div[2]/div[2]/div" position="replace">
             <div>
-                <div t-field="doc.so_invoice_id.name"/>
-                <div t-field="doc.so_invoice_id"
+                <div t-field="doc.saleorder_id.partner_invoice_id.name"/>
+                <div t-field="doc.saleorder_id.partner_invoice_id"
                      t-options="{'widget':'contact','fields':['address']}"/>
             </div>
         </xpath>

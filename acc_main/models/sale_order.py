@@ -77,7 +77,6 @@ class DSSaleOrder(models.Model):
                     intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
                     route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
                     country = self.env['res.country'].search([('name', '=', 'Germany')])
-                    company = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
                     supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
                                                                         'price': price,
                                                                         'delay': 56
