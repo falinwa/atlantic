@@ -62,40 +62,44 @@ class DSSaleOrder(models.Model):
                     rec.datasheet = None
                     raise Warning("Can't recognise datasheet. Please try again with another datasheet.")
                 price, weight = calculator(product_name)
-                if self.env['product.product'].search([('name', '=', product_name)]):
-                    product = self.env['product.product'].search([('name', '=', product_name)])
-                    if round(product.lst_price) != round(price * 2.052):
-                        product.seller_ids[0].write({'price': price})
-                        categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
-                        product.write({'lst_price': price * 2.052,
-                                       'weight': weight,
-                                       'categ_id': categ.id,
-                                       })
+                product = self.env['product.product'].search([('name', '=', product_name)])
+                product_exists = bool(product)
+
+                categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
+                vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
+                intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
+                route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
+                country = self.env['res.country'].search([('name', '=', 'Germany')])
+                company_id = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
+                supplierinfo_args = {'name': vendor.id,
+                                     'price': price,
+                                     'delay': 56
+                                     }
+                product_args = {'name': product_name,
+                                'lst_price': price * 2.052,
+                                'weight': weight,
+                                'categ_id': categ.id,
+                                'hs_code_id': intrastat_id.id,
+                                'sale_delay': 7,
+                                'route_ids': [route.id],
+                                'origin_country_id': country.id,
+                                'company_id': company_id.id
+                                }
+
+                if product_exists:
+                    supplierinfo = product.seller_ids[0]
+                    supplierinfo.write(supplierinfo_args)
+                    product.write(product_args)
                 else:
-                    categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
-                    vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
-                    intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
-                    route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
-                    country = self.env['res.country'].search([('name', '=', 'Germany')])
-                    supplier = self.env['product.supplierinfo'].create({'name': vendor.id,
-                                                                        'price': price,
-                                                                        'delay': 56
-                                                                        })
-                    product = self.env["product.product"].create({'name': product_name,
-                                                                  'lst_price': price * 2.052,
-                                                                  'weight': weight,
-                                                                  'categ_id': categ.id,
-                                                                  'seller_ids': [supplier.id],
-                                                                  'hs_code_id': intrastat_id.id,
-                                                                  'sale_delay': 7,
-                                                                  'route_ids': [route.id],
-                                                                  'origin_country_id': country.id,
-                                                                  })
+                    supplier = self.env['product.supplierinfo'].create(supplierinfo_args)
+                    product_args['seller_ids'] = [supplier.id]
+                    product = self.env["product.product"].create(product_args)
                 if rec._origin.id:
                     self.env['sale.order.line'].create({'order_id': rec._origin.id,
                                                         'product_uom_qty': 1,
                                                         'product_id': product.id
                                                         })
+                    self.env.cr.commit()
                     rec.datasheet = None
 
     @api.model
