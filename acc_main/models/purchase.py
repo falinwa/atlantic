@@ -16,8 +16,6 @@ class PurchaseOrderInherit(models.Model):
         return super(PurchaseOrderInherit, self).create(vals)
 
 
-
-
 class PurchaseLineInherit(models.Model):
     _name = "purchase.order.line"
     _inherit = "purchase.order.line"
