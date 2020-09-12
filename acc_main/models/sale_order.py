@@ -188,9 +188,10 @@ class OrderLineInherit(models.Model):
         except KeyError:
             lead_time = product.sale_delay
 
-        supplier_delay = product.seller_ids[0].delay
-        vals['total_lead'] = lead_time + supplier_delay
-        vals['delivery_date'] = order_date + datetime.timedelta(vals['total_lead'])
+        if product.seller_ids:
+            supplier_delay = product.seller_ids[0].delay
+            vals['total_lead'] = lead_time + supplier_delay
+            vals['delivery_date'] = order_date + datetime.timedelta(vals['total_lead'])
         return super(OrderLineInherit, self).create(vals)
 
 
