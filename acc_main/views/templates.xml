@@ -127,7 +127,7 @@
                                 <tr>
                                     <th>Established by</th>
                                     <t t-if="doc.origin">
-                                        <th>Quotation N°</th>
+                                        <th>Internal Reference</th>
                                     </t>
                                     <th>Date</th>
                                     <th files="po,inv,dn,so">Validity</th>
@@ -429,7 +429,7 @@
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[1]/t" position="replace">
             <t t-if="doc.invoice_origin">
-                <th style="width:20%">Quotation N°</th>
+                <th style="width:20%">Internal Reference</th>
             </t>
         </xpath>
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/t" position="replace">
@@ -597,7 +597,7 @@
                     <tr>
                         <th>Established by</th>
                         <t t-if="doc.origin">
-                            <th>Quotation N°</th>
+                            <th>Internal Reference</th>
                         </t>
                         <th>Date</th>
                         <th files="po,inv,dn,so">Validity</th>
