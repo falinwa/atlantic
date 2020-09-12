@@ -69,6 +69,8 @@ class DSSaleOrder(models.Model):
                 vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
                 intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
                 route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
+                if not route:
+                    route = self.env['stock.location.route'].search([('id', '=', 9)])
                 country = self.env['res.country'].search([('name', '=', 'Germany')])
                 company_id = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
                 supplierinfo_args = {'name': vendor.id,
