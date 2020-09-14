@@ -1,4 +1,4 @@
-from odoo import fields, models, api
+from odoo import fields, models, api, _
 import datetime
 
 class PurchaseOrderInherit(models.Model):
@@ -13,6 +13,8 @@ class PurchaseOrderInherit(models.Model):
             vals['customer_ref'] = origin_id.customer_reference
             vals['user_id'] = origin_id.user_id.id
             vals['dest_address_id'] = origin_id.partner_shipping_id.id
+        sofie_id = self.env['res.users'].search([('name', '=', 'Sofie Yserbyt')])
+        vals['user_id'] = sofie_id.id
         return super(PurchaseOrderInherit, self).create(vals)
 
 
