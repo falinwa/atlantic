@@ -81,7 +81,7 @@
                         </div>
                         <div style="margin-top:20px;margin-bottom:20px">
                             <div style="float:left;margin-top:47px">
-                                <table class="name_table" style="width:160px;max-width:200px;">
+                                <table class="name_table" style="width:250px;">
                                     <tr>
                                         <th style="color:#FA7032;font-size:20px;text-align:center;height:90px">
                                             <span name="report_type">Quotation</span>
@@ -92,7 +92,7 @@
                                     <t name="cust_ref">
                                         <t t-if="doc.customer_reference">
                                             <tr>
-                                                <th style="height:88px;text-align:center;">
+                                                <th style="height:88px;text-align:center;word-break: break-all;">
                                                     <span style="color:#FA7032">Customer Reference</span>
                                                     <br/>
                                                     <span t-field="doc.customer_reference"/>
