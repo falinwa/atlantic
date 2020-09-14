@@ -135,7 +135,8 @@ class DSSaleOrder(models.Model):
 
         timediff = self.date_order.date() - self.create_date.date()
         for line in self.order_line:
-            line.delivery_date = line.delivery_date + timediff
+            if line.delivery_date:
+                line.delivery_date = line.delivery_date + timediff
 
         self.origin = self.name
         name = self.name
