@@ -92,7 +92,7 @@
                                     <t name="cust_ref">
                                         <t t-if="doc.customer_reference">
                                             <tr>
-                                                <th style="height:88px;text-align:center;white-space:nowrap">
+                                                <th style="height:88px;text-align:center;">
                                                     <span style="color:#FA7032">Customer Reference</span>
                                                     <br/>
                                                     <span t-field="doc.customer_reference"/>
