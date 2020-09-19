@@ -15,10 +15,20 @@ class DSSaleOrder(models.Model):
     datasheet = fields.Binary("Upload Datasheet")
     datasheet_name = fields.Char("File name")
     activity_type = fields.Many2one("activity.type", required=True)
+    delivery_date = fields.Date(compute="_so_delivery_date")
     order_type = fields.Selection(
         [("type01", "01 Compressors"), ("type02", "02 HS-Cooler"), ("type03", "03 SAV"), ("type04", "04 Divers"),
          ("type05", "05 HAP"), ("type07", "07 Cool Partners"), ("type08", "08 Cabero")], 'Activity Type', required=True)
     customer_reference = fields.Char("Customer Reference")
+
+    @api.depends('order_line.delivery_date')
+    def _so_delivery_date(self):
+        for order in self:
+            min_date = None
+            for line in order.order_line:
+                if line.delivery_date and (min_date is None or line.delivery_date < min_date):
+                    min_date = line.delivery_date
+            order.delivery_date = min_date
 
     @api.onchange('customer_reference')
     def _sync_purchase_order(self):
