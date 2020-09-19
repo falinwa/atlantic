@@ -1,7 +1,6 @@
 import pandas as pd
 import re
 import pytesseract
-#from odoo.exceptions import Warning
 
 
 def calculator(name):
@@ -144,4 +143,3 @@ def name_test(name):
 
 ### Tests ###
 assert calculator("KS12-FEL-823TL3000")[0] == 2580.4
-print(calculator("KW25-AEP-423-L1800"))
