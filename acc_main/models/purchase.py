@@ -5,6 +5,7 @@ class PurchaseOrderInherit(models.Model):
     _inherit = "purchase.order"
 
     customer_ref = fields.Char()
+    delivery_date = fields.Date(compute="_po_delivery_date")
 
     @api.model
     def create(self, vals):
@@ -16,6 +17,15 @@ class PurchaseOrderInherit(models.Model):
         sofie_id = self.env['res.users'].search([('name', '=', 'Sofie Yserbyt')])
         vals['user_id'] = sofie_id.id
         return super(PurchaseOrderInherit, self).create(vals)
+
+    @api.depends('order_line.delivery_date')
+    def _po_delivery_date(self):
+        for order in self:
+            min_date = None
+            for line in order.order_line:
+                if line.delivery_date and (min_date is None or line.delivery_date < min_date):
+                    min_date = line.delivery_date
+            order.delivery_date = min_date
 
 
 class PurchaseLineInherit(models.Model):
