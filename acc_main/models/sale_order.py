@@ -21,16 +21,7 @@ class DSSaleOrder(models.Model):
          ("type05", "05 HAP"), ("type07", "07 Cool Partners"), ("type08", "08 Cabero")], 'Activity Type', required=True)
     customer_reference = fields.Char("Customer Reference")
     purchase_order_ref = fields.Many2one("purchase.order")
-
-    @api.onchange('state')
-    def _set_po_ref(self):
-        for order in self:
-            if order.state == 'sale':
-                po = self.env['purchase.order'].search([("origin", "=", order.name)])
-                if not po:
-                    po = self.env['purchase.order'].search([("origin", "=", order.origin)])
-                if po:
-                    order.purchase_order_ref = po[0].id
+    supp_order_conf = fields.Boolean(related="purchase_order_ref.supp_order_conf")
 
     @api.depends('order_line.delivery_date')
     def _so_delivery_date(self):
@@ -166,8 +157,11 @@ class DSSaleOrder(models.Model):
         po = self.env['purchase.order'].search([("origin", "=", self.origin)])
         if po:
             po.origin = name
+        else:
+            po = [False]
         self.write({'name': name,
                     'customer_reference': False,
+                    'purchase_order_ref': po[-1].id
                     })
 
         return result
