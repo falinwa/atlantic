@@ -444,21 +444,22 @@
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[2]/td[2]/p" position="attributes">
             <attribute name="t-field">doc.date</attribute>
         </xpath>
-        <xpath expr="/t/t/t/t/div[2]/table/t" position="attributes">
+        <xpath expr="/t/t/t/t/div[1]/div[3]/table/t" position="attributes">
             <attribute name="t-foreach">doc.invoice_line_ids</attribute>
         </xpath>
-        <xpath expr="/t/t/t/t/div[3]/div[1]/table/tr[1]/td/span" position="attributes">
+        <xpath expr="/t/t/t/t/div[1]/div[4]/div[1]/table/tr[1]/td/span" position="attributes">
             <attribute name="t-field">doc.invoice_payment_term_id</attribute>
         </xpath>
-        <xpath expr="/t/t/t/t/div[2]/table/t/tr/t/td[4]/span" position="attributes">
+        <xpath expr="/t/t/t/t/div[1]/div[3]/table/t/tr/t/td[4]/span" position="attributes">
             <attribute name="t-field">line.quantity</attribute>
         </xpath>
         <xpath expr="//span[@name='unitprice']" position="attributes">
             <attribute name="t-options">{'widget': 'monetary', 'display_currency': doc.currency_id}</attribute>
         </xpath>
-        <xpath expr="/t/t/t/t/div[2]/table/t/tr/t/td[5]/t" position="attributes">
+        <xpath expr="/t/t/t/t/div[1]/div[3]/table/t/tr/t/td[5]/t" position="attributes">
             <attribute name="t-value">total_weight+line.product_id.weight*line.quantity</attribute>
         </xpath>
+        <!--
         <xpath expr="/t/t/t/t/div[1]/div[2]/table/tr[1]/th[3]" position="after">
             <th>Due Date</th>
         </xpath>
@@ -466,7 +467,7 @@
             <td>
                 <span t-field="doc.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
             </td>
-        </xpath>
+        </xpath>-->
         <xpath expr="//*[contains(@files,'inv')]" position="replace"/>
         <xpath expr="//*[contains(@files,'inv')]" position="replace"/>
         <xpath expr="//*[contains(@files,'inv')]" position="replace"/>
