@@ -1,11 +1,13 @@
-from odoo import fields, models, api, _
+from odoo import fields, models, api
 import datetime
+
 
 class PurchaseOrderInherit(models.Model):
     _inherit = "purchase.order"
 
     customer_ref = fields.Char()
     delivery_date = fields.Date(compute="_po_delivery_date")
+    supp_order_conf = fields.Boolean("Supplier Order Confirmed")
 
     @api.model
     def create(self, vals):
