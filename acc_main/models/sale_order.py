@@ -85,7 +85,8 @@ class DSSaleOrder(models.Model):
                                 'sale_delay': 7,
                                 'route_ids': [route.id],
                                 'origin_country_id': country.id,
-                                'company_id': company_id.id
+                                'company_id': company_id.id,
+                                'type': 'product',
                                 }
 
                 if product_exists:
