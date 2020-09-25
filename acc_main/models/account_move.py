@@ -14,7 +14,10 @@ class AccountMoveInherit(models.Model):
             vals['ref'] = ""
             vals['invoice_payment_ref'] = ""
 
-        so = self.env['sale.order'].search([('name', '=', vals['invoice_origin'])])
+        try:
+            so = self.env['sale.order'].search([('name', '=', vals['invoice_origin'])])
+        except KeyError:
+            so = None
         if so:
             vals['saleorder_id'] = so.id
             vals['partner_shipping_id'] = so.partner_shipping_id
