@@ -63,14 +63,24 @@
                 print_report_name="'Invoice - %s' % (object.name)"
         />
         <report
-                id="acc_translate_french"
-                string="Translatable Master French"
+                id="acc_invoice_report_atlantic"
+                string="Invoice Atlantic"
+                model="account.move"
+                report_type="qweb-pdf"
+                file="acc_main.report_invoice_atlantic"
+                name="acc_main.report_invoice_atlantic"
+                attachment_use="False"
+                print_report_name="'Invoice - %s' % (object.name)"
+        />
+        <report
+                id="master_template_atlantic"
+                string="Master Template Atlantic"
                 model="sale.order"
                 report_type="qweb-pdf"
-                file="acc_main.master_french"
-                name="acc_main.master_french"
+                file="acc_main.master_template_atlantic"
+                name="acc_main.master_template_atlantic"
                 attachment_use="False"
-                print_report_name="'Translated Master'"
+                print_report_name="'Master Atlantic'"
         />
     </data>
 </odoo>
