@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-06 11:42+0000\n"
-"PO-Revision-Date: 2020-09-06 12:11+0000\n"
+"POT-Creation-Date: 2020-09-27 15:01+0000\n"
+"PO-Revision-Date: 2020-09-27 15:12+0000\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,19 +18,20 @@ msgstr ""
 "Language: fr\n"
 
 #. module: acc_main
-#: model:ir.actions.report,print_report_name:acc_main.acc_translate_french
-msgid "'Template de Test'"
-msgstr "Test Template"
-
-#. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_deliverynote_report
 msgid "'Delivery Note - %s' % (object.name)"
 msgstr "'Bon de livraison - %s' (object.name)"
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report
+#: model:ir.actions.report,print_report_name:acc_main.acc_invoice_report_atlantic
 msgid "'Invoice - %s' % (object.name)"
 msgstr "'Facture - %s' % (object.name)"
+
+#. module: acc_main
+#: model:ir.actions.report,print_report_name:acc_main.master_template_atlantic
+msgid "'Master Atlantic'"
+msgstr "'Master Atlantic'"
 
 #. module: acc_main
 #: model:ir.actions.report,print_report_name:acc_main.master_template_report
@@ -89,7 +90,6 @@ msgstr "08 Cabero"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<b>Conditions d'Achat</b>\n"
 "                            <br/>\n"
@@ -109,27 +109,7 @@ msgstr ""
 "part."
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<b>Conditions d'Achat</b>\n"
-"                <br/>\n"
-"                Seules nos Conditions générales d'achat s’appliquent,\n"
-"                nonobstant toute clause contraire qui est réputée non "
-"écrite.\n"
-"                Nous vous les adressons sur simple demande de votre part."
-msgstr ""
-"<b>Conditions d'Achat</b>\n"
-"                        <br/>\n"
-"                    Seules nos Conditions générales d'achat s’appliquent,\n"
-"                    nonobstant toute clause contraire qui est réputée non "
-"écrite.\n"
-"                    Nous vous les adressons sur simple demande de votre "
-"part."
-
-#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<b>Coordonnées bancaires</b>\n"
 "                                <br/>\n"
@@ -150,30 +130,7 @@ msgstr ""
 "                            <br/>"
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<b>Coordonnées bancaires</b>\n"
-"                    <br/>\n"
-"                    Crédit Agricole Anjou Maine\n"
-"                    <br/>\n"
-"                    IBAN : FR76 1790 6000 9096 4006 0735 182\n"
-"                    <br/>\n"
-"                    BIC : AGRIFRPP879\n"
-"                    <br/>"
-msgstr ""
-"<b>Coordonnées bancaires</b>\n"
-"                            <br/>\n"
-"                        Crédit Agricole Anjou Maine\n"
-"                            <br/>\n"
-"                        IBAN : FR76 1790 6000 9096 4006 0735 182\n"
-"                            <br/>\n"
-"                        BIC : AGRIFRPP879\n"
-"                            <br/>"
-
-#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<b>Informations légales</b>\n"
 "                                <br/>\n"
@@ -210,82 +167,20 @@ msgstr ""
 "                            <br/>"
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<b>Informations légales</b>\n"
-"                    <br/>\n"
-"                    Atlantic Cool Components SAS\n"
-"                    <br/>\n"
-"                    au Saule\n"
-"                    <br/>\n"
-"                    46090 Villesèque - France\n"
-"                    <br/>\n"
-"                    TVA : FR40 881 790 893\n"
-"                    <br/>\n"
-"                    RCS Cahors : 881 790 893\n"
-"                    <br/>\n"
-"                    Siren : 881 790 893\n"
-"                    <br/>\n"
-"                    Capital : 20.000 €\n"
-"                    <br/>"
-msgstr ""
-"<b>\tInformations légales</b>\n"
-"                            <br/>\n"
-"                        Atlantic Cool Components SAS\n"
-"                            <br/>\n"
-"                        au Saule\n"
-"                            <br/>\n"
-"                        46090 Villesèque - France\n"
-"                            <br/>\n"
-"                        TVA : FR40 881 790 893\n"
-"                            <br/>\n"
-"                        RCS Cahors : 881 790 893\n"
-"                            <br/>\n"
-"                        Siren : 881 790 893\n"
-"                            <br/>\n"
-"                        Capital : 20.000 €\n"
-"                            <br/>"
-
-#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<b>Payment Conditions</b>\n"
-"                                        <br/>"
+"                                            <br/>"
 msgstr ""
-"<b>Conditions de règlement</b>\n"
-"                                    <br/>"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<b>Payment Conditions</b>\n"
-"                            <br/>"
-msgstr ""
-"<b>Conditions de règlement</b>\n"
+"<b>Conditions de  paiement</b>\n"
 "                                    <br/>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<b>Shipment</b>\n"
-"                                        <br/>\n"
-"                                        CPT Icoterms 2020"
-msgstr ""
-"<b>Expédition</b>\n"
-"                                    <br/>\n"
-"                                CPT Icoterms 2020"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<b>Shipment</b>\n"
-"                            <br/>\n"
-"                            CPT Icoterms 2020"
+"                                            <br/>\n"
+"                                            CPT Icoterms 2020"
 msgstr ""
 "<b>Expédition</b>\n"
 "                                    <br/>\n"
@@ -293,34 +188,16 @@ msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<span name=\"report_type\">Quotation</span>\n"
 "                                            <br/>"
 msgstr "<span name=\"report_type\">Devis</span><br/>"
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<span name=\"report_type\">Quotation</span>\n"
-"                                <br/>"
-msgstr "<span name=\"report_type\">Devis</span><br/>"
-
-#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#, fuzzy
 msgid ""
 "<span style=\"color:#FA7032\">Customer Reference</span>\n"
 "                                                    <br/>"
-msgstr "<span style=\"color:#FA7032\">Référence client</span><br/>"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid ""
-"<span style=\"color:#FA7032\">Customer Reference</span>\n"
-"                                        <br/>"
 msgstr "<span style=\"color:#FA7032\">Référence client</span><br/>"
 
 #. module: acc_main
@@ -330,6 +207,7 @@ msgstr "<span>Bon de livraison</span>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice_atlantic
 msgid "<span>Invoice</span>"
 msgstr "<span>Facture</span>"
 
@@ -344,32 +222,27 @@ msgid "<span>Sale Order</span>"
 msgstr "<span>Commande</span>"
 
 #. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
+msgid "<strong>Customer Reference:</strong>"
+msgstr "<strong>Référence Client:</strong>"
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Customer:</strong>"
 msgstr "<strong>Client:</strong>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Delivery Address:</strong>"
 msgstr "<strong>Adresse de livraison:</strong>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "<strong>Invoice Address:</strong>"
 msgstr "<strong>Adresse de facturation:</strong>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
-#, fuzzy
-msgid "<strong>Reference:</strong>"
-msgstr "<strong>Client:</strong>"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
-#, fuzzy
 msgid "<strong>Supplier:</strong>"
 msgstr "<strong>Fournisseur:</strong>"
 
@@ -411,9 +284,8 @@ msgstr "Créé le"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_purchase_order__customer_ref
-#, fuzzy
 msgid "Customer Ref"
-msgstr "<strong>Client:</strong>"
+msgstr "Client Ref."
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_account_move__customer_reference
@@ -424,18 +296,18 @@ msgstr "Référence client"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Date"
 msgstr "Date"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Delivery"
 msgstr "Livraison"
 
 #. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_purchase_order__delivery_date
 #: model:ir.model.fields,field_description:acc_main.field_purchase_order_line__delivery_date
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__delivery_date
 #: model:ir.model.fields,field_description:acc_main.field_sale_order_line__delivery_date
 msgid "Delivery Date"
 msgstr "Date de livraison"
@@ -447,7 +319,6 @@ msgstr "Bon de livraison"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Description"
 msgstr "Description"
 
@@ -457,13 +328,7 @@ msgid "Display Name"
 msgstr "Nom affiché"
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
-msgid "Due Date"
-msgstr "Echéance"
-
-#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Established by"
 msgstr "Etabli par"
 
@@ -478,14 +343,15 @@ msgid "ID"
 msgstr "ID"
 
 #. module: acc_main
+#: model_terms:ir.ui.view,arch_db:acc_main.master_template
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice_atlantic
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
-#, fuzzy
 msgid "Internal Reference"
 msgstr "Référence interne"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Intrastat"
 msgstr "Intrastat"
 
@@ -493,6 +359,11 @@ msgstr "Intrastat"
 #: model:ir.actions.report,name:acc_main.acc_invoice_report
 msgid "Invoice"
 msgstr "Facture"
+
+#. module: acc_main
+#: model:ir.actions.report,name:acc_main.acc_invoice_report_atlantic
+msgid "Invoice Atlantic"
+msgstr "Facture Atlantic"
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_account_move
@@ -516,7 +387,6 @@ msgstr "Dernière mise à jour le"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Lead Time"
 msgstr "Délai"
 
@@ -526,7 +396,13 @@ msgid "Master Template"
 msgstr "Master Template"
 
 #. module: acc_main
-#: code:addons/acc_main/datasheet_sale_order.py:0
+#: model:ir.actions.report,name:acc_main.master_template_atlantic
+msgid "Master Template Atlantic"
+msgstr "Master Template Atlantic"
+
+#. module: acc_main
+#: code:addons/acc_main/models/datasheet_sale_order.py:0
+#: code:addons/acc_main/models/sale_order.py:0
 #, python-format
 msgid "New"
 msgstr "Nouveau"
@@ -571,8 +447,17 @@ msgid "Purchase Order Line"
 msgstr "Ligne de commande"
 
 #. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__purchase_order_ref
+msgid "Purchase Order Ref"
+msgstr "Bon de Commande Ref"
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_account_move__purchaseorder_id
+msgid "Purchaseorder"
+msgstr ""
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Quantity"
 msgstr "Quantité"
 
@@ -582,21 +467,14 @@ msgid "Quotation"
 msgstr "Devis"
 
 #. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
-#, fuzzy
-msgid "Quotation N°"
-msgstr "Devis N°"
-
-#. module: acc_main
-#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
-msgid "Quotation °"
-msgstr "Devis °"
-
-#. module: acc_main
 #: model:ir.actions.report,name:acc_main.acc_saleorder_report
 msgid "Sale Order"
 msgstr "Commande"
+
+#. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_account_move__saleorder_id
+msgid "Saleorder"
+msgstr ""
 
 #. module: acc_main
 #: model:ir.model,name:acc_main.model_sale_order
@@ -614,54 +492,58 @@ msgid "Standard Price"
 msgstr "Prix standard"
 
 #. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_purchase_order__supp_order_conf
+#: model:ir.model.fields,field_description:acc_main.field_sale_order__supp_order_conf
+msgid "Supplier Order Confirmed"
+msgstr "CF confirmé"
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder
 msgid "Supplier Ref."
-msgstr "Ref. Fournisseur"
+msgstr "Fournisseur Ref."
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "TOTAL VAT incl."
 msgstr "TOTAL incl TVA"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
 msgid "To Purchase Order"
-msgstr "vers Bon de Commande"
+msgstr "Vers Bon de Commande"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total"
 msgstr "Total"
 
 #. module: acc_main
+#: model:ir.model.fields,field_description:acc_main.field_sale_order_line__total_lead
+msgid "Total Lead"
+msgstr "Délai total"
+
+#. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total Weight"
 msgstr "Poids total"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Total excl VAT"
 msgstr "Total excl TVA"
 
 #. module: acc_main
-#: model:ir.actions.report,name:acc_main.acc_translate_french
-#, fuzzy
-msgid "Translatable Master French"
-msgstr "'Master Template'"
+#: model:ir.model,name:acc_main.model_stock_picking
+msgid "Transfer"
+msgstr ""
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Unit Price"
 msgstr "Prix unitaire"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Unit Weight"
 msgstr "Poids unitaire"
 
@@ -672,24 +554,22 @@ msgstr "Charger datasheet"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "VAT 20%"
 msgstr "TVA 20%"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice
+#: model_terms:ir.ui.view,arch_db:acc_main.report_invoice_atlantic
 msgid "VAT:"
 msgstr "TVA:"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "Validity"
 msgstr "Validité"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.master_template
-#: model_terms:ir.ui.view,arch_db:acc_main.translatable_master
 msgid "days"
 msgstr "jours"
