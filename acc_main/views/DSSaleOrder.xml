@@ -21,4 +21,16 @@
             </xpath>
         </field>
     </record>
+    <record id="sale_order_search_view" model="ir.ui.view">
+        <field name="name">sale.order.customsearch</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="/search/field[@name='name']" position="after">
+                <field name="origin" filter-domain="[('state', '=', 'sale')]"/>
+                <field name="customer_reference"/>
+            </xpath>
+        </field>
+
+    </record>
 </odoo>
