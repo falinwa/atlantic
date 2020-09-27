@@ -22,7 +22,10 @@ class AccountMoveInherit(models.Model):
             vals['saleorder_id'] = so.id
             vals['partner_shipping_id'] = so.partner_shipping_id
         else:
-            po = self.env['purchase.order'].search([('name', '=', vals['invoice_origin'])])
-            vals['purchaseorder_id'] = po.id
-            vals['partner_shipping_id'] = po.dest_address_id.id
+            try:
+                po = self.env['purchase.order'].search([('name', '=', vals['invoice_origin'])])
+                vals['purchaseorder_id'] = po.id
+                vals['partner_shipping_id'] = po.dest_address_id.id
+            except KeyError:
+                pass
         return super(AccountMoveInherit, self).create(vals)
