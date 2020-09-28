@@ -8,11 +8,14 @@ class PurchaseOrderInherit(models.Model):
     customer_ref = fields.Char()
     delivery_date = fields.Date(compute="_po_delivery_date")
     supp_order_conf = fields.Boolean("Supplier Order Confirmed")
+    sale_order_ref = fields.Many2one("sale.order")
+    dest_address_id = fields.Many2one("res.partner", related="sale_order_ref.partner_shipping_id")
 
     @api.model
     def create(self, vals):
         if vals['origin']:
             origin_id = self.env['sale.order'].search([("name", "=", vals['origin'])])
+            vals["sale_order_ref"] = origin_id.id
             vals['customer_ref'] = origin_id.customer_reference
             vals['user_id'] = origin_id.user_id.id
             vals['dest_address_id'] = origin_id.partner_shipping_id.id
@@ -31,7 +34,6 @@ class PurchaseOrderInherit(models.Model):
 
 
 class PurchaseLineInherit(models.Model):
-    _name = "purchase.order.line"
     _inherit = "purchase.order.line"
 
     delivery_date = fields.Date()
