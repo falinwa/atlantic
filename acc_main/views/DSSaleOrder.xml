@@ -18,6 +18,7 @@
             </xpath>
             <xpath expr="//field[@name='activity_type']" position="after">
                 <field name="customer_reference" string="Customer Reference" attrs="{'required':[('state','=','sale')]}"/>
+                <field name="reason_lost" string="Reason for Lost SO" attrs="{'invisible':[('state','!=','cancel')]}"/>
             </xpath>
         </field>
     </record>

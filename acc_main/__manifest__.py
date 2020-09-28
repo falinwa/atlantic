@@ -17,7 +17,8 @@
         'views/templates.xml',
         'views/reports.xml',
         'views/activity_type_form.xml',
-        'views/purchase.xml'
+        'views/purchase.xml',
+        'views/lost_reason.xml'
     ],
 
 }

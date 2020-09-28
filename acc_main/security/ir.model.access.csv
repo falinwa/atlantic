@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_activity_type_user,activity.type,model_activity_type,base.group_user,1,0,0,0
 access_activity_type_admin,activity.type,model_activity_type,acc_main.segment_admin,1,1,1,1
+access_lost_reason,lost.reason,model_lost_reason,base.group_user,1,1,1,1

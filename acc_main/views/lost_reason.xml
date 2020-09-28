@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="lost_reason_form" model="ir.ui.view">
+        <field name="name">lost.reason.form</field>
+        <field name="model">lost.reason</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="lost_reason_list" model="ir.ui.view">
+        <field name="name">lost.reason.list</field>
+        <field name="model">lost.reason</field>
+        <field name="arch" type="xml">
+            <tree string="Reasons for lost Sales Orders">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="lost_reason_action_view" model="ir.actions.act_window">
+        <field name="name">Lost Reasons</field>
+        <field name="res_model">lost.reason</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="lost_reason_menu" action="lost_reason_action_view" name="Lost Reasons" parent="sale.menu_sale_config"
+              groups="base.group_user"/>
+
+</odoo>
