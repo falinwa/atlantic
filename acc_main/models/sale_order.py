@@ -22,6 +22,7 @@ class DSSaleOrder(models.Model):
     customer_reference = fields.Char("Customer Reference")
     purchase_order_ref = fields.Many2one("purchase.order")
     supp_order_conf = fields.Boolean(related="purchase_order_ref.supp_order_conf")
+    reason_lost = fields.Many2one("lost.reason")
 
     @api.depends('order_line.delivery_date')
     def _so_delivery_date(self):
