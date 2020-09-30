@@ -9,10 +9,13 @@ class AccountMoveInherit(models.Model):
 
     @api.model
     def create(self, vals):
-        journal = self.env['account.journal'].search([('id', '=', vals['journal_id'])])
-        if journal.name == 'Vendor Bills':
-            vals['ref'] = ""
-            vals['invoice_payment_ref'] = ""
+        try:
+            journal = self.env['account.journal'].search([('id', '=', vals['journal_id'])])
+            if journal.name == 'Vendor Bills':
+                vals['ref'] = ""
+                vals['invoice_payment_ref'] = ""
+        except KeyError:
+            pass
 
         try:
             so = self.env['sale.order'].search([('name', '=', vals['invoice_origin'])])
