@@ -117,7 +117,9 @@ class DSSaleOrder(models.Model):
                     raise Warning("Not a PDF file, please upload datasheet in pdf format.")
                 images = convert_from_bytes(file_bytes, 600)
                 img = images[0]
-                product_name, success = hs_ocr(img)
+                ocr = hs_ocr(img)
+                print(ocr)
+                product_name, success = ocr
                 if success:
                     self.add_product_name(product_name, rec)
                 else:
