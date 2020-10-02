@@ -23,6 +23,8 @@ class DSSaleOrder(models.Model):
     purchase_order_ref = fields.Many2one("purchase.order")
     supp_order_conf = fields.Boolean(related="purchase_order_ref.supp_order_conf")
     reason_lost = fields.Many2one("lost.reason")
+    temp_product_name = fields.Char()
+
 
     @api.depends('order_line.delivery_date')
     def _so_delivery_date(self):
@@ -50,6 +52,52 @@ class DSSaleOrder(models.Model):
                     order.write({'dest_address_id': rec.partner_shipping_id})
 
     @api.model
+    def add_product_name(self, product_name, rec):
+        price, weight = calculator(product_name)
+        product = self.env['product.product'].search([('name', '=', product_name)])
+        product_exists = bool(product)
+
+        categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
+        vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
+        intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
+        route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
+        if not route:
+            route = self.env['stock.location.route'].search([('id', '=', 9)])
+        country = self.env['res.country'].search([('name', '=', 'Germany')])
+        company_id = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
+        supplierinfo_args = {'name': vendor.id,
+                             'price': price,
+                             'delay': 56
+                             }
+        product_args = {'name': product_name,
+                        'lst_price': price * 2.052,
+                        'weight': weight,
+                        'categ_id': categ.id,
+                        'hs_code_id': intrastat_id.id,
+                        'sale_delay': 7,
+                        'route_ids': [route.id],
+                        'origin_country_id': country.id,
+                        'company_id': company_id.id,
+                        'type': 'product',
+                        }
+
+        if product_exists:
+            supplierinfo = product.seller_ids[0]
+            supplierinfo.write(supplierinfo_args)
+            product.write(product_args)
+        else:
+            supplier = self.env['product.supplierinfo'].create(supplierinfo_args)
+            product_args['seller_ids'] = [supplier.id]
+            product = self.env["product.product"].create(product_args)
+        if rec._origin.id:
+            self.env['sale.order.line'].create({'order_id': rec._origin.id,
+                                                'product_uom_qty': 1,
+                                                'product_id': product.id
+                                                })
+            self.env.cr.commit()
+            rec.datasheet = None
+
+    @api.model
     @api.onchange('datasheet')
     def add_product_datasheet(self, data=None, res_id=None):
         """
@@ -70,53 +118,18 @@ class DSSaleOrder(models.Model):
                     raise Warning("Not a PDF file, please upload datasheet in pdf format.")
                 images = convert_from_bytes(file_bytes, 600)
                 img = images[0]
-                product_name = hs_ocr(img)
-                if not product_name:
-                    rec.datasheet = None
-                    raise Warning("Can't recognise datasheet. Please try again with another datasheet.")
-                price, weight = calculator(product_name)
-                product = self.env['product.product'].search([('name', '=', product_name)])
-                product_exists = bool(product)
-
-                categ = self.env['product.category'].search([('name', '=', 'HS Cooler HEX')])
-                vendor = self.env['res.partner'].search([('name', '=', 'HS Cooler')])
-                intrastat_id = self.env['hs.code'].search([('local_code', '=', '84195080')])
-                route = self.env['stock.location.route'].search([('name', '=', 'Dropship')])
-                if not route:
-                    route = self.env['stock.location.route'].search([('id', '=', 9)])
-                country = self.env['res.country'].search([('name', '=', 'Germany')])
-                company_id = self.env['res.company'].search([('name', '=', 'Atlantic Cool Components')])
-                supplierinfo_args = {'name': vendor.id,
-                                     'price': price,
-                                     'delay': 56
-                                     }
-                product_args = {'name': product_name,
-                                'lst_price': price * 2.052,
-                                'weight': weight,
-                                'categ_id': categ.id,
-                                'hs_code_id': intrastat_id.id,
-                                'sale_delay': 7,
-                                'route_ids': [route.id],
-                                'origin_country_id': country.id,
-                                'company_id': company_id.id,
-                                'type': 'product',
-                                }
-
-                if product_exists:
-                    supplierinfo = product.seller_ids[0]
-                    supplierinfo.write(supplierinfo_args)
-                    product.write(product_args)
+                ocr = hs_ocr(img)
+                print(ocr)
+                product_name, success = ocr
+                if success:
+                    self.add_product_name(product_name, rec)
                 else:
-                    supplier = self.env['product.supplierinfo'].create(supplierinfo_args)
-                    product_args['seller_ids'] = [supplier.id]
-                    product = self.env["product.product"].create(product_args)
-                if rec._origin.id:
-                    self.env['sale.order.line'].create({'order_id': rec._origin.id,
-                                                        'product_uom_qty': 1,
-                                                        'product_id': product.id
-                                                        })
-                    self.env.cr.commit()
-                    rec.datasheet = None
+                    rec.temp_product_name = product_name
+                    return {'warning': {'title': "OCR Failed",
+                                        'message': "The OCR recognised " + product_name + ", you can also enter the "
+                                                                                          "product name manually by "
+                                                                                          "clicking the button "
+                                                                                          "below."}}
 
     @api.model
     def create(self, vals):

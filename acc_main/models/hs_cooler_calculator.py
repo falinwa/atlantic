@@ -1,6 +1,7 @@
 import pandas as pd
 import re
 import pytesseract
+import PIL
 
 
 def calculator(name):
@@ -117,12 +118,13 @@ def hs_ocr(img):
             if not name_test(name):
                 index = max(name.rfind("-"), name.rfind("T"))
                 new_name = name[:index+1] + "L" + name[index+2:]
-                print(new_name)
                 if name_test(new_name):
-                    return new_name
-                raise Warning("Can't recognise product name. OCR recognised this name: '" + name + "' but is invalid.")
+                    return new_name, True
+                else:
+                    return name, False
             else:
-                return name
+                return name, True
+    return "", False
 
 
 def name_test(name):

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="ocr_fix_view_form" model="ir.ui.view">
+        <field name="name">ocr.fix.form</field>
+        <field name="model">ocr.fix</field>
+        <field name="arch" type="xml">
+            <form string="Correct product name">
+                <group>
+                    <field name="product_name"/>
+                </group>
+                <footer>
+                    <button name="action_name_fix" string="Submit" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="ocr_fix_action" model="ir.actions.act_window">
+        <field name="name">OCR name fix</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ocr.fix</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="ocr_fix_view_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

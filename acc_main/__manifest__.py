@@ -13,6 +13,7 @@
         'security/ir.model.access.csv',
         'data/activity_types.xml',
         'data/sequences.xml',
+        'wizards/ocr_fix.xml',
         'views/DSSaleOrder.xml',
         'views/templates.xml',
         'views/reports.xml',
