@@ -25,6 +25,7 @@ class DSSaleOrder(models.Model):
     reason_lost = fields.Many2one("lost.reason")
     temp_product_name = fields.Char()
 
+
     @api.depends('order_line.delivery_date')
     def _so_delivery_date(self):
         for order in self:
