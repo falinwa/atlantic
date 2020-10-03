@@ -1,11 +1,11 @@
 {
     'name': "Atlantic",
-    'version': '0.0.1',
-    'depends': ['base', 'sale'],
+    'version': '0.0.2',
+    'depends': ['base', 'sale', 'purchase', 'account', 'stock', 'contacts', 'sale_purchase'],
     'author': "Ruben Hias",
     'category': 'Category',
     'description': """
-    Atlantic main module
+    Atlantic Compressors and Atlantic Cool Components main module
     """,
     # data files always loaded at installation
     'data': [

@@ -36,7 +36,7 @@ class PurchaseOrderInherit(models.Model):
 class PurchaseLineInherit(models.Model):
     _inherit = "purchase.order.line"
 
-    delivery_date = fields.Date()
+    delivery_date = fields.Date(compute='_set_delivery_date_po', inverse='_set_delivery_date_so')
 
     @api.model
     def create(self, vals_list):
@@ -46,3 +46,15 @@ class PurchaseLineInherit(models.Model):
             result.delivery_date = result.sale_line_id.delivery_date - customer_lead
 
         return result
+
+    @api.depends('sale_line_id.delivery_date')
+    def _set_delivery_date_po(self):
+        for rec in self:
+            customer_lead = datetime.timedelta(rec.sale_line_id.product_id.sale_delay)
+            rec.delivery_date = rec.sale_line_id.delivery_date - customer_lead
+
+    def _set_delivery_date_so(self):
+        for rec in self:
+            customer_lead = datetime.timedelta(rec.sale_line_id.product_id.sale_delay)
+            rec.sale_line_id.delivery_date = rec.delivery_date + customer_lead
+
