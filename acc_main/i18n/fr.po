@@ -198,7 +198,7 @@ msgstr "<span name=\"report_type\">Devis</span><br/>"
 msgid ""
 "<span style=\"color:#FA7032\">Customer Reference</span>\n"
 "                                                    <br/>"
-msgstr "<span style=\"color:#FA7032\">Référence client</span><br/>"
+msgstr "<span style=\"color:#FA7032\">Référence interne</span><br/>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_deliverynote
