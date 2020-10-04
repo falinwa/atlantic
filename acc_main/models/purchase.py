@@ -56,6 +56,7 @@ class PurchaseLineInherit(models.Model):
             else:
                 rec.delivery_date = datetime.date.today()
 
+
     def _set_delivery_date_so(self):
         for rec in self:
             customer_lead = datetime.timedelta(rec.sale_line_id.product_id.sale_delay)
