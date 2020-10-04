@@ -18,7 +18,7 @@ class DSSaleOrder(models.Model):
     delivery_date = fields.Date(compute="_so_delivery_date")
     order_type = fields.Selection(
         [("type01", "01 Compressors"), ("type02", "02 HS-Cooler"), ("type03", "03 SAV"), ("type04", "04 Divers"),
-         ("type05", "05 HAP"), ("type07", "07 Cool Partners"), ("type08", "08 Cabero")], 'Activity Type', required=True)
+         ("type05", "05 HAP"), ("type07", "07 Cool Partners"), ("type08", "08 Cabero")], 'Activity Type')
     customer_reference = fields.Char("Customer Reference")
     purchase_order_ref = fields.Many2one("purchase.order")
     supp_order_conf = fields.Boolean(related="purchase_order_ref.supp_order_conf")
