@@ -79,6 +79,7 @@ class DSSaleOrder(models.Model):
                         'origin_country_id': country.id,
                         'company_id': company_id.id,
                         'type': 'product',
+                        'tracking': 'serial'
                         }
 
         if product_exists:
