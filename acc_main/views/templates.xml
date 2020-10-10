@@ -1150,6 +1150,7 @@
 
                     </table>
                 </div>
+
             </div>
         </div>
         <t t-call="acc_main.footer_coolcomp"/>
