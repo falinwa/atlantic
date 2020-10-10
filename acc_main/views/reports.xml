@@ -1,23 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <report 
-            id="master_template_report"
-            string="Master Template"
-            model="sale.order" 
-            report_type="qweb-pdf"
-            file="acc_main.master_template"
-            name="acc_main.master_template"
-            attachment_use="False"
-            print_report_name="'Master Template'"
-        />
         <report
                 id="acc_quotation_report"
                 string="Quotation"
                 model="sale.order"
                 report_type="qweb-pdf"
-                file="acc_main.report_quotation"
-                name="acc_main.report_quotation"
+                file="acc_main.report_quotation_new"
+                name="acc_main.report_quotation_new"
                 attachment_use="False"
                 print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
         />
@@ -27,8 +17,8 @@
                 string="Sale Order"
                 model="sale.order"
                 report_type="qweb-pdf"
-                file="acc_main.report_saleorder"
-                name="acc_main.report_saleorder"
+                file="acc_main.report_saleorder_new"
+                name="acc_main.report_saleorder_new"
                 attachment_use="False"
                 print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
         />
@@ -37,8 +27,8 @@
                 string="Purchase Order"
                 model="purchase.order"
                 report_type="qweb-pdf"
-                file="acc_main.report_purchaseorder"
-                name="acc_main.report_purchaseorder"
+                file="acc_main.report_purchaseorder_new"
+                name="acc_main.report_purchaseorder_new"
                 attachment_use="False"
                 print_report_name="'Purchase Order - %s' % (object.name)"
         />
@@ -47,8 +37,8 @@
                 string="Delivery Note"
                 model="purchase.order"
                 report_type="qweb-pdf"
-                file="acc_main.report_deliverynote"
-                name="acc_main.report_deliverynote"
+                file="acc_main.report_deliverynote_new"
+                name="acc_main.report_deliverynote_new"
                 attachment_use="False"
                 print_report_name="'Delivery Note - %s' % (object.name)"
         />
@@ -57,30 +47,11 @@
                 string="Invoice"
                 model="account.move"
                 report_type="qweb-pdf"
-                file="acc_main.report_invoice"
-                name="acc_main.report_invoice"
+                file="acc_main.report_invoice_new"
+                name="acc_main.report_invoice_new"
                 attachment_use="False"
                 print_report_name="'Invoice - %s' % (object.name)"
         />
-        <report
-                id="acc_invoice_report_atlantic"
-                string="Invoice Atlantic"
-                model="account.move"
-                report_type="qweb-pdf"
-                file="acc_main.report_invoice_atlantic"
-                name="acc_main.report_invoice_atlantic"
-                attachment_use="False"
-                print_report_name="'Invoice - %s' % (object.name)"
-        />
-        <report
-                id="master_template_atlantic"
-                string="Master Template Atlantic"
-                model="sale.order"
-                report_type="qweb-pdf"
-                file="acc_main.master_template_atlantic"
-                name="acc_main.master_template_atlantic"
-                attachment_use="False"
-                print_report_name="'Master Atlantic'"
-        />
+
     </data>
 </odoo>

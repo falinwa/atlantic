@@ -15,8 +15,8 @@
         'data/sequences.xml',
         'wizards/ocr_fix.xml',
         'views/DSSaleOrder.xml',
-        'views/templates.xml',
         'views/reports.xml',
+        'views/templates.xml',
         'views/activity_type_form.xml',
         'views/purchase.xml',
         'views/lost_reason.xml'
