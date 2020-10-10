@@ -1,73 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="report_purchaseorder_document">
-        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+    <template id="coolcomp_css">
         <style>
             .page{
             font-family:Calibri, sans-serif;
             color:#22518a;
             margin-bottom:200px;
             }
+            .bordered{
+            border: 2px solid #FA7032;
+            padding: 10px;
+            margin: 10px;
+            width:250px;
+            height:180px;
+            font-family:Calibri, sans-serif;
+            border-radius:15px;
+            }
+            table, th, td {
+            padding: 10px;
+            border: 1px solid #22518a;
+            width: 400px;
+            border-collapse: collapse;
+            color:#22518a;
+
+            }
+            .main_table{
+            width:100%;
+            color:#22518a;
+            }
+            .main_table td{
+            padding: 2px 10px;
+            font-size: 15px;
+            color:#22518a;
+            }
+            .table_total{
+            width:300px;
+            }
+            .table_total,
+            .table_total td,
+            .table_total th{
+            padding:3px
+            }
+            th {
+            color:#22518a;
+            }
+            .date_table,
+            .date_table td,
+            .date_table th{
+            padding:3px 10px
+            }
+            .name_table,
+            .name_table td,
+            .name_table th{
+            border: 2px solid #22518a;
+            color:#22518a;
+            }
+            .footer-test {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            page-break-inside: avoid;
+            }
         </style>
+    </template>
+    <template id="report_purchaseorder_document">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+        <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
-            <style>
-                .bordered{
-                border: 2px solid #FA7032;
-                padding: 10px;
-                margin: 10px;
-                width:250px;
-                height:180px;
-                font-family:Calibri, sans-serif;
-                border-radius:15px;
-                }
-                table, th, td {
-                padding: 10px;
-                border: 1px solid #22518a;
-                width: 400px;
-                border-collapse: collapse;
-                color:#22518a;
-
-                }
-                .main_table{
-                width:100%;
-                color:#22518a;
-                }
-                .main_table td{
-                padding: 2px 10px;
-                font-size: 15px;
-                color:#22518a;
-                }
-                .table_total{
-                width:300px;
-                }
-                .table_total,
-                .table_total td,
-                .table_total th{
-                padding:3px
-                }
-                th {
-                color:#22518a;
-                }
-                .date_table,
-                .date_table td,
-                .date_table th{
-                padding:3px 10px
-                }
-                .name_table,
-                .name_table td,
-                .name_table th{
-                border: 2px solid #22518a;
-                color:#22518a;
-                }
-                .footer-test {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                page-break-inside: avoid;
-                }
-
-            </style>
             <div>
                 <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                 <div class="bordered" style="float:right">
@@ -230,72 +230,8 @@
 
     <template id="report_saleorder_document">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-        <style>
-            .page{
-            font-family:Calibri, sans-serif;
-            color:#22518a;
-            margin-bottom:200px;
-            }
-        </style>
+        <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
-            <style>
-                .bordered{
-                border: 2px solid #FA7032;
-                padding: 10px;
-                margin: 10px;
-                width:250px;
-                height:180px;
-                font-family:Calibri, sans-serif;
-                border-radius:15px;
-                }
-                table, th, td {
-                padding: 10px;
-                border: 1px solid #22518a;
-                width: 400px;
-                border-collapse: collapse;
-                color:#22518a;
-
-                }
-                .main_table{
-                width:100%;
-                color:#22518a;
-                }
-                .main_table td{
-                padding: 2px 10px;
-                font-size: 15px;
-                color:#22518a;
-                }
-                .table_total{
-                width:300px;
-                }
-                .table_total,
-                .table_total td,
-                .table_total th{
-                padding:3px
-                }
-                th {
-                color:#22518a;
-                }
-                .date_table,
-                .date_table td,
-                .date_table th{
-                padding:3px 10px
-                }
-                .name_table,
-                .name_table td,
-                .name_table th{
-                border: 2px solid #22518a;
-                color:#22518a;
-                }
-                .footer-test {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                page-break-inside: avoid;
-                }
-
-            </style>
             <div>
                 <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                 <div class="bordered" style="float:right">
@@ -456,72 +392,8 @@
 
     <template id="report_quotation_document">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-        <style>
-            .page{
-            font-family:Calibri, sans-serif;
-            color:#22518a;
-            margin-bottom:200px;
-            }
-        </style>
+        <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
-            <style>
-                .bordered{
-                border: 2px solid #FA7032;
-                padding: 10px;
-                margin: 10px;
-                width:250px;
-                height:180px;
-                font-family:Calibri, sans-serif;
-                border-radius:15px;
-                }
-                table, th, td {
-                padding: 10px;
-                border: 1px solid #22518a;
-                width: 400px;
-                border-collapse: collapse;
-                color:#22518a;
-
-                }
-                .main_table{
-                width:100%;
-                color:#22518a;
-                }
-                .main_table td{
-                padding: 2px 10px;
-                font-size: 15px;
-                color:#22518a;
-                }
-                .table_total{
-                width:300px;
-                }
-                .table_total,
-                .table_total td,
-                .table_total th{
-                padding:3px
-                }
-                th {
-                color:#22518a;
-                }
-                .date_table,
-                .date_table td,
-                .date_table th{
-                padding:3px 10px
-                }
-                .name_table,
-                .name_table td,
-                .name_table th{
-                border: 2px solid #22518a;
-                color:#22518a;
-                }
-                .footer-test {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                page-break-inside: avoid;
-                }
-
-            </style>
             <div>
                 <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                 <div class="bordered" style="float:right">
@@ -745,72 +617,8 @@
 
     <template id="report_delivery_note_document">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-        <style>
-            .page{
-            font-family:Calibri, sans-serif;
-            color:#22518a;
-            margin-bottom:200px;
-            }
-        </style>
+        <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
-            <style>
-                .bordered{
-                border: 2px solid #FA7032;
-                padding: 10px;
-                margin: 10px;
-                width:250px;
-                height:180px;
-                font-family:Calibri, sans-serif;
-                border-radius:15px;
-                }
-                table, th, td {
-                padding: 10px;
-                border: 1px solid #22518a;
-                width: 400px;
-                border-collapse: collapse;
-                color:#22518a;
-
-                }
-                .main_table{
-                width:100%;
-                color:#22518a;
-                }
-                .main_table td{
-                padding: 2px 10px;
-                font-size: 15px;
-                color:#22518a;
-                }
-                .table_total{
-                width:300px;
-                }
-                .table_total,
-                .table_total td,
-                .table_total th{
-                padding:3px
-                }
-                th {
-                color:#22518a;
-                }
-                .date_table,
-                .date_table td,
-                .date_table th{
-                padding:3px 10px
-                }
-                .name_table,
-                .name_table td,
-                .name_table th{
-                border: 2px solid #22518a;
-                color:#22518a;
-                }
-                .footer-test {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                page-break-inside: avoid;
-                }
-
-            </style>
             <div>
                 <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                 <div class="bordered" style="float:right">
@@ -920,72 +728,8 @@
 
     <template id="report_invoice_document">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
-        <style>
-            .page{
-            font-family:Calibri, sans-serif;
-            color:#22518a;
-            margin-bottom:200px;
-            }
-        </style>
+        <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
-            <style>
-                .bordered{
-                border: 2px solid #FA7032;
-                padding: 10px;
-                margin: 10px;
-                width:250px;
-                height:180px;
-                font-family:Calibri, sans-serif;
-                border-radius:15px;
-                }
-                table, th, td {
-                padding: 10px;
-                border: 1px solid #22518a;
-                width: 400px;
-                border-collapse: collapse;
-                color:#22518a;
-
-                }
-                .main_table{
-                width:100%;
-                color:#22518a;
-                }
-                .main_table td{
-                padding: 2px 10px;
-                font-size: 15px;
-                color:#22518a;
-                }
-                .table_total{
-                width:300px;
-                }
-                .table_total,
-                .table_total td,
-                .table_total th{
-                padding:3px
-                }
-                th {
-                color:#22518a;
-                }
-                .date_table,
-                .date_table td,
-                .date_table th{
-                padding:3px 10px
-                }
-                .name_table,
-                .name_table td,
-                .name_table th{
-                border: 2px solid #22518a;
-                color:#22518a;
-                }
-                .footer-test {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                page-break-inside: avoid;
-                }
-
-            </style>
             <div>
                 <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
                 <div class="bordered" style="float:right">
