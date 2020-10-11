@@ -253,6 +253,17 @@
                                 <span style="color:#22518a" t-field="doc.name"/>
                             </th>
                         </tr>
+                        <t name="cust_ref">
+                            <t t-if="doc.customer_reference">
+                                <tr>
+                                    <th style="height:88px;text-align:center;word-break: break-all;">
+                                        <span style="color:#FA7032">Customer Reference</span>
+                                        <br/>
+                                        <span t-field="doc.customer_reference"/>
+                                    </th>
+                                </tr>
+                            </t>
+                        </t>
                     </table>
                 </div>
                 <div style="float:right">
@@ -297,7 +308,7 @@
                                 <span t-field="doc.origin"/>
                             </td>
                         </t>
-                        <td>
+                        <td style="white-space: nowrap;">
                             <p t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                         </td>
                     </tr>
