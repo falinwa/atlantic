@@ -173,11 +173,12 @@ class DSSaleOrder(models.Model):
         po = self.env['purchase.order'].search([("origin", "=", self.origin)])
         if po:
             po.origin = name
+            po_id = po[-1].id
         else:
-            po = [False]
+            po_id = False
         self.write({'name': name,
                     'customer_reference': False,
-                    'purchase_order_ref': po[-1].id
+                    'purchase_order_ref': po_id
                     })
 
         return result
