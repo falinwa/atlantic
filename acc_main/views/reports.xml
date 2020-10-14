@@ -52,6 +52,5 @@
                 attachment_use="False"
                 print_report_name="'Invoice - %s' % (object.name)"
         />
-
     </data>
 </odoo>
