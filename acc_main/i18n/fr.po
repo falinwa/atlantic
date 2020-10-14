@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 13.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-11 14:29+0000\n"
-"PO-Revision-Date: 2020-10-11 14:35+0000\n"
+"PO-Revision-Date: 2020-10-11 15:00+0000\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -235,7 +235,7 @@ msgstr "<span style=\"color:#FA7032\">Référence client</span><br/>"
 msgid ""
 "<span>Purchase Order</span>\n"
 "                                <br/>"
-msgstr "<span>Bon de Commande</span>"
+msgstr "<span>Bon de Commande</span><br/>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_saleorder_document
@@ -243,7 +243,7 @@ msgstr "<span>Bon de Commande</span>"
 msgid ""
 "<span>Sale Order</span>\n"
 "                                <br/>"
-msgstr "<span>Commande</span>"
+msgstr "<span>Commande</span><br/>"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.report_purchaseorder_document
@@ -282,18 +282,18 @@ msgstr "<strong>Fournisseur:</strong>"
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__name
 msgid "Activity Name"
-msgstr "Activité nom"
+msgstr "Nom d'Activité"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__activity_type
 #: model:ir.model.fields,field_description:acc_main.field_sale_order__order_type
 msgid "Activity Type"
-msgstr "Activité type"
+msgstr "Type d'Activité"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__code
 msgid "Activity code"
-msgstr "Activité code"
+msgstr "Code d'Activité"
 
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.DSSale_Order
@@ -308,7 +308,7 @@ msgstr "Ajouter datasheet"
 #. module: acc_main
 #: model_terms:ir.ui.view,arch_db:acc_main.ocr_fix_view_form
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 #. module: acc_main
 #: model:ir.model.fields,field_description:acc_main.field_activity_type__companies
