@@ -17,6 +17,8 @@
         'views/DSSaleOrder.xml',
         'views/reports.xml',
         'views/templates.xml',
+        'views/reports_atlantic.xml',
+        'views/templates_atlantic.xml',
         'views/activity_type_form.xml',
         'views/purchase.xml',
         'views/lost_reason.xml'

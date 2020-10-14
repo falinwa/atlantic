@@ -4,5 +4,8 @@
         <record id="segment_admin" model="res.groups">
             <field name="name">Product Segment Admin</field>
         </record>
+        <record id="atlantic_user" model="res.groups">
+            <field name="name">Atlantic Compressors Employee</field>
+        </record>
     </data>
 </odoo>

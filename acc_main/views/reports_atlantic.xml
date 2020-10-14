@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <report
+                id="acc_quotation_report_atlantic"
+                string="Quotation Atlantic"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="acc_main.report_quotation_atlantic"
+                name="acc_main.report_quotation_atlantic"
+                attachment_use="False"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
+
+        <report
+                id="acc_saleorder_report_atlantic"
+                string="Sale Order Atlantic"
+                model="sale.order"
+                report_type="qweb-pdf"
+                file="acc_main.report_saleorder_atlantic"
+                name="acc_main.report_saleorder_atlantic"
+                attachment_use="False"
+                print_report_name="(object.state in ('draft', 'sent') and 'Quotation - %s' % (object.name)) or 'Order - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
+        <report
+                id="acc_purchaseorder_report_atlantic"
+                string="Purchase Order Atlantic"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                file="acc_main.report_purchaseorder_atlantic"
+                name="acc_main.report_purchaseorder_atlantic"
+                attachment_use="False"
+                print_report_name="'Purchase Order - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
+        <report
+                id="acc_deliverynote_report_atlantic"
+                string="Delivery Note Atlantic"
+                model="purchase.order"
+                report_type="qweb-pdf"
+                file="acc_main.report_deliverynote_atlantic"
+                name="acc_main.report_deliverynote_atlantic"
+                attachment_use="False"
+                print_report_name="'Delivery Note - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
+        <report
+                id="acc_invoice_report_atlantic"
+                string="Invoice Atlantic"
+                model="account.move"
+                report_type="qweb-pdf"
+                file="acc_main.report_invoice_atlantic"
+                name="acc_main.report_invoice_atlantic"
+                attachment_use="False"
+                print_report_name="'Invoice - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
+    </data>
+</odoo>
