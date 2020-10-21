@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_log_entry_tree" model="ir.ui.view">
+        <field name="name">log.entry.tree</field>
+        <field name="model">log.entry</field>
+        <field name="arch" type="xml">
+            <tree string="Log Entries">
+                <field name="date"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_log_entry_form" model="ir.ui.view">
+        <field name="name">log.entry.form</field>
+        <field name="model">log.entry</field>
+        <field name="arch" type="xml">
+            <form string="Create Log Entry">
+                <sheet string="Create Log Entry">
+                    <group>
+                        <field name="description"/>
+                        <field name="date" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
