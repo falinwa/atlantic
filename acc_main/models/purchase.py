@@ -61,7 +61,7 @@ class PurchaseLineInherit(models.Model):
     def _set_delivery_date_so(self):
         for rec in self:
             customer_lead = datetime.timedelta(rec.sale_line_id.product_id.sale_delay)
-            if not rec.display_type == 'line_note' or not customer_lead:
+            if rec.display_type == 'line_note' or not customer_lead:
                 rec.sale_line_id.delivery_date = datetime.date.today() + datetime.timedelta(days=365)
             else:
                 rec.sale_line_id.delivery_date = rec.delivery_date + customer_lead
