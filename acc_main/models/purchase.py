@@ -29,7 +29,7 @@ class PurchaseOrderInherit(models.Model):
         for order in self:
             min_date = None
             for line in order.order_line:
-                if line.delivery_date and (min_date is None or line.delivery_date < min_date):
+                if line.display_type != 'line_note' and (min_date is None or line.delivery_date < min_date):
                     min_date = line.delivery_date
             order.delivery_date = min_date
 
