@@ -26,7 +26,8 @@ class DSSaleOrder(models.Model):
     temp_product_name = fields.Char()
 
 
-    @api.depends('order_line.delivery_date')
+        
+    @api.onchange('order_line.delivery_date')
     def _so_delivery_date(self):
         for order in self:
             min_date = None
