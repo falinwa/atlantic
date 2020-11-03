@@ -11,6 +11,7 @@ class LogEntry(models.Model):
     date = fields.Date(default=date.today())
     description = fields.Char()
     serial_number_ref = fields.Many2one("stock.production.lot")
+    sale_order_ref = fields.Many2one("sale.order")
 
     @api.model
     def create(self, vals):

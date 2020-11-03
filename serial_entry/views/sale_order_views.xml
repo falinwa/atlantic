@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="view_sale_order_form" model="ir.ui.view">
+    <field name="name">view_sale_order_form</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group[@name='sale_info']" position="after">
+        <group name='serial_logging' string="Serial Logging">
+          <field name="serial_number_ref"/>
+          <field name="serial_entry_description"/>
+        </group>
+      </xpath>
+    </field>
+  </record>
+</odoo>
