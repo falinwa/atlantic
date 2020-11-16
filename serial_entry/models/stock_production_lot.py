@@ -10,6 +10,7 @@ class StockProductionLot(models.Model):
     @api.onchange("sale_order_ids")
     def _add_so_log(self):
         for rec in self:
+            raise ValueError
             values = {
                 'sale_order_ref': rec.sale_order_ids[-1],
                 'description': "Sale Order received.",
@@ -23,6 +24,7 @@ class StockProductionLot(models.Model):
     @api.onchange("purchase_order_ids")
     def _add_po_log(self):
         for rec in self:
+            raise ValueError
             values = {
                 'purchase_order_ref': rec.purchase_order_ids[-1],
                 'description': "Purchase Order Confirmed",
