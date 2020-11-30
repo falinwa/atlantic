@@ -14,24 +14,8 @@
                         <tree>
                             <field name="date"/>
                             <field name="description"/>
-                        </tree>
-                    </field>
-                    <field name="purchase_order_ids">
-                        <tree>
-                            <field name="name"/>
-                            <field name="date_approve" widget="date"/>
-                            <field name="partner_id"/>
-                            <field name="partner_ref"/>
-                            <field name="state" invisible="1"/>
-                        </tree>
-                    </field>
-                    <field name="sale_order_ids">
-                        <tree>
-                            <field name="name"/>
-                            <field name="date_order" widget="date"/>
-                            <field name="partner_id"/>
-                            <field name="customer_reference"/>
-                            <field name="state" invisible="1"/>
+                            <field name="sale_order_ref" widget="many2one_button"/>
+                            <field name="purchase_order_ref" widget="many2one_button"/>
                         </tree>
                     </field>
                 </group>

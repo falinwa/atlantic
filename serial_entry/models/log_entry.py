@@ -12,10 +12,12 @@ class LogEntry(models.Model):
     description = fields.Char()
     serial_number_ref = fields.Many2one("stock.production.lot")
     sale_order_ref = fields.Many2one("sale.order")
+    purchase_order_ref = fields.Many2one("purchase.order")
 
     @api.model
     def create(self, vals):
         result = super(LogEntry, self).create(vals)
-        result.date = date.today()
+        if not result.date:
+            result.date = date.today()
         return result
 
