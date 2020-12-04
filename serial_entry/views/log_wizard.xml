@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <record model="ir.actions.act_window" id="open_log_wizard">
+    <field name="name">Open Log Wizard"</field>
+    <field name="res_model">log.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <record id="view_log_entry_wizard" model="ir.ui.view">
+    <field name="name">Log Wizard</field>
+    <field name="model">log.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Add Log Entry">
+        <group>
+          <group>
+            <field name="serial_number"/>
+            <field name="description"/>
+            <field name="sale_order_id" invisible="1"/>
+          </group>
+        </group>
+        <footer>
+          <button name="submit" string="Submit" type="object" class="oe_highlight"/>
+          <button string="Cancel" class="oe_link" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+</odoo>
