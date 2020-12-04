@@ -5,6 +5,9 @@
     <field name="model">sale.order</field>
     <field name="inherit_id" ref="sale.view_order_form"/>
     <field name="arch" type="xml">
+      <xpath expr="//button[@name='action_cancel']" position="after">
+        <button name="%(open_log_wizard)d" string="Add Log" type="action" context="{'default_sale_order_id':id}"/>
+      </xpath>
       <xpath expr="//group[@name='sale_info']" position="after">
         <group name='serial_logging' string="Serial Logging">
           <field name="serial_number_ref"/>
