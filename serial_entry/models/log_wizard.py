@@ -15,4 +15,4 @@ class LogWizard(models.TransientModel):
             "sale_order_ref": self.sale_order_id.id,
         }
         self.serial_number.write({"log_entries": [(0, 0, values)]})
-        raise ValueError()
+        self.sale_order_id.write({"log_entries": [(0, 0, values)]})
