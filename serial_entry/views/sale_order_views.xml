@@ -10,8 +10,13 @@
       </xpath>
       <xpath expr="//group[@name='sale_info']" position="after">
         <group name='serial_logging' string="Serial Logging">
-          <field name="serial_number_ref"/>
-          <field name="serial_entry_description"/>
+          <field name="log_entries">
+            <tree>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="serial_number_ref" widget="many2one_button"/>
+            </tree>
+          </field>
         </group>
       </xpath>
     </field>
