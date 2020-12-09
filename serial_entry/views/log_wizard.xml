@@ -2,7 +2,7 @@
 
 <odoo>
   <record model="ir.actions.act_window" id="open_log_wizard">
-    <field name="name">Open Log Wizard"</field>
+    <field name="name">Add Log Entry for Serial Number</field>
     <field name="res_model">log.wizard</field>
     <field name="view_mode">form</field>
     <field name="target">new</field>
