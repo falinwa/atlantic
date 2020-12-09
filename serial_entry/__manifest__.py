@@ -6,7 +6,7 @@
     "category": "Category",
     "description": """
         Module to track the lifespan of a sold product.
-        Adds to possibility to add log entries in the serial number form.
+        Adds to possibility to add log entries in the serial number form and from the Sale Order view.
     """,
     "data": [
         "security/security.xml",
