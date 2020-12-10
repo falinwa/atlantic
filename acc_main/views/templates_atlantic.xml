@@ -63,12 +63,13 @@
             }
         </style>
     </template>
+https://i.imgur.com/usfB5jo.jpg
     <template id="report_purchaseorder_document_atlantic">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -236,7 +237,7 @@
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -413,7 +414,7 @@
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -637,7 +638,7 @@
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -748,7 +749,7 @@
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
