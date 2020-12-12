@@ -69,7 +69,7 @@
         <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div t-if="doc.dest_address_id">
@@ -226,7 +226,7 @@
                 </div>
             </div>
         </div>
-        <t t-call="acc_main.footer_coolcomp"/>
+        <t t-call="acc_main.footer_coolcomp_achat"/>
     </template>
 
     <template id="report_purchaseorder_new">
@@ -242,7 +242,7 @@
         <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -403,7 +403,7 @@
                 </div>
             </div>
         </div>
-        <t t-call="acc_main.footer_coolcomp"/>
+        <t t-call="acc_main.footer_coolcomp_vente"/>
     </template>
 
     <template id="report_saleorder_new">
@@ -419,7 +419,7 @@
         <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -585,11 +585,52 @@
                 </div>
             </div>
         </div>
-        <t t-call="acc_main.footer_coolcomp"/>
+        <t t-call="acc_main.footer_coolcomp_vente"/>
     </template>
 
+    <template id="footer_coolcomp_vente">
+        <div class="footer-test" style="color:#22518a;font-size:10px;height:100px;">
+            <div style="width:200px;float:left">
+                <b>Conditions de Vente</b>
+                <br/>
+                Seules nos Conditions générales de vente s’appliquent,
+                nonobstant toute clause contraire qui est réputée non écrite.
+                Nous vous les adressons sur simple demande de votre part.
 
-    <template id="footer_coolcomp">
+            </div>
+            <div style="float:right">
+                <div style="width:200px;float:right">
+                    <b>Informations légales</b>
+                    <br/>
+                    Atlantic Cool Components SAS
+                    <br/>
+                    au Saule
+                    <br/>
+                    46090 Villesèque - France
+                    <br/>
+                    TVA : FR40 881 790 893
+                    <br/>
+                    RCS Cahors : 881 790 893
+                    <br/>
+                    Siren : 881 790 893
+                    <br/>
+                    Capital : 20.000 €
+                    <br/>
+                </div>
+                <div style="width:280px;float:left;margin-right:25px">
+                    <b>Coordonnées bancaires</b>
+                    <br/>
+                    Crédit Agricole Anjou Maine
+                    <br/>
+                    IBAN : FR76 1790 6000 9096 4006 0735 182
+                    <br/>
+                    BIC : AGRIFRPP879
+                    <br/>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template id="footer_coolcomp_achat">
         <div class="footer-test" style="color:#22518a;font-size:10px;height:100px;">
             <div style="width:200px;float:left">
                 <b>Conditions d'Achat</b>
@@ -644,7 +685,7 @@
         <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -740,7 +781,7 @@
                 </div>
             </div>
         </div>
-        <t t-call="acc_main.footer_coolcomp"/>
+        <t t-call="acc_main.footer_coolcomp_achat"/>
     </template>
     <template id="report_deliverynote_new">
         <t t-call="web.html_container">
@@ -755,7 +796,7 @@
         <t t-call="acc_main.coolcomp_css"/>
         <div class="page">
             <div>
-                <img class="img-fluid" width="400" src="https://i.imgur.com/OUp9ZQC.jpg"/>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/usfB5jo.jpg"/>
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
@@ -921,7 +962,7 @@
 
             </div>
         </div>
-        <t t-call="acc_main.footer_coolcomp"/>
+        <t t-call="acc_main.footer_coolcomp_vente"/>
     </template>
     <template id="report_invoice_new">
         <t t-call="web.html_container">
