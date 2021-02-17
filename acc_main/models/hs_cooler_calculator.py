@@ -7,7 +7,8 @@ import PIL
 def calculator(name):
     """
     Base function to calculate price, takes price data form hs_prices.xlsx
-    Input: Product name
+    :param name: Product name
+    :return: Price of product
     """
     try:
         df = pd.read_excel("src/user/acc_main/data/hs_prices.xlsx", index_col="Pattern")
@@ -35,6 +36,10 @@ def find_pattern(name, df):
 
 
 def find_length_turbulator(name):
+    """
+    :param name: Name of product with Turbulator
+    :return: The length of the product
+    """
     index = name.rfind("L")
     length = int(name[index + 1:])
     turbulator = name[index - 1] == "T"
@@ -45,7 +50,7 @@ def len_weight_calculator(name, df, basename, lengthname):
     """
     Calculate result from basevalue and lengthvalue with data from dataframe
     :param name: Product name
-    :param df: Pandas dataframe from prices and weight
+    :param df: Pandas dataframe of prices and weight
     :param basename: Column name in dataframe of basevalues
     :param lengthname: Column name in dataframe of lengthvalues
     :return: calculated result based on length of product and turbulator option
@@ -128,6 +133,10 @@ def hs_ocr(img):
 
 
 def name_test(name):
+    """
+    :param name: Product name that needs to be verified
+    :return: Boolean of whether or not to name is possible
+    """
     try:
         # Checking that name starts with KS or KW
         assert name[:2] in ["KS", "KW"]
@@ -142,6 +151,3 @@ def name_test(name):
     except AssertionError:
         return False
 
-
-### Tests ###
-assert calculator("KS12-FEL-823TL3000")[0] == 2580.4
