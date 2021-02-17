@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 
+# TODO: Verify that this really is not applicable anymore
 
 class AccountMoveInherit(models.Model):
     _inherit = "account.move"
