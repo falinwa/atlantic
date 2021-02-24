@@ -75,6 +75,8 @@ class DSSaleOrder(models.Model):
         route = self.env["stock.location.route"].search([("name", "=", "Dropship")])
         if not route:
             route = self.env["stock.location.route"].search([("id", "=", 9)])
+            if not route:
+                route = self.env["stock.location.route"].search([("id", "=", 10)])
         country = self.env["res.country"].search([("name", "=", "Germany")])
         company_id = self.env["res.company"].search(
             [("name", "=", "Atlantic Cool Components")]
