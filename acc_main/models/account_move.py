@@ -25,6 +25,7 @@ class AccountMoveInherit(models.Model):
         if so:
             vals['saleorder_id'] = so.id
             vals['partner_shipping_id'] = so.partner_shipping_id
+            vals['ref'] = so.customer_reference
         else:
             try:
                 po = self.env['purchase.order'].search([('name', '=', vals['invoice_origin'])])
