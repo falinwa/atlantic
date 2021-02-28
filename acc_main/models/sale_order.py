@@ -3,8 +3,8 @@ from base64 import b64decode
 import logging
 from odoo.addons.acc_main.models.hs_cooler_calculator import hs_ocr, calculator
 from odoo.exceptions import Warning, UserError
-import datetime
 from pdf2image import convert_from_bytes
+from datetime import datetime, timedelta
 
 log = logging.getLogger(__name__)
 
@@ -224,6 +224,13 @@ class SaleOrder(models.Model):
         """
         When confirming order changing SO name, add PO ref and some security features
         """
+        # Check if customer in France or EU and making sure taxes are correct
+        if self.partner_id.country_id.name != "France":
+            if self.amount_tax > 0:
+                raise UserError("Orders outside of France can't have taxes.")
+        elif self.amount_tax == 0 and self.amount_total != 0:
+            raise UserError("Orders in France must have taxes")
+                
 
         # Check if there aren't any more individuals on the sale order (Only companies allowed)
         contact_fields = [
@@ -249,7 +256,7 @@ class SaleOrder(models.Model):
         self.origin = self.name
         name = self.name
         code = self.env["ir.sequence"].next_by_code("confirmed.sale")
-        name = "ARC" + name[3:10] + code
+        name = "ARC " + str(datetime.now().year)[2:] + name[6:10] + code
 
         # Setting reference to Purchase Order
         po = self.env["purchase.order"].search([("origin", "=", self.origin)])
@@ -326,7 +333,7 @@ class OrderLineInherit(models.Model):
         if product.seller_ids:
             supplier_delay = product.seller_ids[0].delay
             vals["total_lead"] = lead_time + supplier_delay
-            vals["delivery_date"] = order_date + datetime.timedelta(vals["total_lead"])
+            vals["delivery_date"] = order_date + timedelta(vals["total_lead"])
         return super(OrderLineInherit, self).create(vals)
 
 
