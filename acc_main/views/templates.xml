@@ -821,11 +821,11 @@
                                 <th style="height:88px;text-align:center;word-break: break-all;">
                                     <span style="color:#FA7032">Customer Reference</span>
                                     <br/>
-                                    <t t-if="doc.customer_reference">
-                                        <span t-field="doc.customer_reference"/>
+                                    <t t-if="doc.ref">
+                                        <span t-field="doc.ref"/>
                                     </t>
                                     <t t-else="">
-                                        <span t-field="doc.ref"/>
+                                        <span t-field="doc.customer_reference"/>
                                     </t>
                                 </th>
                             </tr>

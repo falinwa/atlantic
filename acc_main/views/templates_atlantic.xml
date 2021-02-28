@@ -769,15 +769,18 @@
                             </th>
                         </tr>
                         <t name="cust_ref">
-                            <t t-if="doc.customer_reference">
-                                <tr>
-                                    <th style="height:88px;text-align:center;word-break: break-all;">
-                                        <span style="color:#558ed5">Customer Reference</span>
-                                        <br/>
+                            <tr>
+                                <th style="height:88px;text-align:center;word-break: break-all;">
+                                    <span style="color:#558ed5">Customer Reference</span>
+                                    <br/>
+                                    <t t-if="doc.ref">
+                                        <span t-field="doc.ref"/>
+                                    </t>
+                                    <t t-else="">
                                         <span t-field="doc.customer_reference"/>
-                                    </th>
-                                </tr>
-                            </t>
+                                    </t>
+                                </th>
+                            </tr>
                         </t>
                     </table>
                 </div>
