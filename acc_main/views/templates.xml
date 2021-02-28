@@ -195,7 +195,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -372,7 +372,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -554,7 +554,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -761,7 +761,7 @@
                                 <td>
                                     <b>Shipment</b>
                                     <br/>
-                                    CPT Icoterms 2020
+                                    CPT Incoterms 2020
 
 
                                 </td>
@@ -817,15 +817,18 @@
                             </th>
                         </tr>
                         <t name="cust_ref">
-                            <t t-if="doc.customer_reference">
-                                <tr>
-                                    <th style="height:88px;text-align:center;word-break: break-all;">
-                                        <span style="color:#FA7032">Customer Reference</span>
-                                        <br/>
+                            <tr>
+                                <th style="height:88px;text-align:center;word-break: break-all;">
+                                    <span style="color:#FA7032">Customer Reference</span>
+                                    <br/>
+                                    <t t-if="doc.customer_reference">
                                         <span t-field="doc.customer_reference"/>
-                                    </th>
-                                </tr>
-                            </t>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="doc.ref"/>
+                                    </t>
+                                </th>
+                            </tr>
                         </t>
                     </table>
                 </div>
@@ -833,18 +836,18 @@
                     <div class="bordered" style="float:right">
                         <strong>Customer:</strong>
                         <div>
-                            <div t-field="doc.saleorder_id.partner_id.name"/>
-                            <div t-field="doc.saleorder_id.partner_id"
+                            <div t-field="doc.partner_id.name"/>
+                            <div t-field="doc.partner_id"
                                  t-options="{'widget':'contact','fields':['address']}"/>
                             VAT:
-                            <span t-field="doc.saleorder_id.partner_id.vat"/>
+                            <span t-field="doc.partner_id.vat"/>
                         </div>
                     </div>
                     <div class="bordered" style="float:right">
                         <strong>Invoice Address:</strong>
                         <div>
-                            <div t-field="doc.saleorder_id.partner_invoice_id.name"/>
-                            <div t-field="doc.saleorder_id.partner_invoice_id"
+                            <div t-field="doc.partner_invoice_id.name"/>
+                            <div t-field="doc.partner_invoice_id"
                                  t-options="{'widget':'contact','fields':['address']}"/>
                         </div>
                     </div>
@@ -856,6 +859,7 @@
                             <th style="width:20%">Internal Reference</th>
                         </t>
                         <th>Date</th>
+                        <th>Due Date</th>
                     </tr>
                     <tr>
                         <td style="white-space:nowrap">
@@ -872,6 +876,9 @@
                         </t>
                         <td>
                             <p t-field="doc.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        </td>
+                        <td>
+                            <p t-field="doc.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                         </td>
                     </tr>
                 </table>
@@ -931,7 +938,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
                             </td>
                         </tr>
                     </table>
