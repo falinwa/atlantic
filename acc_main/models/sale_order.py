@@ -357,7 +357,8 @@ class InvoiceInherit(models.Model):
         # TODO: Can't this all just be deleted?
         result = super(InvoiceInherit, self).create(vals_list)
         source = self.env["sale.order"].search([("name", "=", result.invoice_origin)])
-        result.customer_reference = source.customer_reference
-        result.ref = source.customer_reference
-        result.partner_invoice_id = source.partner_invoice_id
+        if source:
+            result.customer_reference = source.customer_reference
+            result.ref = source.customer_reference
+            result.partner_invoice_id = source.partner_invoice_id
         return result
