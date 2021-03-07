@@ -26,6 +26,7 @@ class PurchaseOrderInherit(models.Model):
     sale_order_ref = fields.Many2one("sale.order")
     dest_address_id = fields.Many2one("res.partner", related="sale_order_ref.partner_shipping_id")
     dest_internal_address_id = fields.Many2one("res.partner")
+    po_confirmation_ref = fields.Char()
 
     @api.model
     def create(self, vals):
