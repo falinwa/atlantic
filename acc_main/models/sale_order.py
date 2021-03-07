@@ -334,7 +334,7 @@ class OrderLineInherit(models.Model):
             supplier_delay = product.seller_ids[0].delay
             vals["total_lead"] = lead_time + supplier_delay
             vals["delivery_date"] = order_date + timedelta(vals["total_lead"])
-        return super(OrderLineIodoooo nherit, self).create(vals)
+        return super(OrderLineInherit, self).create(vals)
 
 
 class InvoiceInherit(models.Model):
