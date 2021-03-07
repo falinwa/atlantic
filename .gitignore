@@ -9,3 +9,4 @@ out
 gen
 acc_main/views/.ipynb_checkpoints/
 acc_main/.ipynb_checkpoints/
+.vscode/

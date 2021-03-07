@@ -189,7 +189,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -366,7 +366,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -548,7 +548,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
 
 
                             </td>
@@ -632,7 +632,7 @@
         </t>
     </template>
 
-    <template id="report_delivery_note_document_atlantic">
+    <template id="report_deliverynote_document_atlantic">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
@@ -713,7 +713,7 @@
                                 <td>
                                     <b>Shipment</b>
                                     <br/>
-                                    CPT Icoterms 2020
+                                    CPT Incoterms 2020
 
 
                                 </td>
@@ -769,15 +769,18 @@
                             </th>
                         </tr>
                         <t name="cust_ref">
-                            <t t-if="doc.customer_reference">
-                                <tr>
-                                    <th style="height:88px;text-align:center;word-break: break-all;">
-                                        <span style="color:#558ed5">Customer Reference</span>
-                                        <br/>
+                            <tr>
+                                <th style="height:88px;text-align:center;word-break: break-all;">
+                                    <span style="color:#558ed5">Customer Reference</span>
+                                    <br/>
+                                    <t t-if="doc.ref">
+                                        <span t-field="doc.ref"/>
+                                    </t>
+                                    <t t-else="">
                                         <span t-field="doc.customer_reference"/>
-                                    </th>
-                                </tr>
-                            </t>
+                                    </t>
+                                </th>
+                            </tr>
                         </t>
                     </table>
                 </div>
@@ -808,6 +811,7 @@
                             <th style="width:20%">Internal Reference</th>
                         </t>
                         <th>Date</th>
+                        <th>Due Date</th>
                     </tr>
                     <tr>
                         <td style="white-space:nowrap">
@@ -824,6 +828,9 @@
                         </t>
                         <td>
                             <p t-field="doc.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        </td>
+                        <td>
+                            <p t-field="doc.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                         </td>
                     </tr>
                 </table>
@@ -883,7 +890,7 @@
                             <td>
                                 <b>Shipment</b>
                                 <br/>
-                                CPT Icoterms 2020
+                                CPT Incoterms 2020
                             </td>
                         </tr>
                     </table>
