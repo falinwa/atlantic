@@ -632,7 +632,7 @@
         </t>
     </template>
 
-    <template id="report_delivery_note_document_atlantic">
+    <template id="report_deliverynote_document_atlantic">
         <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
         <t t-call="acc_main.atlantic_css"/>
         <div class="page">
