@@ -108,6 +108,7 @@ class SaleOrder(models.Model):
             [("name", "=", "Atlantic Cool Components")]
         )
 
+        raise UserError(str(vendor) + ", " + str(vendor.id))
         supplierinfo_args = {"name": vendor.id, "price": price, "delay": 56}
         product_args = {
             "name": product_name,
