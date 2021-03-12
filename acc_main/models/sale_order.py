@@ -96,7 +96,7 @@ class SaleOrder(models.Model):
         product = self.env["product.product"].search([("name", "=", product_name)])
         product_exists = bool(product)
         categ = self.env["product.category"].search([("name", "=", "HS Cooler HEX")])
-        vendor = self.env["res.partner"].search([("name", "=", "HS Cooler")])
+        vendor = self.env["res.partner"].search([("name", "=", "HS COOLER")])
         intrastat_id = self.env["hs.code"].search([("local_code", "=", "84195080")])
         route = self.env["stock.location.route"].search([("name", "=", "Dropship")])
         if not route:
@@ -108,7 +108,6 @@ class SaleOrder(models.Model):
             [("name", "=", "Atlantic Cool Components")]
         )
 
-        raise UserError(str(vendor) + ", " + str(vendor.id))
         supplierinfo_args = {"name": vendor.id, "price": price, "delay": 56}
         product_args = {
             "name": product_name,
