@@ -788,11 +788,11 @@
                     <div class="bordered" style="float:right">
                         <strong>Customer:</strong>
                         <div>
-                            <div t-field="doc.saleorder_id.partner_id.name"/>
-                            <div t-field="doc.saleorder_id.partner_id"
+                            <div t-field="doc.partner_id.name"/>
+                            <div t-field="doc.partner_id"
                                  t-options="{'widget':'contact','fields':['address']}"/>
                             VAT:
-                            <span t-field="doc.saleorder_id.partner_id.vat"/>
+                            <span t-field="doc.partner_id.vat"/>
                         </div>
                     </div>
                     <t t-if="doc.partner_invoice_id">
