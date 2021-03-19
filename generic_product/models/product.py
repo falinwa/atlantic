@@ -4,7 +4,7 @@ from odoo import models, fields, api, _
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
 
-    fal_stock_product = fields.Boolean(
+    stock_product = fields.Boolean(
         string='Is Stock Product',
         default=False)
     property_account_income_id = fields.Many2one(copy=True)
