@@ -38,7 +38,7 @@
         <report
                 id="acc_deliverynote_report_atlantic"
                 string="Delivery Note Atlantic"
-                model="purchase.order"
+                model="sale.order"
                 report_type="qweb-pdf"
                 file="acc_main.report_deliverynote_atlantic"
                 name="acc_main.report_deliverynote_atlantic"
