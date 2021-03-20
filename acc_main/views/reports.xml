@@ -52,5 +52,15 @@
                 attachment_use="False"
                 print_report_name="'Invoice - %s' % (object.name)"
         />
+        <report
+                id="acc_creditnote_report"
+                string="Credit Note"
+                model="account.move"
+                report_type="qweb-pdf"
+                file="acc_main.report_creditnote_new"
+                name="acc_main.report_creditnote_new"
+                attachment_use="False"
+                print_report_name="'Credit Note - %s' % (object.name)"
+        />
     </data>
 </odoo>

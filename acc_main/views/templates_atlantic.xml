@@ -942,4 +942,203 @@
             </t>
         </t>
     </template>
+    <template id="report_creditnote_document_atlantic">
+        <t t-set="doc" t-value="doc.with_context(lang=doc.partner_id.lang)"/>
+        <t t-call="acc_main.atlantic_css"/>
+        <div class="page">
+            <div>
+                <img class="img-fluid" width="400" src="https://i.imgur.com/I3NRzCA.jpg"/>
+                <div class="bordered" style="float:right">
+                    <strong>Delivery Address:</strong>
+                    <div>
+                        <div t-field="doc.partner_shipping_id.name"/>
+                        <div t-field="doc.partner_shipping_id"
+                             t-options="{'widget':'contact','fields':['address','phone']}"/>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:20px;margin-bottom:20px">
+                <div style="float:left;margin-top:47px">
+                    <table class="name_table" style="width:250px;">
+                        <tr>
+                            <th style="color:#558ed5;font-size:20px;text-align:center;height:90px">
+                                <span name="report_type">Credit Note</span>
+                                <br/>
+                                <span style="color:#22518a" t-field="doc.name"/>
+                            </th>
+                        </tr>
+                        <t name="cust_ref">
+                            <tr>
+                                <th style="height:88px;text-align:center;word-break: break-all;">
+                                    <span style="color:#558ed5">Customer Reference</span>
+                                    <br/>
+                                    <t t-if="doc.ref">
+                                        <span t-field="doc.ref"/>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="doc.customer_reference"/>
+                                    </t>
+                                </th>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+                <div style="float:right">
+                    <div class="bordered" style="float:right">
+                        <strong>Customer:</strong>
+                        <div>
+                            <div t-field="doc.partner_id.name"/>
+                            <div t-field="doc.partner_id"
+                                 t-options="{'widget':'contact','fields':['address']}"/>
+                            VAT:
+                            <span t-field="doc.partner_id.vat"/>
+                        </div>
+                    </div>
+                    <t t-if="doc.partner_invoice_id">
+                        <div class="bordered" style="float:right">
+                            <strong>Invoice Address:</strong>
+                            <div>
+                                <div t-field="doc.partner_invoice_id.name"/>
+                                <div t-field="doc.partner_invoice_id"
+                                    t-options="{'widget':'contact','fields':['address']}"/>
+                            </div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <div class="bordered" style="float:right;visibility:hidden">
+                        <strong>Invoice Address:</strong>
+                            <div>
+                                <div t-field="doc.partner_invoice_id.name"/>
+                                <div t-field="doc.partner_invoice_id"
+                                    t-options="{'widget':'contact','fields':['address']}"/>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+                <table class="date_table" style="margin-top:10px;float:right;">
+                    <tr>
+                        <th>Established by</th>
+                        <t t-if="doc.invoice_origin">
+                            <th style="width:20%">Internal Reference</th>
+                        </t>
+                        <th>Date</th>
+                        <th>Due Date</th>
+                    </tr>
+                    <tr>
+                        <td style="white-space:nowrap">
+                            <span t-field="doc.user_id"/>
+                            <br/>
+                            <i>
+                                <span t-field="doc.user_id.email"/>
+                            </i>
+                        </td>
+                        <t t-if="doc.invoice_origin">
+                            <td>
+                                <span t-field="doc.invoice_origin"/>
+                            </td>
+                        </t>
+                        <td>
+                            <p t-field="doc.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        </td>
+                        <td>
+                            <p t-field="doc.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="display: inline-block;margin:20px 0px;border:1px solid #22518a;">
+                <t t-set="total_weight" t-value="0"/>
+                <table class="main_table">
+                    <tr style="color:#22518a">
+                        <th>Description</th>
+                        <th style="text-align:right;width:12%" files="dn">Unit Price</th>
+                        <th style="text-align:right;width:5%">Quantity</th>
+                        <th style="text-align:right;width:14%" files="quot,so,po">Unit Weight</th>
+                        <th style="text-align:right;width:5%" files="quot,so,po">Intrastat</th>
+                        <th style="text-align:right;width:10%" files="dn">Total</th>
+                    </tr>
+                    <t t-foreach="doc.invoice_line_ids" t-as="line">
+                        <tr>
+                            <td>
+                                <span t-field="line.name"/>
+                            </td>
+                            <t t-if="line.display_type != 'line_note'">
+                                <td style="text-align:right" files="dn">
+                                    <span name="unitprice"
+                                          t-esc="line.price_unit-line.discount*line.price_unit/100"
+                                          t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+                                </td>
+                                <td style="text-align:right">
+                                    <span t-field="line.quantity"/>
+                                </td>
+                                <td style="text-align:right" files="quot,so,po">
+                                    <t t-set="total_weight"
+                                       t-value="total_weight+line.product_id.weight*line.quantity"/>
+                                    <span t-field="line.product_id.weight"/>
+                                </td>
+                                <td style="text-align:right" files="quot,so,po">
+                                    <span t-field="line.product_id.hs_code_id.local_code"/>
+                                </td>
+                                <td style="text-align:right" files="dn">
+                                    <span t-field="line.price_subtotal"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+            <div>
+                <div style="float:left">
+                    <table class="date_table" style="color:#22518a;width:200px">
+                        <tr>
+                            <td files="dn">
+                                <b>Payment Conditions</b>
+                                <br/>
+                                <span t-field="doc.invoice_payment_term_id"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>Shipment</b>
+                                <br/>
+                                CPT Incoterms 2020
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style="float:right">
+                    <table class="table_total">
+                        <tr files="dn">
+                            <th style="width:65%">Total excl VAT</th>
+                            <td>
+                                <span t-field="doc.amount_untaxed"/>
+                            </td>
+                        </tr>
+                        <tr files="dn">
+                            <th>VAT 20%</th>
+                            <td>
+                                <span t-field="doc.amount_tax"/>
+                            </td>
+                        </tr>
+                        <tr files="dn">
+                            <th>TOTAL VAT incl.</th>
+                            <td>
+                                <span t-field="doc.amount_total"/>
+                            </td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+        <t t-call="acc_main.footer_atlantic"/>
+    </template>
+    <template id="report_creditnote_atlantic">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="acc_main.report_creditnote_document_atlantic" t-lang="doc.partner_id.lang"/>
+            </t>
+        </t>
+    </template>
 </odoo>

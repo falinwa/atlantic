@@ -57,5 +57,16 @@
                 print_report_name="'Invoice - %s' % (object.name)"
                 groups="acc_main.atlantic_user"
         />
+        <report
+                id="acc_creditnote_report_atlantic"
+                string="Credit Note"
+                model="account.move"
+                report_type="qweb-pdf"
+                file="acc_main.report_creditnote_atlantic"
+                name="acc_main.report_creditnote_atlantic"
+                attachment_use="False"
+                print_report_name="'Credit Note - %s' % (object.name)"
+                groups="acc_main.atlantic_user"
+        />
     </data>
 </odoo>
