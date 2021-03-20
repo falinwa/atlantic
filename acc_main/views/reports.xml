@@ -35,7 +35,7 @@
         <report
                 id="acc_deliverynote_report"
                 string="Delivery Note"
-                model="purchase.order"
+                model="sale.order"
                 report_type="qweb-pdf"
                 file="acc_main.report_deliverynote_new"
                 name="acc_main.report_deliverynote_new"

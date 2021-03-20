@@ -641,8 +641,8 @@
                 <div class="bordered" style="float:right">
                     <strong>Delivery Address:</strong>
                     <div>
-                        <div t-field="doc.dest_address_id.name"/>
-                        <div t-field="doc.dest_address_id"
+                        <div t-field="doc.partner_shipping_id.name"/>
+                        <div t-field="doc.partner_shipping_id"
                              t-options="{'widget':'contact','fields':['name','address','phone']}"/>
                     </div>
                 </div>
@@ -694,7 +694,7 @@
                                     <td style="text-align:right" files="quot,so,po">
                                         <t t-set="total_weight"
                                            t-value="total_weight+line.product_id.weight*line.product_uom_qty"/>
-                                        <span t-field="line.product_id.weight"/>
+                                        <span t-esc="'%.2f'% line.product_id.weight"/>
                                     </td>
                                     <td style="text-align:right" files="quot,so,po">
                                         <span t-field="line.product_id.hs_code_id.local_code"/>
@@ -714,8 +714,6 @@
                                     <b>Shipment</b>
                                     <br/>
                                     CPT Incoterms 2020
-
-
                                 </td>
                             </tr>
                         </table>
@@ -725,7 +723,7 @@
                             <tr files="quot,so,po,inv">
                                 <th>Total Weight</th>
                                 <td>
-                                    <span t-esc="total_weight"/>
+                                    <span t-esc="'%.2f'% total_weight"/>
                                 </td>
                             </tr>
                         </table>
