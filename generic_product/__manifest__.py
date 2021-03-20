@@ -1,5 +1,5 @@
 {
-    'name': 'Product Enhancement',
+    'name': 'Generic Product option',
     'version': '14.1.0.0',
     'category': 'Product',
     'description': '''
