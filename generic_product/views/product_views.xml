@@ -22,7 +22,7 @@
                 <field name="inherit_id" ref="product.product_template_search_view"/>
                 <field name="arch" type="xml">
                     <filter name="consumable" position="after">
-                     <filter name="filter_to_stock_product" string="In Stock Product" domain="[('stock_product', '=', True)]"/>
+                     <filter name="filter_to_stock_product" string="In stock?" domain="[('stock_product', '=', True)]"/>
                  </filter>
              </field>
          </record>
